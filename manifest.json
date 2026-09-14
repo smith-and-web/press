@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "od-design-system-project/v1",
+  "id": "press",
+  "name": "Press",
+  "category": "Editorial",
+  "description": "Kindling’s paper-first design system: editorial websites, Svelte controls and page-style WYSIWYG prose.",
+  "files": {
+    "design": "DESIGN.md",
+    "tokens": "tokens.css",
+    "components": "components.html"
+  },
+  "usage": "USAGE.md",
+  "componentsManifest": "components.manifest.json",
+  "importMode": "verbatim",
+  "assetsDir": "assets",
+  "fonts": [
+    {
+      "family": "Fraunces",
+      "file": "assets/fonts/Fraunces[SOFT,WONK,opsz,wght].ttf"
+    },
+    {
+      "family": "Inter",
+      "file": "assets/fonts/Inter-Italic[opsz,wght].ttf"
+    },
+    {
+      "family": "Inter",
+      "file": "assets/fonts/Inter[opsz,wght].ttf"
+    },
+    {
+      "family": "Newsreader",
+      "file": "assets/fonts/Newsreader-Italic[opsz,wght].ttf"
+    },
+    {
+      "family": "Newsreader",
+      "file": "assets/fonts/Newsreader[opsz,wght].ttf"
+    }
+  ],
+  "preview": {
+    "dir": "preview",
+    "pages": [
+      {
+        "path": "preview/colors-primary.html",
+        "role": "colors",
+        "title": "The Press palette"
+      },
+      {
+        "path": "preview/colors-theme-dark.html",
+        "role": "colors",
+        "title": "Dark chrome, light paper"
+      },
+      {
+        "path": "preview/typography-specimens.html",
+        "role": "typography",
+        "title": "Three voices, one system"
+      },
+      {
+        "path": "preview/spacing-tokens.html",
+        "role": "spacing",
+        "title": "Room for the next sentence"
+      },
+      {
+        "path": "preview/components-controls.html",
+        "role": "buttons",
+        "title": "Controls that support the work"
+      },
+      {
+        "path": "preview/components-website.html",
+        "role": "components",
+        "title": "The editorial website"
+      },
+      {
+        "path": "preview/components-editor.html",
+        "role": "app",
+        "title": "Prose belongs on a page"
+      }
+    ]
+  }
+}

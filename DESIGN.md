@@ -1,0 +1,91 @@
+---
+name: Press
+description: Kindling’s paper-first design system for editorial websites and Svelte writing applications
+category: Editorial
+surface: web
+---
+
+# Press
+
+Press is Kindling’s shared visual language: paper, deliberate typography, measured reading columns, and quiet controls. This is the current design brief for people and coding agents. Use it with the actual components; it is not a substitute for their APIs.
+
+## Product context and source authority
+
+The system serves writers using Kindling and people discovering the product on its website. Writing is the main activity. Navigation and metadata support that activity without crowding the manuscript.
+
+`design-system/tokens.css` is the only editable token source. This file owns design decisions beyond CSS. `design-system/website.css` owns the opt-in website variant; `design-system/application.css` and `design-system/svelte/` own application controls. Root `tokens.css` and `colors_and_type.css` are generated import copies, not competing sources. Follow the current component source and `docs/APPLICATION_COMPONENTS.md` for exact APIs.
+
+The existing literary Press design takes precedence over older saved neutral-blue/Inter-only defaults. No runtime memory is changed by importing this package. The detailed original rationale is retained in `docs/DESIGN_GUIDE.md`; `docs/BASELINE_DESIGN_GUIDE.md` is historical input.
+
+## Color palette and themes
+
+| Role / semantic token | Light | Dark |
+| --- | --- | --- |
+| Background / `--color-bg` | #F4EFE6 | #1E1A16 |
+| Raised surface / `--color-surface` | #FBF8F1 | #26211B |
+| Sunken surface / `--color-surface-sunken` | #ECE4D6 | #181410 |
+| Text / `--color-text` | #231D18 | #E8E0D4 |
+| Muted text / `--color-text-muted` | #6B635B | #A89C8C |
+| Accent fill / `--color-accent` | #B5532E | #E08A5C |
+| Small accent text / `--color-accent-text` | #9E3D1B | #E08A5C |
+
+Read semantic variables in components. Set `data-theme="dark"` on the document or a containing surface to select dark chrome. Use the small-text accent token for links; do not substitute the fill accent. Terracotta marks the main action or current selection, not whole page backgrounds. Status uses the success/error/warning/info tokens plus text or icons. Tag colors describe user metadata, not status.
+
+The manuscript remains light paper with dark ink in either theme through `--color-prose-*`. This is an intentional exception. Website components under `.press-web` explicitly use the light website treatment. Never invert a manuscript or website specimen simply because the reference chrome is dark.
+
+## Typography
+
+| Purpose | Family token | Treatment |
+| --- | --- | --- |
+| Display and editorial headings | `--font-display` / Fraunces | Expressive, restrained; no stock sans display substitution |
+| Reading and manuscript prose | `--font-body` / Newsreader | 17px base, 1.7 line height, measured column |
+| Controls, navigation, labels | `--font-ui` / Inter | Operational language, 16px inputs |
+| Code | `--font-mono` | Existing Monaco/Menlo/Consolas fallbacks |
+
+Font files and OFL notices are local. Preserve the full fallback stacks in the CSS. The foundation hero scales from 32–60px, H1 from 32–44px, H2 from 24–32px, and H3 is 20px. The application has its own heading ceiling of 48px. Small metadata sizes are inherited exceptions, not permission to shrink body text.
+
+Website copy uses Inter as a scoped variant, with Fraunces headings and Newsreader writing samples. Do not spread that variant into manuscript prose. Keep headings authored to fit; wrap user content in details and provide an expansion path for truncated list content.
+
+## Spacing and layout
+
+Use the existing scale: 4, 8, 12, 16, 24, 32, 40, 60, 80, 120, 140px. The editorial frame is `--page-frame:1120px`, the reading measure is `--measure:36rem`, and the default gutter is 32px. Reduce gutters at narrow widths while keeping readable type. Use asymmetric columns, hairlines and whitespace to establish hierarchy. Avoid repeated centered marketing bands and grids of decorative cards.
+
+Keep primary content in normal grid/flex flow. Sticky chrome must reserve its space. Use the supplied `od-*` structural primitives for rows, stacks, text fields and grids. Reflow layouts at narrow widths; do not clip prose or hide required actions. Content images retain their full frame and intrinsic dimensions. Baseline references use matching outer frames with contained images; never stretch them.
+
+## Components and selection
+
+Use `components.html` for compact source specimens and `index.html` for the full working catalog. The seven pages in `preview/` isolate palette, type, spacing, controls, website and editor surfaces.
+
+The core Svelte entry exports 22 components: Button, IconButton, Field, Checkbox, Select, SegmentedControl, Tabs, Badge, Progress, EmptyState, Notice, Dialog, Panel, BeatItem, ManuscriptSurface, StatGroup, NavigationTree, TagPicker, Menu, CommandPalette, ShortcutRecorder and SearchResults. Reuse these before adding another implementation. Choose panels for meaningful groups, not every paragraph.
+
+The separate `svelte/editor` entry exports NovelEditor and ProseToolbar. NovelEditor is a Tiptap WYSIWYG editor on a paper sheet. Preserve rich HTML, formatting, alignment, blockquotes, indentation, selection and undo/redo. A Field textarea is appropriate for plain notes, never a replacement for prose. ManuscriptSurface presents read-only prose; it does not replace the editor. Keep editor instances mounted when switching views if history and selection must survive.
+
+`ui_kits/app/` composes the real navigation, controls and editor as a small starting application. Its edits live in memory. The consuming app retains ownership of persistence, API calls, project stores, shortcut settings, cursor restoration and file workflows. Adopt one component at a time with explicit adapters.
+
+## Shape, icons and material
+
+Continue existing radii: 4/6/8/10/12/16px and pill badges. Borders use `--border-hair`; elevation uses the existing shadow tokens. Paper grain belongs behind content using `--grain-tile` and `--grain-strength`, never over text. Keep the original mark geometry and use supplied assets, not a redrawn logo. Use the existing Lucide outline icon family and consistent strokes, never emoji controls.
+
+## Interaction, motion and accessibility
+
+Controls have a visible label, focus state and accessible name. Use native elements and the existing Svelte components for keyboard behavior. Errors explain a remedy near the affected field. Busy actions expose their state; empty states explain how to proceed. Pair destructive actions with a confirmation when they remove user work.
+
+Use restrained state feedback with existing 100ms/200ms transition tokens. These inherited timings are intentional. Respect `prefers-reduced-motion`. Avoid decorative entrance choreography, hover-only essential information, and color-only state. Aim for 4.5:1 body contrast and 3:1 essential graphics; evaluate both themes independently when doing QA. Hairlines are separators, not the sole signal identifying a control.
+
+## Voice and brand
+
+Write clearly, calmly and concretely. Prefer the writer’s language: scene, beat, manuscript, reference, draft. Explain what an action does and what happens next. No fabricated metrics or unsupported product promises. Sample manuscript content is clearly illustrative; do not imply it is a published work. Show real provided brand assets in their original proportions.
+
+## Anti-patterns
+
+- Blue/white generic dashboard styling or Inter-only typography replacing Press.
+- Prose represented by a textarea, or rich HTML flattened on view changes.
+- App stores and backend APIs moved into design-system components.
+- Orange washes, oversized rounded cards, gradients or glow effects.
+- New hand-coded palette values when a semantic token exists.
+- Remote font or image dependencies in the portable reference.
+- Treating a public repository as a grant of brand or source redistribution rights.
+
+## Working from this package
+
+Read `USAGE.md` for code imports and `docs/OPEN_DESIGN.md` for Open Design setup. Use the root skill for general work and the focused skills listed in `SKILLS.md` only when their task applies. New requirements may change design decisions explicitly; do not silently normalize them. Keep changes in editable source and regenerate derived files with `npm run open-design:build`.

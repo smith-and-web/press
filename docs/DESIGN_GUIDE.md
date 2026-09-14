@@ -3,8 +3,10 @@
 
 # Kindling — the Press Design Guide
 
-The canonical specification for how Kindling looks. Every surface — the marketing
-site, the desktop app, docs, social — consumes this. Nothing redefines it.
+Extended rationale from the original Press specification. The current portable
+contract is [DESIGN.md](../DESIGN.md); canonical values live in
+`design-system/tokens.css`. Follow those current sources if an older example here
+differs. The scoped website and application variants are documented separately.
 
 This document is written to be **followed literally**, including by an AI coding
 assistant. Rules are stated as numbers and prohibitions rather than adjectives,

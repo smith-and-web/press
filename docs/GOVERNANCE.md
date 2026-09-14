@@ -4,7 +4,7 @@
 
 For this local package, `design-system/tokens.css` is the sole token authority. Edit values or add tokens there, run `npm run tokens:generate`, and commit the CSS and JSON together. `tokens.json` is generated, never hand-edited. Preserve the existing `light` / `dark` schema and token keys.
 
-`components.css` owns shared selectors and styling. `docs/DESIGN_GUIDE.md` owns Press rules beyond CSS. The standalone `index.html` demonstrates that foundation; reference-specific styles in `reference/` are not new public tokens. `docs/BASELINE_DESIGN_GUIDE.md` is historical evidence only. It is not a competing authority.
+`components.css` owns shared selectors and styling. `DESIGN.md` owns current Press rules beyond CSS. `docs/DESIGN_GUIDE.md` preserves extended rationale. Root `tokens.css` and `colors_and_type.css`, the native manifest, component inventory, previews and app kit bundle are generated with `npm run open-design:build`; edit their source inputs, never the mirrors. The standalone `index.html` demonstrates that foundation; reference-specific styles in `reference/` are not new public tokens. `docs/BASELINE_DESIGN_GUIDE.md` is historical evidence only. It is not a competing authority.
 
 `assets/source/kindling-source.svg` owns the original mark geometry. The Fraunces file and the original wordmark axes own wordmark outlining. Generated `svg/`, `png/`, `favicon/`, `app-icons/`, and `social/` files must not be redrawn by hand. The package's optional build scripts now read raw palette colors from canonical CSS through `assets/token_values.py`. Literal source colors still identify the paths in the original SVG; those are geometry-selection keys, not a second output palette.
 

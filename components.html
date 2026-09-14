@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Component source and specimens — Press</title><meta name="description" content="A compact entry for agents and consumers. Public styles and real Svelte examples share the same canonical tokens."><link rel="stylesheet" href="colors_and_type.css"><link rel="stylesheet" href="design-system/application.css"><link rel="stylesheet" href="design-system/website.css"><style>/* OD-LAYOUT-PRIMITIVES v1 — structure only: display, flex/grid, overflow, wrapping, ratio.
+   Put this @layer first; product CSS outside the layer always wins. */
+@layer od-layout {
+  :where(.od-stack,.od-row,.od-row-top,.od-cluster,.od-grid,.od-field,.od-stat,.od-cell,.od-tile) > :where(*) { min-width: 0; }
+
+  /* containers */
+  .od-stack   { display: flex; flex-direction: column; gap: var(--od-gap, 8px); }
+  .od-row     { display: flex; align-items: center; gap: var(--od-gap, 8px); }
+  .od-row-top { display: flex; align-items: flex-start; gap: var(--od-gap, 8px); }
+  .od-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--od-gap, 8px); }
+  .od-fill    { flex: 1 1 0; min-width: 0; }
+  .od-fixed   { flex: none; }
+  .od-grid    { display: grid; gap: var(--od-gap, 12px); grid-template-columns: repeat(var(--od-cols, 3), minmax(0, 1fr)); }
+
+  /* stacked information: each piece is its own line — never sibling inline spans */
+  .od-stat, .od-field, .od-cell { display: grid; gap: var(--od-gap, 2px); }
+  :where(.od-stat,.od-field,.od-cell) > :where(*) { display: block; }
+  .od-tile { display: grid; grid-template-rows: auto 1fr; }
+  :where(.od-tile) > :where(*) { display: block; }
+
+  /* media keeps its intrinsic ratio by default; never a distorted or cropped
+     cover by accident. height:auto lets the ratio win over an <img height="…">
+     attribute. Cropping to a uniform box is an explicit opt-in: set --od-ratio
+     AND add .od-media-cover together (per the core rule, only where a crop is
+     deliberate — tile thumbs, decorative fills — never on full-frame content). */
+  .od-media { display: block; width: 100%; height: auto; aspect-ratio: var(--od-ratio, auto); }
+  .od-media-cover { object-fit: cover; }
+
+  /* data text only — authored copy is rewritten to its budget instead */
+  .od-truncate { display: block; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .od-clamp-2, .od-clamp-3 { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+  .od-clamp-2 { -webkit-line-clamp: 2; }
+  .od-clamp-3 { -webkit-line-clamp: 3; }
+  .od-lines-2 { min-height: calc(2 * 1.4em); }   /* block-level reservation for a shared baseline */
+  .od-nowrap  { white-space: nowrap; }           /* 数字+单位 · 价格+起 · 日期+星期 */
+  .od-keep    { word-break: keep-all; overflow-wrap: anywhere; } /* CJK labels break at spaces / <wbr> first */
+
+  /* screen skeleton (optional): bars take their own space, the middle scrolls — no padding guessed for chrome */
+  .od-screen { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; height: 100%; }
+  .od-scroll { overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
+
+  /* horizontal rail: the next item peeks at the edge; trailing room survives overflow */
+  .od-rail { display: flex; gap: var(--od-gap, 8px); overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+             padding-inline: var(--od-rail-pad, 16px); scroll-padding-inline: var(--od-rail-pad, 16px); }
+  .od-rail::-webkit-scrollbar { display: none; }
+  :where(.od-rail) > :where(*) { flex: none; scroll-snap-align: start; }
+  :where(.od-rail) > :where(:last-child) { margin-inline-end: var(--od-rail-pad, 16px); }
+
+  .od-spacer { flex: none; visibility: hidden; pointer-events: none; }
+  .od-touch  { min-width: 44px; min-height: 44px; }
+}
+/* /OD-LAYOUT-PRIMITIVES v1 */
+
+/* Source for focused reference pages. Canonical values stay in tokens.css. */
+*{box-sizing:border-box}body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--text-body)/var(--leading) var(--font-body)}
+a{color:var(--color-accent-text);text-underline-offset:.2em}button,select,summary{cursor:pointer}
+:focus-visible{outline:2px solid var(--color-accent-text);outline-offset:4px}
+.fixture{width:min(100%,var(--page-frame));margin:auto;padding:var(--space-l);display:grid;gap:var(--space-l)}
+.fixture h1{font:var(--text-h1)/var(--leading-tight) var(--font-display);margin:0;letter-spacing:var(--tracking-tight)}
+.fixture h2{font:var(--text-h2)/var(--leading-tight) var(--font-display);margin:0}.fixture h3{font:var(--text-h3)/var(--leading-tight) var(--font-display)}
+.fixture p{max-width:var(--measure);margin:0}.fixture header{display:grid;gap:var(--space-s)}.fixture section{min-width:0}
+.fixture-nav{display:flex;flex-wrap:wrap;gap:var(--space-m);font:var(--text-base)/var(--leading) var(--font-ui)}
+.fixture-eyebrow{font:var(--text-small)/var(--leading) var(--font-ui);color:var(--color-text-muted)}
+.swatch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+.swatch{display:grid;gap:var(--space-xs);margin:0;padding-bottom:var(--space-m);border-bottom:var(--border-hair)}
+.swatch-color{height:var(--space-3xl);border:var(--border-hair);border-radius:var(--radius-xs)}
+.swatch figcaption{display:grid;gap:var(--space-2xs)}.swatch code{font:var(--text-small)/var(--leading) var(--font-mono);overflow-wrap:anywhere}
+.fixture code{overflow-wrap:anywhere}.fixture table{width:100%;border-collapse:collapse;font:var(--text-base)/var(--leading) var(--font-ui)}
+.fixture th,.fixture td{text-align:left;vertical-align:top;padding:var(--space-s) var(--space-2xs);border-bottom:var(--border-hair);overflow-wrap:anywhere}
+.fixture th{font-weight:600}.type-prose{font:var(--text-body)/var(--leading-relaxed) var(--font-body);max-width:var(--measure)}
+.type-ui{font:var(--text-base)/var(--leading) var(--font-ui)}.type-display{font:var(--text-hero)/var(--leading-tight) var(--font-display)}
+.spacing-list{display:grid;gap:var(--space-m);margin:0}.spacing-row{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(0,2fr);gap:var(--space-s);align-items:center}.spacing-row dt{font:var(--text-small)/var(--leading) var(--font-mono)}.spacing-row dd{margin:0;display:flex;align-items:center;gap:var(--space-s);font-family:var(--font-ui)}.spacing-bar{display:block;height:var(--space-m);max-width:100%;background:var(--color-accent);border-radius:var(--radius-xs)}
+.fixture-rule{border-top:var(--border-hair);padding-top:var(--space-l)}.fixture details{border-bottom:var(--border-hair);padding:var(--space-s) 0}.fixture summary{font-family:var(--font-ui)}
+.fixture pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;padding:var(--space-s);background:var(--color-surface-sunken);font:var(--text-small)/var(--leading) var(--font-mono)}
+.fixture .fixture-paper{padding:var(--space-l);background:var(--color-prose-bg);color:var(--color-prose-text);border:1px solid var(--color-prose-border);box-shadow:var(--shadow-prose)}
+.fixture noscript{display:block;font-family:var(--font-ui)}
+@media(max-width:768px){.fixture{padding:var(--space-m);gap:var(--space-m)}.swatch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:375px){.fixture{padding:var(--space-s)}.swatch-grid{grid-template-columns:minmax(0,1fr)}.fixture th,.fixture td{padding:var(--space-xs) var(--space-3xs)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* Kindling Press application layer. Import fonts.css and tokens.css first.
+   Standalone component selectors do not depend on the legacy global reset. */
+@layer od-layout {
+.od-stack{display:flex;flex-direction:column;gap:var(--od-gap,8px)}.od-row{display:flex;align-items:center;gap:var(--od-gap,8px)}.od-row-top{display:flex;align-items:flex-start;gap:var(--od-gap,8px)}.od-field,.od-stat{display:grid;gap:var(--od-gap,4px)}.od-field>*,.od-stat>*{display:block}.od-fill{flex:1 1 0;min-width:0}.od-nowrap{white-space:nowrap}:where(.od-stack,.od-row,.od-row-top,.od-field,.od-stat)>*{min-width:0}
+}
+:root{--ka-radius:8px;--ka-radius-small:4px;--ka-gap:16px;--ka-pad:24px;--ka-touch:44px;--ka-motion:160ms;--ka-heading:clamp(2rem,6vw,3rem);--ka-reference-ratio:4/3}
+:where([class^="ka-"],[class*=" ka-"]){box-sizing:border-box}
+.press-app{color:var(--color-text);font:var(--text-base)/1.6 var(--font-ui);text-align:left}
+.press-app :where(h3,h4,p,ul,dl,dd,figure,fieldset){margin:0}
+.press-app :where(h3,h4){font-family:var(--font-display);font-weight:550;line-height:1.25;letter-spacing:-.02em}
+.press-app h3{font-size:var(--text-h2)}.press-app h4{font-size:var(--text-h3)}
+.ka-row,.ka-between{display:flex;align-items:center;flex-wrap:wrap;gap:8px}.ka-between{justify-content:space-between;gap:16px}.ka-between>*{min-width:0}
+.ka-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--ka-touch);max-width:100%;padding:8px 16px;border:1px solid transparent;border-radius:var(--ka-radius-small);font:500 var(--text-ui)/1.5 var(--font-ui);text-decoration:none;cursor:pointer;color:var(--color-on-accent);background:var(--color-accent-text);white-space:nowrap}
+.ka-button--secondary{color:var(--color-text);background:var(--color-surface-sunken);border-color:var(--color-border)}.ka-button--ghost{color:var(--color-text);background:transparent}.ka-button--danger{background:var(--color-error);color:var(--color-bg)}.ka-icon-button{width:var(--ka-touch);padding:8px;flex:none}
+.ka-icon{display:block;flex:none}.ka-help{color:var(--color-text-muted);font:var(--text-small)/1.6 var(--font-ui);max-width:70ch}.ka-error{color:var(--color-error);font:var(--text-small)/1.6 var(--font-ui)}.ka-label{font-weight:500}
+:where(.press-app,.ka-field,.ka-check,.ka-segments,.ka-tabs,.ka-tree,.ka-menu,.ka-disclosure) :where(button,input,textarea,select,summary,a):focus-visible,.ka-button:focus-visible{outline:2px solid var(--color-accent-text);outline-offset:3px;box-shadow:none}
+.ka-button:disabled{background:var(--color-disabled-bg);color:var(--color-disabled-text);border-color:var(--color-disabled-border);cursor:not-allowed}
+.ka-field{gap:8px;width:100%;font:var(--text-ui)/1.5 var(--font-ui)}.ka-field label{font-weight:500;color:var(--color-text)}
+.ka-field :where(input,select,textarea){display:block;width:100%;min-width:0;min-height:var(--ka-touch);padding:12px;border:1px solid var(--color-control-border-hover);border-radius:var(--ka-radius);background:var(--color-surface-sunken);color:var(--color-text);font:var(--text-base)/1.5 var(--font-ui);box-shadow:none}
+.ka-field textarea{resize:vertical;min-height:120px}.ka-field :where(input,textarea)::placeholder{color:var(--color-text-muted)}.ka-field [aria-invalid="true"]{border-color:var(--color-error)}.ka-field :disabled{color:var(--color-disabled-text);background:var(--color-disabled-bg);cursor:not-allowed}
+.ka-check{gap:12px;min-height:var(--ka-touch);font:var(--text-ui)/1.5 var(--font-ui)}.ka-check input{appearance:auto;width:20px;height:20px;min-width:20px;margin:0;accent-color:var(--color-accent-text)}.ka-check label{display:flex;align-items:center;min-height:var(--ka-touch);cursor:pointer;color:var(--color-text)}
+.ka-segments{border:0;padding:0;min-width:0;font:var(--text-ui)/1.5 var(--font-ui)}.ka-segments legend{margin-bottom:8px;color:var(--color-text-muted)}.ka-segment-track{display:flex;flex-wrap:wrap;gap:4px;padding:4px;background:var(--color-surface-sunken);border-radius:var(--ka-radius)}
+.ka-segment{position:relative;display:flex;align-items:center;gap:8px;min-height:var(--ka-touch);padding:8px 12px;cursor:pointer;border-radius:var(--ka-radius-small);flex:1;justify-content:center;color:var(--color-text)}.ka-segment input{position:absolute;width:1px;height:1px;opacity:0;left:8px;top:8px}.ka-segment:focus-within{outline:2px solid var(--color-accent-text);outline-offset:2px}.ka-segment:has(input:disabled){opacity:.6;cursor:not-allowed}.ka-segment.ka-selected{background:var(--color-accent-text);color:var(--color-on-accent)}
+.ka-tablist{display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--color-border)}.ka-tablist>button{display:block;min-height:var(--ka-touch);padding:8px 12px;border:0;border-bottom:2px solid transparent;background:transparent;font:500 var(--text-ui)/1.5 var(--font-ui);color:var(--color-text);cursor:pointer}.ka-tablist>button[aria-selected="true"]{border-color:var(--color-accent-text);color:var(--color-accent-text)}.ka-tabpanel{padding-top:var(--ka-pad)}
+.ka-badge{display:inline-flex;align-items:center;min-height:24px;padding:4px 8px;border:1px solid var(--color-border);border-radius:var(--ka-radius-small);font:var(--text-small)/1.2 var(--font-ui);color:var(--color-text);background:var(--color-surface-sunken);white-space:nowrap}.ka-badge--accent{color:var(--color-accent-text);background:var(--color-accent-wash)}.ka-badge--success{color:var(--color-success);background:var(--color-success-wash)}.ka-badge--error{color:var(--color-error);background:var(--color-error-wash)}.ka-badge--warning{color:var(--color-warning);background:var(--color-warning-wash)}
+.ka-progress{font:var(--text-small)/1.5 var(--font-ui);gap:8px}.ka-progress progress{appearance:none;display:block;width:100%;height:4px;border:0;background:var(--color-surface-sunken)}.ka-progress progress::-webkit-progress-bar{background:var(--color-surface-sunken)}.ka-progress progress::-webkit-progress-value{background:var(--color-accent)}.ka-progress progress::-moz-progress-bar{background:var(--color-accent)}
+.ka-empty{align-items:flex-start;gap:12px;padding:32px 0;color:var(--color-text-muted)}.ka-empty h4{color:var(--color-text)}.ka-empty p{max-width:48ch;font:var(--text-base)/1.6 var(--font-ui)}
+.ka-notice{padding:16px;border:1px solid var(--color-border);border-radius:var(--ka-radius-small);background:var(--color-info-wash);color:var(--color-info);gap:12px;font:var(--text-ui)/1.6 var(--font-ui)}.ka-notice p{color:var(--color-text)}.ka-notice--error{color:var(--color-error);background:var(--color-error-wash)}.ka-notice--success{color:var(--color-success);background:var(--color-success-wash)}.ka-notice--warning{color:var(--color-warning);background:var(--color-warning-wash)}
+.ka-dialog{position:fixed;inset:0;margin:auto;padding:0;width:min(600px,calc(100% - 32px));max-width:calc(100% - 32px);max-height:calc(100dvh - 48px);overflow:auto;background:var(--color-surface);color:var(--color-text);border:1px solid var(--color-border);border-radius:var(--ka-radius);box-shadow:0 16px 48px var(--color-overlay-scrim)}.ka-dialog:not([open]){display:none}.ka-dialog-wide{width:min(960px,calc(100% - 32px))}.ka-dialog::backdrop{background:var(--color-overlay-scrim)}.ka-dialog-header{padding:16px 24px;border-bottom:1px solid var(--color-border)}.ka-dialog-header h3{font-size:var(--text-h3)}.ka-dialog-body{padding:24px}.ka-dialog-footer{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;padding:16px 24px;border-top:1px solid var(--color-border)}
+.ka-panel{min-width:0;border:1px solid var(--color-border);border-radius:var(--ka-radius);background:var(--color-surface)}.ka-panel>header{padding:16px;border-bottom:1px solid var(--color-border)}.ka-panel-body{padding:16px}.ka-panel h4{font-size:var(--text-h3)}
+.ka-beat{margin:0;border:0;background:var(--color-surface-sunken);border-radius:var(--ka-radius);color:var(--color-text);font:var(--text-ui)/1.5 var(--font-ui)}.ka-beat>summary{display:flex;align-items:center;gap:12px;min-height:52px;padding:12px 16px;list-style:none;cursor:pointer}.ka-beat>summary::-webkit-details-marker{display:none}.ka-beat-number{display:flex;align-items:center;justify-content:center;flex:none;min-width:28px;min-height:28px;padding:4px;border-radius:50%;background:var(--color-accent-text);color:var(--color-on-accent)}.ka-beat-body{padding:8px 16px 16px}.ka-beat-body p{font:var(--text-body-lg)/1.7 var(--font-body)}
+.ka-manuscript{padding:clamp(24px,4vw,48px);background:var(--color-prose-bg);color:var(--color-prose-text);border:1px solid var(--color-prose-border);border-radius:var(--ka-radius-small);box-shadow:0 8px 24px var(--color-border);min-width:0}.ka-manuscript>header{margin-bottom:24px}.ka-manuscript h3{font:550 var(--ka-heading)/1.15 var(--font-display);color:var(--color-prose-text)}.ka-manuscript header p{font:var(--text-ui)/1.5 var(--font-ui);color:var(--color-prose-placeholder)}.ka-manuscript-prose{font:var(--text-body-lg)/1.75 var(--font-body);max-width:65ch}.ka-manuscript-prose p+p{margin-top:16px}
+.ka-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:24px;margin:0}.ka-stats dt{font:var(--text-small)/1.5 var(--font-ui);color:var(--color-text-muted)}.ka-stats dd{order:-1;margin:0;font:500 clamp(24px,3vw,36px)/1.2 var(--font-display)}.ka-stats small{font:var(--text-small)/1.5 var(--font-ui)}
+.ka-tree{font:var(--text-ui)/1.5 var(--font-ui)}.ka-tree-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}.ka-tree-list .ka-tree-list{margin:8px 0 8px 16px;border-left:1px solid var(--color-border);padding-left:8px}.ka-tree :where(details,summary){margin:0;border:0}.ka-tree summary,.ka-tree button{display:flex;align-items:center;gap:8px;padding:8px 12px;min-height:var(--ka-touch);width:100%;border:0;border-radius:var(--ka-radius-small);background:transparent;color:var(--color-text);text-align:left;font:inherit;cursor:pointer;list-style:none}.ka-tree summary::-webkit-details-marker{display:none}.ka-tree small{font:var(--text-small)/1.5 var(--font-ui);color:var(--color-text-muted)}.ka-tree button.ka-tree-selected{color:var(--color-on-accent);background:var(--color-accent-text)}.ka-tree-selected small{color:inherit}
+.ka-tag{display:inline-flex;align-items:center;gap:8px;min-height:var(--ka-touch);padding:4px 12px;border:1px solid var(--color-border);border-radius:var(--ka-radius);font:var(--text-small)/1.5 var(--font-ui);color:var(--color-text);background:var(--color-surface-sunken);cursor:pointer}
+.ka-disclosure,.ka-menu{border:0;margin:0}.ka-disclosure>summary,.ka-menu>summary{display:flex;align-items:center;gap:8px;min-height:var(--ka-touch);width:fit-content;padding:8px 12px;border:1px solid var(--color-border);border-radius:var(--ka-radius-small);cursor:pointer;font:var(--text-ui)/1.5 var(--font-ui);color:var(--color-text);list-style:none}.ka-disclosure>summary::-webkit-details-marker,.ka-menu>summary::-webkit-details-marker{display:none}.ka-disclosure>div{padding:16px 0}.ka-menu-list{display:grid;gap:4px;min-width:min(240px,100%);margin-top:8px;padding:8px;border:1px solid var(--color-border);border-radius:var(--ka-radius);background:var(--color-surface)}.ka-menu-list>button{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:var(--ka-touch);padding:8px 12px;border:0;background:transparent;color:var(--color-text);text-align:left;cursor:pointer;font:var(--text-ui)/1.5 var(--font-ui)}
+.press-app kbd{font:var(--text-small)/1.4 var(--font-mono);white-space:nowrap;color:var(--color-text-muted)}.ka-command-list{display:grid;gap:4px;margin:16px 0;max-height:320px;overflow:auto}.ka-command-list button{display:flex;justify-content:space-between;align-items:center;gap:24px;width:100%;min-height:52px;padding:12px;text-align:left;background:transparent;border:0;color:var(--color-text);font:var(--text-ui)/1.5 var(--font-ui);cursor:pointer}.ka-command-selected{background:var(--color-surface-sunken);border-radius:var(--ka-radius-small)}.ka-command-list small{color:var(--color-text-muted)}
+.ka-results article{padding:16px 0;border-bottom:1px solid var(--color-border)}.ka-results article>p{margin-top:16px;font:var(--text-body-lg)/1.6 var(--font-body)}.ka-results mark{background:var(--color-accent-wash);color:var(--color-text);outline:1px solid var(--color-accent-text)}
+.ka-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(hover:hover){.ka-button:not(:disabled):hover{filter:brightness(.94)}.ka-button--ghost:not(:disabled):hover,.ka-menu-list>button:not(:disabled):hover,.ka-tree button:not(.ka-tree-selected):hover{background:var(--color-surface-sunken);filter:none}.ka-tag:hover{border-color:var(--color-accent-text)}.ka-tablist>button:hover{color:var(--color-accent-text)}}
+@media(max-width:767px){.ka-dialog-body{padding:16px}.ka-dialog-header,.ka-dialog-footer{padding:16px}.ka-segment-track{flex-wrap:wrap}.ka-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.ka-menu-list{width:100%}.ka-between{align-items:flex-start}}
+@media(prefers-reduced-motion:no-preference){.ka-dialog[open]{animation:ka-enter var(--ka-motion) ease-out}.ka-button{transition:opacity var(--ka-motion) ease-out}@keyframes ka-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
+@media(prefers-reduced-motion:reduce){.press-app *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style><script src="preview/preview.js" defer></script><script src="design-system/website.js" defer></script></head><body><main class="fixture"><nav class="fixture-nav" aria-label="Reference navigation"><a href="index.html">Full catalog</a><a href="DESIGN.md">Design guide</a><a href="ui_kits/app/index.html">Application kit</a><a href="docs/OPEN_DESIGN.md">Open Design setup</a></nav><header><p class="fixture-eyebrow">Kindling / Press · 0.4.0</p><h1>Component source and specimens</h1><p>A compact entry for agents and consumers. Public styles and real Svelte examples share the same canonical tokens.</p></header><section class="press-app od-stack"><h2>Choose a draft status</h2><form id="fixture-form" class="od-stack"><div class="ka-field od-field"><label for="fixture-status">Draft status</label><select id="fixture-status"><option>Draft</option><option>Revised</option><option>Final</option></select></div><div><button class="ka-button ka-button--primary" type="submit">Apply status</button></div><p id="fixture-result" role="status">This specimen updates locally.</p></form></section><details><summary>Minimal HTML source</summary><pre><code>&lt;section class=&quot;press-app od-stack&quot;&gt;&lt;h2&gt;Choose a draft status&lt;/h2&gt;&lt;form id=&quot;fixture-form&quot; class=&quot;od-stack&quot;&gt;&lt;div class=&quot;ka-field od-field&quot;&gt;&lt;label for=&quot;fixture-status&quot;&gt;Draft status&lt;/label&gt;&lt;select id=&quot;fixture-status&quot;&gt;&lt;option&gt;Draft&lt;/option&gt;&lt;option&gt;Revised&lt;/option&gt;&lt;option&gt;Final&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div&gt;&lt;button class=&quot;ka-button ka-button--primary&quot; type=&quot;submit&quot;&gt;Apply status&lt;/button&gt;&lt;/div&gt;&lt;p id=&quot;fixture-result&quot; role=&quot;status&quot;&gt;This specimen updates locally.&lt;/p&gt;&lt;/form&gt;&lt;/section&gt;</code></pre></details><section class="fixture-rule od-stack"><h2>Public component examples</h2><div data-press-preview="controls"><p>Loading the local component examples…</p></div><noscript>These working Svelte examples require JavaScript. Read the complete source in the application component guide.</noscript></section><section class="fixture-rule od-stack"><h2>Choose a surface</h2><p><a href="preview/components-editor.html">Page-style editor</a> · <a href="preview/components-website.html">Website patterns</a> · <a href="ui_kits/app/index.html">Composed application</a></p><p>Use the optional editor entry for WYSIWYG prose. Keep app services outside the design system. Exact imports and API boundaries are in <a href="USAGE.md">USAGE.md</a>.</p></section><script>document.getElementById('fixture-form').addEventListener('submit',event=>{event.preventDefault();document.getElementById('fixture-result').textContent='Local draft status: '+document.getElementById('fixture-status').value;});</script><footer class="fixture-rule"><p>Editable source, local fonts and shared tokens. <a href="USAGE.md">Use this pattern</a> · <a href="SKILLS.md">Agent skills</a></p></footer></main></body></html>

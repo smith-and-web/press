@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0
+
+- Add root DESIGN.md, native Open Design manifest, generated token/font entries, component fixture and inventory, usage guide and seven focused HTML previews.
+- Add four portable skills with an index and explicit Open Design handoff instructions.
+- Add a composed Svelte application kit using existing navigation, metadata controls and the page-style Tiptap editor; edits remain local in memory.
+- Add repeatable Open Design generation and preserve all existing component APIs, examples, baseline assets, license terms and npm publishing protection.
+
+
 ## 0.3.0 — 2026-09-13
 
 Additive local application component release; not published.

@@ -1,0 +1,17 @@
+/* Authored kit composition. Public component styling stays in application.css. */
+*{box-sizing:border-box}body{margin:0}button,a,select{touch-action:manipulation}a{color:var(--color-accent-text)}
+.kit{min-height:100vh;background:var(--color-bg);color:var(--color-text);font:var(--text-base)/var(--leading) var(--font-ui);--kit-sidebar:18rem;--kit-gap:var(--space-l)}
+.kit [hidden]{display:none!important}.kit-topbar{padding:var(--space-s) var(--space-l);border-bottom:var(--border-hair);flex-wrap:wrap;background:var(--color-surface);--od-gap:var(--space-m)}
+.kit-topbar p{margin:0}.kit-brand{font:var(--text-h3)/var(--leading-tight) var(--font-display);color:var(--color-text);text-decoration:none;white-space:nowrap}.kit-brand span{color:var(--color-text-muted)}
+.kit-layout{display:grid;grid-template-columns:var(--kit-sidebar) minmax(0,1fr)}
+.kit-sidebar{padding:var(--kit-gap);border-right:var(--border-hair);display:flex;flex-direction:column;gap:var(--space-l);min-width:0}
+.kit-sidebar h2{font:var(--text-h3)/var(--leading-tight) var(--font-display);margin:0}.kit-sidebar p{margin:0}
+.kit-eyebrow{font:var(--text-small)/var(--leading) var(--font-ui);color:var(--color-text-muted);margin:0}.kit-note{font-size:var(--text-small);color:var(--color-text-muted)}
+.kit-workspace{padding:var(--kit-gap);min-width:0}.kit-local-note{font:var(--text-small)/var(--leading) var(--font-ui);color:var(--color-text-muted);margin:0 0 var(--space-m)}
+.kit-scene{--od-gap:var(--space-m)}.kit-scene h1{font:var(--text-h1)/var(--leading-tight) var(--font-display);margin:0;overflow-wrap:anywhere}
+.kit-metadata{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;gap:var(--space-m);align-items:end}
+.kit a:focus-visible{outline:2px solid var(--color-accent-text);outline-offset:4px}
+@media(max-width:1024px){.kit{--kit-sidebar:15rem;--kit-gap:var(--space-m)}.kit-metadata{grid-template-columns:repeat(2,minmax(0,1fr))}.kit-metadata>:last-child{grid-column:1/-1}}
+@media(max-width:768px){.kit-layout{grid-template-columns:minmax(0,1fr)}.kit-sidebar{border-right:0;border-bottom:var(--border-hair);gap:var(--space-s)}.kit-topbar{padding:var(--space-s)}.kit-topbar>.od-fill{flex-basis:100%;order:3}.kit{--kit-gap:var(--space-s)}}
+@media(max-width:375px){.kit-metadata{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.kit *{animation:none!important;transition:none!important}}

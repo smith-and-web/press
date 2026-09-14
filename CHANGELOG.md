@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.7.1
+
+Fix a screenshot crop at stacked widths, found in a UX review of the
+kindling-splash development build.
+
+`.feature-figure img` caps height at 440px with `object-fit: cover` so a figure
+balances the prose beside it. Below 768px the sequence stacks to one column and
+the figure goes full width, so the cap no longer balances anything — it just
+removes the bottom of the image. Measured on the consumer at 768px it cut 127px
+off three of four product screenshots, roughly a quarter of each, taking the
+editor controls with it. Not visible at 390px (column too narrow to reach the
+cap) or at 1024px and above (two columns), which is why a desktop-only check
+misses it.
+
+The cap is now released inside the existing `max-width: 768px` block. The
+mounted-print mat, hairline ring and lift are unchanged, and the cropping
+default at two-column widths is unchanged.
+
 ## 0.7.0
 
 Four gaps in the website layer, found by building a real consumer against it —

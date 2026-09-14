@@ -363,6 +363,16 @@ body::before {
     grid-template-columns: 1fr;
     gap: var(--space-l);
   }
+  /* The 440px cap exists to balance a figure against the prose beside it. Once
+     rows stack there is no adjacent column to match, and the figure is now full
+     width — so the cap stops balancing anything and just crops the bottom off
+     the screenshot. Measured at 768px it removed 127px, about a quarter of the
+     image, taking the editor controls with it. Release the cap when stacked;
+     the mounted-print mat, ring and lift are unchanged. */
+  .feature-figure img {
+    max-height: none;
+    object-fit: contain;
+  }
   .feature-row.reverse .feature-prose { order: 0; }
   .feature-pair > .feature-prose + .feature-prose {
     padding-top: var(--space-l);

@@ -1,10 +1,12 @@
-> Portable package edition 0.1.0. Visual rules preserved; governance links adapted.
-> For historical input see BASELINE_DESIGN_GUIDE.md; for current authority see GOVERNANCE.md.
+> Portable package edition. Visual rules preserved; governance links adapted.
+> Paths below are relative to the Press package root, so they stay readable in a
+> consumer repo that vendors this file. For historical input see
+> `docs/BASELINE_DESIGN_GUIDE.md`; for current authority see `docs/GOVERNANCE.md`.
 
 # Kindling — the Press Design Guide
 
 Extended rationale from the original Press specification. The current portable
-contract is [DESIGN.md](../DESIGN.md); canonical values live in
+contract is `DESIGN.md` at the Press package root; canonical values live in
 `design-system/tokens.css`. Follow those current sources if an older example here
 differs. The scoped website and application variants are documented separately.
 
@@ -49,7 +51,7 @@ looking out of place, it is not Press yet.
 | `tokens.json` | A resolved, flat mirror for tooling (scripts, Figma import). |
 | `components.css` | Base, component, and composition styles built on the tokens. Holds no hard-coded colours or font sizes. |
 | `DESIGN_GUIDE.md` | This file. The rules the CSS cannot express. |
-| `../index.html` | Rendered reference. Links the live CSS, so it always reflects the current system. The sign-off surface. |
+| `index.html` | Rendered reference. Links the live CSS, so it always reflects the current system. The sign-off surface. |
 
 `design-system/` in the adopted versioned package is the editing authority. Consumers install a pinned package version. See `GOVERNANCE.md` and `MIGRATION.md` for adoption from the original one-way sync.
 
@@ -402,7 +404,7 @@ Application implementation rules:
 
 ## 11. Component inventory
 
-`../index.html` is the rendered inventory and the sign-off surface. It links
+`index.html` (Press package root) is the rendered inventory and the sign-off surface. It links
 the live `tokens.css` and `components.css`, so it always reflects the current
 system. Open it in a browser rather than reading the CSS when you want to know
 what exists.
@@ -423,6 +425,6 @@ what exists.
 
 ## Related
 
-`../assets/` holds the logo system — mark, wordmark, lockups, favicons,
+`assets/` (Press package root) holds the logo system — mark, wordmark, lockups, favicons,
 built by `build_assets.py`. The design system and the logo share one palette and
 both trace to the same brand pack. See `PROVENANCE.md` and `GOVERNANCE.md`.

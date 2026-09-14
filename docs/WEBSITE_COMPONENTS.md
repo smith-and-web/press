@@ -1,4 +1,4 @@
-# Website components · Press 0.5.0
+# Website components · Press 0.7.0
 
 The website catalog extends the portable package. Open `../index.html#website-components`. Application controls, prose and feedback live separately at `../index.html#application-components`; further application expansion is deferred.
 
@@ -22,6 +22,7 @@ Place `.press-web` outside the layout component, not on that same node. It estab
 
 | Pattern | Public classes / hooks | Read-only source |
 | --- | --- | --- |
+| Page scaffolding | `pw-frame`, `pw-band`, `pw-header` | Open Design homepage integration |
 | Navigation | `pw-nav`, `pw-brand`, `pw-nav-links`, `data-pw-nav`, `data-pw-menu`, `data-pw-links` | kindling-splash `src/components/Navbar.astro`; redesign masthead |
 | Editorial hero | `pw-hero`, `pw-hero-grid`, `pw-hero-title`, `pw-button` | redesign hero |
 | Writing demo | `pw-writing`, `pw-scene`, `pw-beats`, `data-pw-beats`, `data-pw-beat`, `data-pw-draft` | redesign scene/beat sample; website `WritingDemo.astro` context |
@@ -41,11 +42,33 @@ Source working-tree hashes and copied-image records are in `WEBSITE_SOURCES.json
 
 ### Navigation
 
-Give the menu button `type="button"`, `aria-expanded="false"`, and `aria-controls` pointing to its own unique link-region ID. The script adds `data-pw-ready`. At container widths at or below 820px, enhanced navigation collapses behind the menu. Opening moves focus to the first link. Escape closes and returns focus to the button. Selecting a link, moving focus outside or clicking outside closes it. It is an in-flow disclosure, not a modal: it does not trap focus or lock body scrolling. Without JavaScript all links remain visible.
+Give the menu button `type="button"`, `aria-expanded="false"`, and `aria-controls` pointing to its own unique link-region ID. The script adds `data-pw-ready`. At container widths at or below 820px, enhanced navigation collapses behind the menu. Where container queries are unavailable the same collapse is repeated against the viewport under `@supports not (container-type: inline-size)`, so the menu still works rather than staying permanently expanded. Opening moves focus to the first link. Escape closes and returns focus to the button. Selecting a link, moving focus outside or clicking outside closes it. It is an in-flow disclosure, not a modal: it does not trap focus or lock body scrolling. Without JavaScript all links remain visible.
 
 ### Beats
 
 Put a radio group and its matching prose regions inside `data-pw-beats`. Each radio has `data-pw-beat`, a unique ID, a group-specific `name`, and a `value` matching one panel's `data-pw-draft`. Give panels accessible names and set exactly one radio checked. The script shows the selected prose and hides the others. Native radio keyboard behavior is retained. Without JavaScript all prose remains readable. These are sample writing interactions, not an editable manuscript engine.
+
+### Page scaffolding
+
+`.pw-frame` centres content at `--page-frame` inside a `--pw-gutter` on each
+side. The website layer has no access to `components.css`'s `.editorial`, so
+without it a website-only consumer has to hand-write a frame.
+
+`.pw-band` is a full-bleed row: it owns the raised surface and the top and
+bottom hairlines. A `.pw-trust` placed directly inside drops its own border,
+background and inline padding so the two do not double up. Put the band on the
+full-width element and a `.pw-frame` inside it.
+
+`.pw-header` is a real site masthead — sticky at `--z-sticky`, page background,
+one bottom hairline. `.pw-nav` on its own is a standalone specimen carrying its
+own gutter and rule, which fight a sticky full-bleed header; inside `.pw-header`
+its bottom border and inline padding are removed. Combine `pw-nav pw-frame` on
+the same element to hold the links to the frame.
+
+```html
+<header class="pw-header"><nav class="pw-nav pw-frame" data-pw-nav>…</nav></header>
+<section class="pw-band"><ul class="pw-trust pw-frame">…</ul></section>
+```
 
 ### Feature sequence
 

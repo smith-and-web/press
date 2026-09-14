@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.7.0
+
+Four gaps in the website layer, found by building a real consumer against it —
+the Open Design homepage integration, which vendors this package and composes a
+full page from `pw-*`. Each gap showed up as an override the consumer should
+never have had to write.
+
+- **`@supports not (container-type: inline-size)` fallback for the nav.** The
+  collapse lived only in `@container press-website (max-width: 820px)`, so a
+  browser without container query support kept the nav permanently expanded with
+  no way to reach the menu. The same three rules now repeat against the viewport.
+  This is a correctness fix, not a refinement.
+- **`.pw-frame`** — centres content at `--page-frame` within `--pw-gutter`. The
+  website layer had no frame primitive at all; `.editorial` lives in
+  `components.css`, which this layer deliberately does not require.
+- **`.pw-band`** — a full-bleed surface between hairlines. `.pw-trust` carried
+  its own border and background, so it could not sit in a band without
+  doubling them; inside `.pw-band` it now drops both.
+- **`.pw-header`** — a sticky masthead. `.pw-nav` is a standalone specimen with
+  its own gutter and bottom rule, which fight a full-bleed sticky header. Inside
+  `.pw-header` those are removed.
+
+Additive only; no existing selector changes behaviour, so consumers on 0.6.0
+need take no action. The mounted-print figure treatment from 0.5.0 is retained
+deliberately — a consumer overriding it to full-frame is a page-local choice,
+not a signal to change the default.
+
 ## 0.6.0
 
 Additive composition layer, promoted from the Open Design homepage prototype

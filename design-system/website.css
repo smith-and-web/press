@@ -47,6 +47,18 @@
 .press-web .pw-button:active:not(:disabled) { transform: scale(.98); }
 .press-web .pw-button:disabled { background: var(--color-surface-sunken); color: var(--color-text-muted); border: var(--pw-control-line); cursor: not-allowed; opacity: 1; }
 .press-web .pw-icon { display: block; flex: none; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
+/* 00. Page scaffolding. The website layer has no equivalent of components.css's
+   `.editorial`, so a website-only consumer had to hand-write a frame. */
+.press-web .pw-frame { width: min(var(--page-frame), 100% - var(--pw-gutter) * 2); margin-inline: auto; }
+/* A full-bleed band. The surface and hairlines belong to the band; a component
+   placed inside drops its own so the two do not double up. */
+.press-web .pw-band { background: var(--color-surface); border-block: var(--pw-line); }
+.press-web .pw-band > .pw-trust { border: 0; background: transparent; padding-inline: 0; }
+/* A real site masthead. `.pw-nav` alone is a standalone specimen: it carries its
+   own gutter and bottom rule, which fight a sticky full-bleed header. */
+.press-web .pw-header { position: sticky; top: 0; z-index: var(--z-sticky); background: var(--color-bg); border-bottom: var(--pw-line); }
+.press-web .pw-header > .pw-nav { border-bottom: 0; padding-inline: 0; }
+
 /* 01. Navigation: the menu expands in flow, so nothing covers page content. */
 .press-web .pw-nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-s); padding: var(--space-s) var(--pw-gutter); border-bottom: var(--pw-line); }
 .press-web .pw-brand { display: inline-flex; align-items: center; min-height: var(--pw-touch); width: var(--pw-brand-width); flex: none; }
@@ -178,6 +190,16 @@
   .press-web .pw-nav[data-pw-ready] .pw-menu { display: inline-flex; align-items: center; }
   .press-web .pw-nav[data-pw-ready] .pw-nav-links { display: none; flex-basis: 100%; }
   .press-web .pw-nav[data-pw-ready][data-open] .pw-nav-links { display: flex; }
+}
+/* Without container query support the rule above never matches, and the nav
+   stays expanded at every width. Repeat it against the viewport so the menu
+   still collapses. Scoped to `@supports not` so it cannot double-apply. */
+@supports not (container-type: inline-size) {
+  @media (max-width: 820px) {
+    .press-web .pw-nav[data-pw-ready] .pw-menu { display: inline-flex; align-items: center; }
+    .press-web .pw-nav[data-pw-ready] .pw-nav-links { display: none; flex-basis: 100%; }
+    .press-web .pw-nav[data-pw-ready][data-open] .pw-nav-links { display: flex; }
+  }
 }
 @container press-website (max-width: 600px) {
   .press-web :where(.pw-hero-grid,.pw-section-head,.pw-writing,.pw-closing,.pw-release-grid) { grid-template-columns: minmax(0,1fr); gap: var(--space-m); }

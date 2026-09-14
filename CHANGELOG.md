@@ -1,5 +1,42 @@
 # Changelog
 
+## 0.5.0
+
+**Breaking (website layer):** `.pw-feature-grid` no longer lays features out as
+a two-column tile matrix.
+
+`DESIGN_GUIDE.md` states a hard rule — *"Sequence, not grid"*: feature content
+reads as a sequence, not a matrix of identical tiles, because card grids of
+equal tiles produce ragged heights and dead space beside a text-only entry. The
+0.2.0 website layer shipped `.pw-feature-grid` as exactly that matrix, so the
+package contradicted the guide it distributes. A consumer could not apply the
+website layer and follow the guide at the same time.
+
+- `.pw-feature-grid` is now a sequence container: it only resets the folio
+  counter. `.pw-feature` is a full-width row, hairline-divided from the next,
+  carrying a `decimal-leading-zero` print folio. This mirrors `.feature-seq` in
+  `components.css`; the two are intended to stay identical in behaviour.
+- Added `.pw-feature--reverse` to alternate figure-left/prose-right, which the
+  grid form had no need for.
+- `.pw-feature img` now carries the **mounted print** treatment the guide names
+  (10px raised-surface mat, hairline ring, `--shadow-md`) instead of a plain
+  hairline border. This is one of the three places the guide licenses shadow.
+- `.pw-image-frame` is unchanged but is now documented as opt-in full-frame
+  media, not the default product-figure treatment. Its `contain` letterboxing
+  is for catalog specimens and diagrams.
+- Dropped the `subgrid` row-spanning and its `@supports` fallback, which only
+  existed to align tracks across tiles.
+
+**Consumer action.** If you used `.pw-feature-grid` for a tile matrix, that
+layout is gone by design; adopt the sequence or build a local grid that does not
+claim to be Press. Add `.pw-feature--reverse` to every second row to alternate.
+Product figures are now cropped `cover` at `max-height: 440px`, so check that
+your source aspect ratios clear the slot rather than losing their lower edge.
+
+`.pw-release-grid` is **not** affected: `.pw-release-item` is already a
+hairline-topped row, which is what `.spotlight-list` does. No token, JSON key,
+application component, or non-website selector changes.
+
 ## 0.4.1
 
 - Diagnose Open Design’s synthetic Product seed and 120-file browser upload cap.

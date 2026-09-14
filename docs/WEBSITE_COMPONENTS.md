@@ -1,4 +1,4 @@
-# Website components · Press 0.2.0
+# Website components · Press 0.5.0
 
 The website catalog extends the portable package. Open `../index.html#website-components`. Application controls, prose and feedback live separately at `../index.html#application-components`; further application expansion is deferred.
 
@@ -27,7 +27,7 @@ Place `.press-web` outside the layout component, not on that same node. It estab
 | Writing demo | `pw-writing`, `pw-scene`, `pw-beats`, `data-pw-beats`, `data-pw-beat`, `data-pw-draft` | redesign scene/beat sample; website `WritingDemo.astro` context |
 | Trust strip | `pw-trust` | redesign full-width raised trust band |
 | Section heading & quotation | `pw-section-head`, `pw-heading`, `pw-quote` | redesign aligned headings and plan-to-page section |
-| Feature columns | `pw-feature-grid`, `pw-feature`, `pw-problem`, `pw-image-frame` | redesign aligned feature refinements and four supplied images |
+| Feature sequence | `pw-feature-grid`, `pw-feature`, `pw-feature--reverse`, `pw-problem`, `pw-image-frame` | redesign aligned feature refinements and four supplied images |
 | Release rows | `pw-release-grid`, `pw-release-item`, `pw-link` | redesign spotlight/release section |
 | Platform choices | `pw-platforms`, `data-pw-platform`, `data-pw-platform-choice`, `data-pw-platform-result` | website `src/pages/download/index.astro` |
 | Signup | `pw-signup`, `pw-form-row`, `data-pw-signup`, `data-pw-error`, `data-pw-status` | website download signup pattern, adapted to local-only behavior |
@@ -47,6 +47,20 @@ Give the menu button `type="button"`, `aria-expanded="false"`, and `aria-control
 
 Put a radio group and its matching prose regions inside `data-pw-beats`. Each radio has `data-pw-beat`, a unique ID, a group-specific `name`, and a `value` matching one panel's `data-pw-draft`. Give panels accessible names and set exactly one radio checked. The script shows the selected prose and hides the others. Native radio keyboard behavior is retained. Without JavaScript all prose remains readable. These are sample writing interactions, not an editable manuscript engine.
 
+### Feature sequence
+
+`.pw-feature-grid` resets the folio counter; it is not itself a grid. Each child
+`.pw-feature` is one full-width row: a two-column spread of prose and figure,
+centred against each other, separated from the previous row by a hairline at
+`--space-3xl` and numbered `01`, `02`, … in the gutter. Add
+`.pw-feature--reverse` to every second row so the figure alternates sides. The
+first row drops its hairline but keeps room for its folio.
+
+This is a hard rule from `DESIGN_GUIDE.md`, not a stylistic preference: a grid
+of equal feature tiles produces ragged heights and dead space beside a text-only
+entry. Keep bordered cards only where a card is semantically real. If you need a
+tile matrix, build it locally — do not reintroduce one under a `pw-` class.
+
 ### Platform choices
 
 Wrap radio choices and the result in `data-pw-platform`. Each radio has `data-pw-platform-choice` plus `data-pw-description`; changes update the descendant live result. The sample deliberately does not detect an OS or fetch releases. The button links to local installation guidance, not a binary download. A real site must provide its own reviewed platform URLs and current release metadata.
@@ -59,7 +73,7 @@ Use `type="email"`, `required`, an explicit label, and `aria-describedby` linkin
 
 ### Initialization and cleanup
 
-`window.KindlingWebsite.init(scope = document)` initializes matching descendants and the scope element itself. Repeated calls do not duplicate listeners. `destroy(scope)` detaches those listeners, clears a pending signup timer, restores all beat prose, and returns menu links to their unenhanced visible state. The classic script auto-initializes once; a CSS-aware bundler can import it for side effects. No named ESM exports are provided. Public classes/data hooks are the 0.2.0 website API.
+`window.KindlingWebsite.init(scope = document)` initializes matching descendants and the scope element itself. Repeated calls do not duplicate listeners. `destroy(scope)` detaches those listeners, clears a pending signup timer, restores all beat prose, and returns menu links to their unenhanced visible state. The classic script auto-initializes once; a CSS-aware bundler can import it for side effects. No named ESM exports are provided. Public classes/data hooks are the website API; see CHANGELOG.md for the 0.5.0 feature-sequence break.
 
 ## Visual mapping and deviations
 
@@ -67,8 +81,8 @@ Use `type="email"`, `required`, an explicit label, and `aria-describedby` linkin
 - **Typography:** the redesign's Inter marketing body treatment is an explicit website variant, implemented by `--pw-body: var(--font-ui)`. Fraunces is for headings; `--pw-reading: var(--font-body)` preserves Newsreader manuscript copy.
 - **Text color:** ordinary reading content uses ink. Small accent copy uses `--color-accent-text`; the redesign's smaller terracotta text is mapped to this accessible role rather than copied as a failing color pair.
 - **Scale:** existing body, label, small, hero and spacing tokens are reused. Namespaced `--pw-title` (32–48px) and `--pw-feature` (24–32px) allow the redesign hierarchy to respond to specimen/container width without altering canonical sizes.
-- **Alignment:** shared heading columns, equal feature tracks and release action alignment adopt the redesign's latest refinements. The feature grid uses subgrid where available and a normal-grid fallback; narrow containers stack into one column.
-- **Images:** the feature reference images use equal responsive 4:3 frames (`--pw-reference-ratio`) with 16px token-based padding and `object-fit: contain`. Intrinsic width/height attributes remain; no image is cropped or stretched. These are reference illustrations, not full-size image links. The live catalog embeds the original PNG bytes, while copyable markup keeps portable asset paths.
+- **Alignment:** shared heading columns and release action alignment adopt the redesign's latest refinements. Features are a **sequence**, not a grid, per the guide's hard rule: each `.pw-feature` is a full-width row divided from the next by a hairline and numbered with a print folio, alternating with `.pw-feature--reverse`. Narrow containers stack each row into one column.
+- **Images:** product figures use the guide's **mounted print** treatment — a 10px raised-surface mat, a hairline ring and `--shadow-md`, cropped `cover` at `max-height: 440px`. Opt into `.pw-image-frame` for a 4:3 `object-fit: contain` frame (`--pw-reference-ratio`) when a whole image must stay visible, such as a catalog specimen or a diagram; it letterboxes instead of cropping and is not the default. Intrinsic width/height attributes remain. The live catalog embeds the original PNG bytes, while copyable markup keeps portable asset paths.
 - **Navigation:** the source's modal-like fixed mobile menu is adapted to an in-flow disclosure with the same clear open/close affordances. This avoids embedding viewport-fixed chrome in a catalog specimen.
 - **Trust copy:** the redesign's unverified writer-count claim is not promoted to a shared fact. The catalog uses descriptive labels grounded in its writing-space content and identifies them as example copy.
 - **Theme:** website specimens stay light, matching the existing website policy. The surrounding reference and Application section still support light/dark.

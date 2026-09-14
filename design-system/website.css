@@ -88,16 +88,49 @@
 .press-web .pw-section-head p { margin-top: var(--space-m); }
 .press-web .pw-section-head > .pw-label { margin-top: 0; }
 .press-web .pw-quote { font: 500 var(--pw-feature)/1.4 var(--font-display); border-top: var(--pw-line); padding-top: var(--space-m); margin-top: var(--space-l); max-width: 32ch; }
-/* 06. Paired features: explicit equal tracks align content without cropping. */
-.press-web .pw-feature-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: var(--space-l); row-gap: 0; }
-.press-web .pw-feature { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: var(--space-s); border-top: var(--pw-line); padding-block: var(--space-l); }
+/* 06. Feature sequence: full-width alternating rows, never a tile matrix.
+   DESIGN_GUIDE.md "Sequence, not grid" is a hard rule — a grid of equal feature
+   tiles produces ragged heights and dead space beside a text-only entry. Each
+   row is one spread divided from the next by a hairline, carrying a print folio.
+   This mirrors components.css `.feature-seq`; the two must not diverge. */
+.press-web .pw-feature-grid { counter-reset: pw-folio; }
+.press-web .pw-feature {
+  counter-increment: pw-folio; position: relative;
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: var(--space-2xl);
+  /* Centred, not top-aligned: prose is usually far shorter than the figure
+     beside it, and top-aligning leaves a void under the text. */
+  align-items: center;
+  padding-top: var(--space-3xl); margin-top: var(--space-3xl);
+  border-top: var(--pw-line);
+}
+.press-web .pw-feature::before {
+  content: counter(pw-folio, decimal-leading-zero);
+  position: absolute; top: var(--space-2xs); left: 0;
+  font: 600 var(--pw-small)/1 var(--pw-body);
+  letter-spacing: var(--tracking-eyebrow); color: var(--color-text-muted);
+}
+/* Room for the "01" folio, but no dividing hairline above the first row. */
+.press-web .pw-feature-grid > :first-child { border-top: 0; margin-top: 0; padding-top: var(--space-l); }
+.press-web .pw-feature--reverse > figure { order: 1; }
 .press-web .pw-feature > * { min-width: 0; }
 .press-web .pw-feature h3 { font-size: var(--pw-feature); }
 .press-web .pw-feature .pw-problem { font-weight: 600; }
-.press-web .pw-feature figure { margin-top: var(--space-2xs); align-self: start; }
-.press-web .pw-feature img { display: block; width: 100%; height: auto; border: var(--pw-line); border-radius: var(--pw-radius); object-fit: contain; }
+.press-web .pw-feature figure { margin: 0; }
+/* Mounted print (DESIGN_GUIDE named device): a raised-surface mat, a hairline
+   ring and --shadow-md, so a screenshot reads as a print on board rather than
+   an image flush to the page. One of the three places shadow is licensed. */
+.press-web .pw-feature img {
+  display: block; width: 100%; height: auto; max-height: 440px;
+  object-fit: cover; object-position: top center;
+  border: 10px solid var(--color-surface); border-radius: var(--radius-l);
+  box-shadow: 0 0 0 1px var(--color-border), var(--shadow-md);
+}
 .press-web .pw-image-link { display: block; }
-/* Reference-only feature media: one shared frame, full image visible. */
+/* Optional full-frame media. Opt in with .pw-image-frame when the whole image
+   must stay visible (a catalog specimen, a diagram). It letterboxes rather than
+   crops, so it is NOT the default product-figure treatment — that is the
+   mounted print above, whose `cover` crop the consumer's capture ratios assume. */
 .press-web .pw-feature-grid { --pw-reference-ratio: 4 / 3; }
 .press-web .pw-image-frame { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: var(--pw-reference-ratio); padding: var(--space-s); border: var(--pw-line); border-radius: var(--pw-radius); background: var(--color-surface-sunken); }
 .press-web .pw-feature .pw-image-frame img { display: block; width: 100%; height: 100%; min-height: 0; max-width: 100%; object-fit: contain; border: 0; border-radius: 0; }
@@ -141,25 +174,26 @@
 .press-web .pw-footer-links { display: flex; flex-wrap: wrap; gap: var(--space-s); }
 .press-web .pw-footer-links a { display: inline-flex; min-height: var(--pw-touch); align-items: center; color: var(--color-text); font-size: var(--pw-small); }
 .press-web .pw-footer-bottom { border-top: var(--pw-line); padding-top: var(--space-m); margin-top: var(--space-m); font-size: var(--pw-small); color: var(--color-text-muted); }
-@supports not (grid-template-rows: subgrid) { .press-web .pw-feature { grid-row: auto; grid-template-rows: auto auto auto 1fr auto; } }
 @container press-website (max-width: 820px) {
   .press-web .pw-nav[data-pw-ready] .pw-menu { display: inline-flex; align-items: center; }
   .press-web .pw-nav[data-pw-ready] .pw-nav-links { display: none; flex-basis: 100%; }
   .press-web .pw-nav[data-pw-ready][data-open] .pw-nav-links { display: flex; }
 }
 @container press-website (max-width: 600px) {
-  .press-web :where(.pw-hero-grid,.pw-section-head,.pw-writing,.pw-closing,.pw-feature-grid,.pw-release-grid) { grid-template-columns: minmax(0,1fr); gap: var(--space-m); }
+  .press-web :where(.pw-hero-grid,.pw-section-head,.pw-writing,.pw-closing,.pw-release-grid) { grid-template-columns: minmax(0,1fr); gap: var(--space-m); }
   .press-web :where(.pw-pad,.pw-nav,.pw-hero,.pw-scene,.pw-references,.pw-closing,.pw-footer) { padding: var(--space-m); }
   .press-web .pw-hero-title { font-size: var(--text-h1); }
   .press-web .pw-references { border-left: 0; border-top: var(--pw-line); }
   .press-web .pw-trust { grid-template-columns: repeat(2,minmax(0,1fr)); padding: var(--space-m); }
   .press-web .pw-trust li { text-align: left; }
-  .press-web .pw-feature { grid-row: auto; display: flex; flex-direction: column; gap: var(--space-s); }
+  .press-web .pw-feature { grid-template-columns: minmax(0,1fr); gap: var(--space-l); padding-top: var(--space-2xl); margin-top: var(--space-2xl); }
+  .press-web .pw-feature--reverse > figure { order: 0; }
   .press-web .pw-feature figure { width: 100%; }
   .press-web .pw-form-row { flex-direction: column; align-items: stretch; }
 }
 @media (max-width: 767px) {
-  .press-web :where(.pw-hero-grid,.pw-section-head,.pw-writing,.pw-closing,.pw-feature-grid,.pw-release-grid) { grid-template-columns: minmax(0,1fr); }
+  .press-web :where(.pw-hero-grid,.pw-section-head,.pw-writing,.pw-closing,.pw-release-grid) { grid-template-columns: minmax(0,1fr); }
+  .press-web .pw-feature { grid-template-columns: minmax(0,1fr); gap: var(--space-l); }
   .press-web .pw-form-row { flex-wrap: wrap; }
 }
 @media (hover: hover) {

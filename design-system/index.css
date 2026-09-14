@@ -1,0 +1,4 @@
+/* Complete Press foundation. Global styles are intentional; see docs/INTEGRATION.md. */
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./components.css";

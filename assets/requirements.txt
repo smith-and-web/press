@@ -1,0 +1,5 @@
+# Optional maintenance only; not installed or needed by consumers.
+# The baseline did not pin versions. Record a reviewed environment before regeneration.
+fonttools
+cairosvg
+Pillow

@@ -1,0 +1,163 @@
+{
+  "packageVersion": "0.2.0",
+  "sourcePolicy": "Read-only working-tree references; not a published release",
+  "websiteCommit": "4ad4778566c2805994a57a3b16638a3c1d219a15",
+  "websiteStatus": [
+    "## press/editorial-restructure...origin/press/editorial-restructure",
+    " M CLAUDE.md",
+    " M DESIGN_GUIDE.md",
+    " M astro.config.mjs",
+    " M package-lock.json",
+    " M package.json",
+    " M public/docs/app-settings.png",
+    " M public/docs/command-palette.png",
+    " M public/docs/project-settings.png",
+    " M public/docs/view-toggle.png",
+    " M public/robots.txt",
+    " M public/welcome.html",
+    " M src/assets/beat-with-prose.png",
+    " M src/assets/references-panel.png",
+    " M src/assets/scene-panel.png",
+    " M src/components/Analytics.astro",
+    " M src/components/Footer.astro",
+    " M src/components/Navbar.astro",
+    " M src/components/SmartDownloadButton.svelte",
+    " M src/content/blog/best-plottr-alternatives-for-fiction-writers.md",
+    " M src/content/blog/best-scrivener-alternatives-for-plotters.md",
+    " M src/content/blog/best-story-outlining-software-2026.md",
+    " M src/content/blog/kindling-v1-2-biggest-update-yet.md",
+    " M src/content/docs/docs/exporting-projects.md",
+    " M src/content/docs/docs/getting-started.md",
+    " M src/content/docs/docs/importing-projects.md",
+    " M src/content/docs/docs/index.md",
+    " M src/content/docs/docs/references.md",
+    " M src/content/docs/docs/scene-workflow.md",
+    " M src/content/docs/docs/settings.md",
+    " M src/content/docs/docs/sync-and-reimport.md",
+    " M src/content/docs/docs/troubleshooting.md",
+    " M src/data/downloads.ts",
+    " M src/layouts/MarketingLayout.astro",
+    " M src/pages/blog/[...slug].astro",
+    " M src/pages/blog/index.astro",
+    " M src/pages/compare/index.astro",
+    " M src/pages/download/index.astro",
+    " M src/pages/download/thanks.astro",
+    " M src/pages/faq/index.astro",
+    " M src/pages/features/index.astro",
+    " M src/pages/feedback/index.astro",
+    " M src/pages/free-scrivener-alternative/index.astro",
+    " M src/pages/index.astro",
+    " M src/pages/open-source/index.astro",
+    " M src/pages/plottr-vs-scrivener/index.astro",
+    " M src/pages/privacy/index.astro",
+    " M src/pages/story-outlining-software/index.astro",
+    " M src/pages/welcome/index.astro",
+    " M src/scripts/analytics.ts",
+    " M src/styles/components.css",
+    " M src/styles/tokens.css",
+    "?? LAUNCH_NOTES.md",
+    "?? public/analytics.js",
+    "?? public/docs/beats-list.png",
+    "?? public/docs/copy-references.png",
+    "?? public/docs/custom-fields.png",
+    "?? public/docs/editorial-package.png",
+    "?? public/docs/editorial-review.png",
+    "?? public/docs/export-dialog.png",
+    "?? public/docs/export-ebook-details.png",
+    "?? public/docs/export-filename.png",
+    "?? public/docs/export-html-options.png",
+    "?? public/docs/export-manuscript-preview.png",
+    "?? public/docs/export-profile.png",
+    "?? public/docs/export-project-options.png",
+    "?? public/docs/export-simple-formats.png",
+    "?? public/docs/export-treatment-options.png",
+    "?? public/docs/export-typography.png",
+    "?? public/docs/find-replace.png",
+    "?? public/docs/keyboard-shortcuts.png",
+    "?? public/docs/previously.png",
+    "?? public/docs/reference-detail.png",
+    "?? public/docs/reference-suggestions.png",
+    "?? public/docs/reference-types.png",
+    "?? public/docs/scene-sidebar.png",
+    "?? public/docs/start-screen.png",
+    "?? public/docs/sync-preview.png",
+    "?? public/docs/tag-manager.png",
+    "?? public/docs/writing-statistics.png",
+    "?? scripts/SCREENSHOTS.md",
+    "?? scripts/capture-display.swift",
+    "?? scripts/capture-hidpi.sh",
+    "?? scripts/capture-screenshots.mjs",
+    "?? scripts/check-launch.mjs",
+    "?? src/assets/import-formats.png",
+    "?? src/assets/page-view.png",
+    "?? src/assets/planning-states.png",
+    "?? src/assets/screenplay.png",
+    "?? src/components/FeedbackWidget.astro",
+    "?? src/components/WritingDemo.astro",
+    "?? src/content/blog/kindling-v1-3-writing-and-review.md",
+    "?? src/content/docs/docs/editorial-review.md",
+    "?? src/content/docs/docs/export-workspace.md",
+    "?? src/content/docs/docs/writing-progress.md",
+    "?? src/scripts/download-flow.ts"
+  ],
+  "inputs": [
+    {
+      "reference": "Editorial Web Prototype/index.html",
+      "sha256": "31705af9d788b9c867afc725b3c066792cee905831c081b0bf94058020f630ed"
+    },
+    {
+      "reference": "kindling-splash/src/components/Navbar.astro",
+      "sha256": "6593c7fb75b1d18963d1d44902c1face603b10feb5a9a4c604d58ae170646bd1"
+    },
+    {
+      "reference": "kindling-splash/src/components/Footer.astro",
+      "sha256": "c2e8bd2b4d25b6c7bea3290f3129ac5aef3bdcccabaccb165e2560010236e8af"
+    },
+    {
+      "reference": "kindling-splash/src/components/WritingDemo.astro",
+      "sha256": "8dd1eae8c4ae7709f2d124060e0998d340d0d208e10d46e167fedc5564a83923"
+    },
+    {
+      "reference": "kindling-splash/src/pages/index.astro",
+      "sha256": "a0980f58bfdd7240c829ca6cefca7f3ab9bd768bd916c00a9a71f1c3fc5d5755"
+    },
+    {
+      "reference": "kindling-splash/src/pages/download/index.astro",
+      "sha256": "4d3b93c11f602fb1d83d7f29c452598f1ae89e167ebae41c1be78a81a7ebe336"
+    },
+    {
+      "reference": "kindling-splash/src/pages/faq/index.astro",
+      "sha256": "9e4b00b3081e574cb384db8b73a1e21a067167805cd5a1f308d6cac20f829606"
+    }
+  ],
+  "images": [
+    {
+      "file": "assets/website/beat-with-prose.png",
+      "source": "Editorial Web Prototype/assets/beat-with-prose.png",
+      "width": 1472,
+      "height": 1178,
+      "sha256": "33bbed932447a6bd138f54f271e1f287d963fd4b74df5a136b79e0ba084b29e0"
+    },
+    {
+      "file": "assets/website/references-panel.png",
+      "source": "Editorial Web Prototype/assets/references-panel.png",
+      "width": 1280,
+      "height": 1024,
+      "sha256": "1caeca378d0b4dcc05ecb733130f04dc6ff1c0d78e3646ba0a6e2bfe2d5e7e44"
+    },
+    {
+      "file": "assets/website/planning-states.png",
+      "source": "Editorial Web Prototype/assets/planning-states.png",
+      "width": 2280,
+      "height": 1170,
+      "sha256": "50fa1f8495878db9cc72b49df29b07bf590f07e9558aa9e83f2909cc297dc950"
+    },
+    {
+      "file": "assets/website/import-formats.png",
+      "source": "Editorial Web Prototype/assets/import-formats.png",
+      "width": 1060,
+      "height": 848,
+      "sha256": "a7bbfda5cd720c5947e2700dbce310a8ee3f3fc85b659346447bbfcf9093513f"
+    }
+  ]
+}

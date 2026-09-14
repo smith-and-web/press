@@ -1,0 +1,281 @@
+{
+  "repository": "Kindling/brand-assets",
+  "commit": "6e184f445b98084358774e147843c49d10c07a12",
+  "status": [
+    "## design-system/audit-followups...origin/design-system/audit-followups",
+    " M design-system/DESIGN_GUIDE.md",
+    " M design-system/components.css",
+    " M design-system/tokens.css",
+    " M design-system/tokens.json",
+    "?? .github/workflows/design-system.yml",
+    "?? design-system/generate-tokens.mjs"
+  ],
+  "baseline": "Working tree, including uncommitted modifications",
+  "files": [
+    {
+      "source": "design-system/tokens.css",
+      "destination": "design-system/tokens.css",
+      "sha256": "ac991ec051f58250892c0836d79f55f26364e357165c290192d85443009c12f1"
+    },
+    {
+      "source": "design-system/tokens.json",
+      "destination": "design-system/tokens.json",
+      "sha256": "5c6652cc89c7fc331619870af8338c2ec80e33b6ed54def68c77c625b141ee35"
+    },
+    {
+      "source": "design-system/components.css",
+      "destination": "design-system/components.css",
+      "sha256": "3f3bd5728a3d1f23751f32dfc07892f7d816616cfc64d9a65810330f9f73dd02"
+    },
+    {
+      "source": "design-system/generate-tokens.mjs",
+      "destination": "design-system/generate-tokens.mjs",
+      "sha256": "b84cd56f282981381467ecc7e7c354f8128912a2e703969a52814fcad73c901a"
+    },
+    {
+      "source": "design-system/DESIGN_GUIDE.md",
+      "destination": "docs/BASELINE_DESIGN_GUIDE.md",
+      "sha256": "9c96b57681dd2fcd65b8992992c3769d909665d6bb550cc266a796d1f8365d85"
+    },
+    {
+      "source": "source/kindling-source.svg",
+      "destination": "assets/source/kindling-source.svg",
+      "sha256": "e01f82733fbcc21aac597c4ad593f5d5ed547f5d836b44ed24af7508ea01be87"
+    },
+    {
+      "source": "svg/kindling-favicon-reversed.svg",
+      "destination": "assets/svg/kindling-favicon-reversed.svg",
+      "sha256": "5b218696641fa8fc593b717344fd46db0cf7fc270ab352387e87728e1274f642"
+    },
+    {
+      "source": "svg/kindling-favicon.svg",
+      "destination": "assets/svg/kindling-favicon.svg",
+      "sha256": "2dfb1b3269345c89efb8ec72e81f72b3e541a90196be04bd739d3310c2ae19dd"
+    },
+    {
+      "source": "svg/kindling-lockup-stacked-mono.svg",
+      "destination": "assets/svg/kindling-lockup-stacked-mono.svg",
+      "sha256": "35b45bc3d857f613c264ed62094ad862a694e66d6af619b267cd62f95620ed97"
+    },
+    {
+      "source": "svg/kindling-lockup-stacked-reversed.svg",
+      "destination": "assets/svg/kindling-lockup-stacked-reversed.svg",
+      "sha256": "b1ee4ca308f40a0b039cf9c31f83a88e7dbf6fd5de1716d3917ddbd275e36377"
+    },
+    {
+      "source": "svg/kindling-lockup-stacked.svg",
+      "destination": "assets/svg/kindling-lockup-stacked.svg",
+      "sha256": "505d7b0255f70d0e461864673bf0d9e9a336db604fdd6559cbf16101b181ffb0"
+    },
+    {
+      "source": "svg/kindling-mark-mono-reversed.svg",
+      "destination": "assets/svg/kindling-mark-mono-reversed.svg",
+      "sha256": "3da5c313ea99bf7a461f3833fc9ff8ab4673fc6e807df4d8c57d50d25fc78ca1"
+    },
+    {
+      "source": "svg/kindling-mark-mono.svg",
+      "destination": "assets/svg/kindling-mark-mono.svg",
+      "sha256": "ee16aa0596a4bb4ce809bfc4f1270cae5d56a201ea7e2b00b5110d6066c4a749"
+    },
+    {
+      "source": "svg/kindling-mark-reversed.svg",
+      "destination": "assets/svg/kindling-mark-reversed.svg",
+      "sha256": "53c88c6c58774b6fc878692133754bd42f8cb84ec5792d064f1a340c8bf96a56"
+    },
+    {
+      "source": "svg/kindling-mark.svg",
+      "destination": "assets/svg/kindling-mark.svg",
+      "sha256": "d6d9852bab476fcb4664a68fb888cc5d81a1bd5f9982ee27b7e853a2cad03dca"
+    },
+    {
+      "source": "svg/kindling-wordmark-reversed.svg",
+      "destination": "assets/svg/kindling-wordmark-reversed.svg",
+      "sha256": "9768af388bea4c42f00e2d3f56dfc3662d56464ca1003c88f479412c4fd69c36"
+    },
+    {
+      "source": "svg/kindling-wordmark.svg",
+      "destination": "assets/svg/kindling-wordmark.svg",
+      "sha256": "567ebdc389aedef5febcbf63f4d8b632e8b7549c08230eed6a1f9b04f6cad6cd"
+    },
+    {
+      "source": "png/lockup-240.png",
+      "destination": "assets/png/lockup-240.png",
+      "sha256": "e4bd3616c8f91427a8e3e1f32050d3733839936556ad489526c6f6c327938b55"
+    },
+    {
+      "source": "png/lockup-480.png",
+      "destination": "assets/png/lockup-480.png",
+      "sha256": "11e24339e32f980e1b303101a9609b8eadad3c0aea7fa217f2b799bd6278b2fd"
+    },
+    {
+      "source": "png/lockup-960.png",
+      "destination": "assets/png/lockup-960.png",
+      "sha256": "af08c3bd570f9a6d41ad247d4a5990778d74d4aed63bb95f813ee91c2c596f0c"
+    },
+    {
+      "source": "png/mark-240.png",
+      "destination": "assets/png/mark-240.png",
+      "sha256": "e904e0c4922627a10b50c01d315827487b27c1d525a19fa08c1754edc774e549"
+    },
+    {
+      "source": "png/mark-480.png",
+      "destination": "assets/png/mark-480.png",
+      "sha256": "6a34070f1b444874432d90a12dddcc1f755597873cce2cd8c09d5acaa2ed6d41"
+    },
+    {
+      "source": "png/mark-960.png",
+      "destination": "assets/png/mark-960.png",
+      "sha256": "4f7ab42dc9a73f44cede0082d626ffd6c9d13590a3f7638eb561f7afba4d3d7a"
+    },
+    {
+      "source": "favicon/apple-touch-icon.png",
+      "destination": "assets/favicon/apple-touch-icon.png",
+      "sha256": "a952d2f3e744df4291829f6182e66cf702973d2b8b2851e484fc633e0ab2f800"
+    },
+    {
+      "source": "favicon/favicon-16.png",
+      "destination": "assets/favicon/favicon-16.png",
+      "sha256": "b4c098288722ae1e6c2e0175be0c3edb602619e638bf1cd4580ce03c13ed7ccd"
+    },
+    {
+      "source": "favicon/favicon-32.png",
+      "destination": "assets/favicon/favicon-32.png",
+      "sha256": "afaef181b2b12b88c35e10e7465ff7d7d9026a3673f0215302822bda3e39cd12"
+    },
+    {
+      "source": "favicon/favicon-48.png",
+      "destination": "assets/favicon/favicon-48.png",
+      "sha256": "3a5bd0018917a24502a58ef8976ff81ed3338bc7fd4f6f8b8b9e2517b52a7b7c"
+    },
+    {
+      "source": "favicon/favicon.ico",
+      "destination": "assets/favicon/favicon.ico",
+      "sha256": "8e1c19ceac87de41eb703dbb1db830ee90d8f03d251e510d7b459152f47406a8"
+    },
+    {
+      "source": "favicon/favicon.svg",
+      "destination": "assets/favicon/favicon.svg",
+      "sha256": "2dfb1b3269345c89efb8ec72e81f72b3e541a90196be04bd739d3310c2ae19dd"
+    },
+    {
+      "source": "favicon/icon-192.png",
+      "destination": "assets/favicon/icon-192.png",
+      "sha256": "112ac0781a2eaaa4d49e8cd04bec49a3110e3c59611ecd4c7cd21fb08b5277bd"
+    },
+    {
+      "source": "favicon/icon-512.png",
+      "destination": "assets/favicon/icon-512.png",
+      "sha256": "934fba26b80c853e2b9663de0294d9dc5b7208f4e3fd3df1c495f6ad696803c0"
+    },
+    {
+      "source": "favicon/site.webmanifest",
+      "destination": "assets/favicon/site.webmanifest",
+      "sha256": "fbd6eb3b111f0448a353da3e29a506756ca1f666d2daf375185d775871b29a1e"
+    },
+    {
+      "source": "app-icons/app-icon-1024.png",
+      "destination": "assets/app-icons/app-icon-1024.png",
+      "sha256": "8c14fe7c01e184f1ef2272e7c17a16bbb36edf82e0fe77f122a730235cd3a869"
+    },
+    {
+      "source": "app-icons/kindling.icns",
+      "destination": "assets/app-icons/kindling.icns",
+      "sha256": "c20b452fe6ac5823804f260e967239d2c53dab550b7ec052f0b475cec312009d"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_128x128.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_128x128.png",
+      "sha256": "fabe520cf3fd36cf623340ba202d5fc10e0c0738357b3fb959f9818babb9183e"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_128x128@2x.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_128x128@2x.png",
+      "sha256": "adff370c679261768829dc3ba78b3685f65fcef8a2fbc972ecf96cb71af573b8"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_16x16.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_16x16.png",
+      "sha256": "5c9800d9e7ccee07c78b867da7ec2aefa2b82214aa46d2c84ec9c2e1ddb9612f"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_16x16@2x.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_16x16@2x.png",
+      "sha256": "3589e8a4237ad313fee56b3130db7326bcaf33df85a5decda976f966c23b9951"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_256x256.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_256x256.png",
+      "sha256": "adff370c679261768829dc3ba78b3685f65fcef8a2fbc972ecf96cb71af573b8"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_256x256@2x.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_256x256@2x.png",
+      "sha256": "934fba26b80c853e2b9663de0294d9dc5b7208f4e3fd3df1c495f6ad696803c0"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_32x32.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_32x32.png",
+      "sha256": "3589e8a4237ad313fee56b3130db7326bcaf33df85a5decda976f966c23b9951"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_32x32@2x.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_32x32@2x.png",
+      "sha256": "6afc78754c3d013530876df166d00e127718c5bc3c2c3bbf788d283579fbc7d9"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_512x512.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_512x512.png",
+      "sha256": "934fba26b80c853e2b9663de0294d9dc5b7208f4e3fd3df1c495f6ad696803c0"
+    },
+    {
+      "source": "app-icons/kindling.iconset/icon_512x512@2x.png",
+      "destination": "assets/app-icons/kindling.iconset/icon_512x512@2x.png",
+      "sha256": "8c14fe7c01e184f1ef2272e7c17a16bbb36edf82e0fe77f122a730235cd3a869"
+    },
+    {
+      "source": "social/avatar-dark-800.png",
+      "destination": "assets/social/avatar-dark-800.png",
+      "sha256": "15f8304e78fccf50c1a2cdb1f02da390dfa6fe46ae30d0ca4902170b956e5e08"
+    },
+    {
+      "source": "social/avatar-flame-dark-800.png",
+      "destination": "assets/social/avatar-flame-dark-800.png",
+      "sha256": "a3c5fcfcca93818991a7d726511aafbed3dfd959afe4262c0d95585be222809c"
+    },
+    {
+      "source": "social/avatar-flame-light-800.png",
+      "destination": "assets/social/avatar-flame-light-800.png",
+      "sha256": "092adcb6bd716635487e724175c582425874b945288508b8300b1b004e809a47"
+    },
+    {
+      "source": "social/avatar-light-800.png",
+      "destination": "assets/social/avatar-light-800.png",
+      "sha256": "8f073c8069eddd772b8dc892865da3744f76e8f453ed3a85818424420b3441b6"
+    },
+    {
+      "source": "social/og-image.png",
+      "destination": "assets/social/og-image.png",
+      "sha256": "d570888ca2f26c5c56d76865b513beb0c5f47ec55304609f320ae10399cb4081"
+    },
+    {
+      "source": "fonts/Fraunces[SOFT,WONK,opsz,wght].ttf",
+      "destination": "assets/fonts/Fraunces[SOFT,WONK,opsz,wght].ttf",
+      "sha256": "0776a870a0856b296e11639505ac0cf9be5e7800bb1849dfa21a1bd182455fc0"
+    },
+    {
+      "source": "build_assets.py",
+      "destination": "assets/build_assets.py",
+      "sha256": "2413f0b64315e8e1c7092a63c9695da24e6fdfa2a4e925a5ecccd64db46a3594"
+    },
+    {
+      "source": "build_rasters.py",
+      "destination": "assets/build_rasters.py",
+      "sha256": "d20077fc967934b0def85d1fc86e9dab80098f585a89fe739a79e550bd128904"
+    },
+    {
+      "source": "requirements.txt",
+      "destination": "assets/requirements.txt",
+      "sha256": "16f956feea85cd850bad87b52b8b76b954d07ecf407739378bc0cb949d3350c9"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "name": "@kindling/design-system",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Kindling Press: portable tokens, component CSS, typography and brand assets.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "style": "./design-system/index.css",
+  "exports": {
+    ".": "./design-system/index.css",
+    "./tokens.css": "./design-system/tokens.css",
+    "./tokens.json": "./design-system/tokens.json",
+    "./components.css": "./design-system/components.css",
+    "./fonts.css": "./design-system/fonts.css",
+    "./package.json": "./package.json",
+    "./assets/*": "./assets/*",
+    "./licenses/*": "./licenses/*",
+    "./website.css": "./design-system/website.css",
+    "./website.js": "./design-system/website.js",
+    "./svelte": {
+      "types": "./design-system/svelte/index.ts",
+      "svelte": "./design-system/svelte/index.ts",
+      "default": "./design-system/svelte/index.ts"
+    },
+    "./application.css": "./design-system/application.css",
+    "./svelte/editor": {
+      "types": "./design-system/svelte/editor/index.ts",
+      "svelte": "./design-system/svelte/editor/index.ts",
+      "default": "./design-system/svelte/editor/index.ts"
+    }
+  },
+  "files": [
+    "design-system/",
+    "assets/",
+    "licenses/",
+    "docs/",
+    "reference/",
+    "index.html",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE.md"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "./design-system/website.js"
+  ],
+  "scripts": {
+    "tokens:generate": "node design-system/generate-tokens.mjs",
+    "tokens:check": "node design-system/generate-tokens.mjs --check",
+    "reference:website": "node reference/generate-website-reference.mjs",
+    "reference:application": "node reference/application/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "kindling",
+    "press",
+    "design-tokens",
+    "design-system",
+    "css",
+    "svelte",
+    "application-components"
+  ],
+  "peerDependencies": {
+    "svelte": "^5.53.11",
+    "@tiptap/core": "^3.20.1",
+    "@tiptap/starter-kit": "^3.20.1",
+    "@tiptap/extension-underline": "^3.20.1",
+    "@tiptap/extension-text-align": "^3.20.1",
+    "@tiptap/pm": "^3.20.1"
+  },
+  "peerDependenciesMeta": {
+    "svelte": {
+      "optional": true
+    },
+    "@tiptap/core": {
+      "optional": true
+    },
+    "@tiptap/starter-kit": {
+      "optional": true
+    },
+    "@tiptap/extension-underline": {
+      "optional": true
+    },
+    "@tiptap/extension-text-align": {
+      "optional": true
+    },
+    "@tiptap/pm": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "svelte": "5.56.4",
+    "esbuild": "0.27.2",
+    "@tiptap/core": "3.20.1",
+    "@tiptap/starter-kit": "3.20.1",
+    "@tiptap/extension-underline": "3.20.1",
+    "@tiptap/extension-text-align": "3.20.1",
+    "@tiptap/pm": "3.20.1"
+  }
+}

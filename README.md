@@ -1,0 +1,103 @@
+# Kindling / Press
+
+Portable design-system source · **0.3.0** · `@kindling/design-system`
+
+Public source repository: [smith-and-web/press](https://github.com/smith-and-web/press).
+
+Open **index.html** directly in a browser for the standalone reference. It uses local CSS, JavaScript, logos, and fonts; no server, installation, network request, or framework is required. Keep this folder together when moving it.
+
+## Install locally
+
+From this package root, with Node 20 or newer and npm installed:
+
+```sh
+npm pack
+```
+
+This creates `kindling-design-system-0.3.0.tgz`. Put the archive inside your consumer repository, for example `vendor/`, then run from that repository:
+
+```sh
+npm install --save-exact ./vendor/kindling-design-system-0.3.0.tgz
+```
+
+The package keeps `private: true` to prevent npm registry publication. Public GitHub hosting does not imply a published npm package or an open-source license. The prebuilt HTML reference needs no installation. Svelte consumers use the optional Svelte peer; the WYSIWYG editor entry additionally uses optional Tiptap peers. Node is required for rebuilding the reference and package tooling.
+
+For a CSS-aware bundler:
+
+```css
+@import "@kindling/design-system";
+```
+
+For plain HTML, copy this folder into `vendor/kindling-design-system/` inside your site:
+
+```html
+<link rel="stylesheet" href="./vendor/kindling-design-system/design-system/index.css">
+```
+
+This full entry applies the existing global reset and element styles. Existing applications can instead adopt fonts and tokens first. See [integration guidance](docs/INTEGRATION.md).
+
+## Contents
+
+- `design-system/`: canonical CSS tokens, generated JSON, unchanged reusable component CSS, local font declarations, aggregate CSS entry and generator.
+- `assets/`: original source SVG, logo variants, PNGs, favicons, app icons, social art, fonts and optional maintenance scripts.
+- `index.html` and `reference/`: standalone reference and its presentation assets.
+- `docs/`: current Press guide, integration, governance, migration, provenance and baseline records.
+- `licenses/`: retrieved font OFL notices and the bundled Fraunces embedded notice.
+
+## Maintain
+
+```sh
+npm run tokens:generate
+npm run tokens:check
+```
+
+Edit `design-system/tokens.css`, never the JSON mirror. Token names and the JSON `light` / `dark` schema are the compatibility API. Component selectors are also public API.
+
+Read [governance and release](docs/GOVERNANCE.md), [migration](docs/MIGRATION.md), [Press rules](docs/DESIGN_GUIDE.md), and [provenance](docs/PROVENANCE.md) before changing shared values.
+
+## Rights and scope
+
+Font license texts are bundled. The source repository did not supply a license grant for Kindling artwork or design-system code; `UNLICENSED` does not assign an open-source license. See [LICENSE.md](LICENSE.md). This repository publishes the Press package. The original Kindling application and website repositories are separate and unchanged.
+
+The token generator also refreshes `reference/tokens.js`, the browser-readable mirror used by the offline token explorer. It is generated from the same CSS in the same command; the drift command covers both mirrors. Do not hand-edit it.
+
+## Website components (0.2.0)
+
+The reference now separates **Website** and **Application**. The website catalog contains twelve reusable patterns drawn from the linked website code and editorial redesign, with live examples, copyable markup and source notes. The application section preserves the existing control, prose and feedback examples.
+
+Website styles are optional and are not added to the root CSS entry:
+
+```css
+@import "@kindling/design-system/fonts.css";
+@import "@kindling/design-system/tokens.css";
+@import "@kindling/design-system/website.css";
+```
+
+```js
+import '@kindling/design-system/website.js';
+```
+
+Wrap the relevant surface in `.press-web`. This is an explicit **light** website theme with Inter website copy, Fraunces headings and Newsreader manuscript prose. The shared canonical tokens are unchanged. See [website APIs and specimens](docs/WEBSITE_COMPONENTS.md).
+
+## Svelte application components
+
+The optional `@kindling/design-system/svelte` entry provides 22 Svelte 5 components. Import `application.css` after fonts and tokens. The root CSS entry and Website APIs remain unchanged.
+
+Open the Application section in `index.html` for 12 working recipes and all 147 original reference baselines. The distributed browser bundle is already compiled; opening the reference does not require Svelte or Node. Rebuild it with `npm install` and `npm run reference:application`.
+
+See [Application components](docs/APPLICATION_COMPONENTS.md) for props, example source, baseline mappings, and incremental adoption without replacing existing stores, APIs, or editors.
+
+## Prose editor
+
+The optional `@kindling/design-system/svelte/editor` entry exports `NovelEditor` and `ProseToolbar`. It preserves page-like manuscript presentation, rich HTML, formatting, and undo/redo. See [editor APIs and app adapters](docs/APPLICATION_COMPONENTS.md#page-like-wysiwyg-prose).
+
+## Clone and develop
+
+```sh
+git clone git@github.com:smith-and-web/press.git
+cd press
+npm install
+npm run reference:application
+```
+
+The committed browser bundle is ready to open through `index.html`. Keep generated reference files alongside their editable sources.

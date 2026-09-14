@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+*.tgz
+.env
+.env.*
+!.env.example
+.od-*/
+.file-versions/
+*.artifact.json
+drawing-*.png
+docs/changes/

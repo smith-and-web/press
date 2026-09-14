@@ -1,0 +1,48 @@
+{
+  "upstreamCommit": "809e4d8b8d7e9364a914909bb777679606c178b8",
+  "retrieved": "2026-09-13",
+  "files": [
+    {
+      "family": "inter",
+      "file": "assets/fonts/Inter[opsz,wght].ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "family": "inter",
+      "file": "assets/fonts/Inter-Italic[opsz,wght].ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/inter/Inter-Italic%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "acd98e64795781b2058f07b18475e0ecee2a0fe2b42a49e2f9e37d0d6bf66ce6"
+    },
+    {
+      "family": "newsreader",
+      "file": "assets/fonts/Newsreader[opsz,wght].ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/newsreader/Newsreader%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "8a08d13f8a6c0d51be379a60af84f945f65369a67e509ee3c3bdcc421254d7c1"
+    },
+    {
+      "family": "newsreader",
+      "file": "assets/fonts/Newsreader-Italic[opsz,wght].ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/newsreader/Newsreader-Italic%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "796668611f80b64d5adf182fde3b6f29ed83b4e7cbec7b96937e84ac01364792"
+    },
+    {
+      "family": "fraunces",
+      "file": "licenses/fraunces/OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/fraunces/OFL.txt",
+      "sha256": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b"
+    },
+    {
+      "family": "inter",
+      "file": "licenses/inter/OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/inter/OFL.txt",
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "family": "newsreader",
+      "file": "licenses/newsreader/OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/809e4d8b8d7e9364a914909bb777679606c178b8/ofl/newsreader/OFL.txt",
+      "sha256": "fdfad38143ec470553cae82a1e45320bdd1b9ec70415d37bd0171051d8a4ded8"
+    }
+  ]
+}

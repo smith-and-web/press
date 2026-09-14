@@ -1,0 +1,38 @@
+/* Catalog chrome only. Reusable website components live in design-system/website.css. */
+.sidebar .nav-group-label { margin: var(--space-m) 0 var(--space-2xs); font-size: var(--text-eyebrow); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); color: var(--color-text-muted); }
+.sidebar .sidebar-foot { margin-top: var(--space-xl); }
+.catalog-shortcuts { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-s); border-bottom: var(--border-hair); padding: var(--space-s) 0; }
+.catalog-shortcuts p { font-size: var(--text-small); color: var(--color-text-muted); }
+.catalog-shortcuts a { display: inline-flex; align-items: center; gap: var(--space-2xs); min-height: 44px; font-size: var(--text-small); }
+.catalog-actions { display: flex; flex-wrap: wrap; gap: var(--space-m); }
+.catalog-lead { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--space-s); }
+.catalog-lead .release { font-size: var(--text-eyebrow); }
+.catalog-meta { display: flex; flex-wrap: wrap; gap: var(--space-s); margin: var(--space-m) 0 var(--space-l); font-size: var(--text-small); color: var(--color-text-muted); }
+.catalog-toc { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0 var(--space-m); margin-bottom: var(--space-xl); }
+.catalog-toc a { display: flex; align-items: baseline; gap: var(--space-xs); border-top: var(--border-hair); min-height: 48px; padding: var(--space-xs) 0; font-size: var(--text-small); color: var(--color-text); text-decoration: none; }
+.catalog-toc .catalog-num { display: block; color: var(--color-text-muted); font: var(--text-eyebrow)/var(--leading) var(--font-mono); }
+.website-specimen { padding-top: var(--space-xl); margin-top: var(--space-xl); border-top: var(--border-hair); scroll-margin-top: var(--space-m); }
+.website-specimen:first-of-type { margin-top: 0; }
+.specimen-heading { display: grid; grid-template-columns: 40px minmax(0,1fr); gap: var(--space-s); margin-bottom: var(--space-m); }
+.specimen-heading .catalog-num { display: block; font: var(--text-small)/var(--leading) var(--font-mono); color: var(--color-text-muted); padding-top: var(--space-3xs); }
+.specimen-heading h3 { margin-bottom: var(--space-2xs); font-size: var(--text-h3); }
+.specimen-heading p { font: var(--text-body)/var(--leading) var(--font-body); max-width: var(--measure); }
+.specimen-surface { border: var(--border-hair); }
+.specimen-source { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-m); margin-top: var(--space-xs); font-size: var(--text-eyebrow); color: var(--color-text-muted); }
+.specimen-source code { font: inherit; overflow-wrap: anywhere; }
+.specimen-code { margin-top: var(--space-s); border-bottom: var(--border-hair); }
+.specimen-code > summary { font-weight: 500; }
+.specimen-code .code-block { margin-bottom: var(--space-m); }
+.specimen-code pre { max-height: 360px; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-3xs); }
+.specimen-usage { display: grid; gap: var(--space-xs); margin-bottom: var(--space-m); font-size: var(--text-small); line-height: var(--leading-relaxed); }
+.specimen-usage p { max-width: var(--measure); }
+.website-endnote { margin-top: var(--space-l); }
+@media (hover:hover) { .catalog-toc a:hover { color: var(--color-accent-text); text-decoration: underline; } }
+@media (max-width:1023px) { .catalog-toc { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width:767px) {
+  .sidebar .nav-group-label { display: none; }
+  .website-specimen { padding-top: var(--space-l); margin-top: var(--space-l); }
+  .specimen-heading { grid-template-columns: 24px minmax(0,1fr); gap: var(--space-xs); }
+  .specimen-source { font-size: var(--text-small); }
+}
+@media (max-width:374px) { .catalog-toc { grid-template-columns: 1fr; } }

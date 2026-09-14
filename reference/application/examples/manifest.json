@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Button",
+    "description": "A native action with explicit hierarchy and progress feedback.",
+    "states": "Primary \u00b7 secondary \u00b7 ghost \u00b7 danger \u00b7 busy \u00b7 disabled"
+  },
+  {
+    "name": "IconButton",
+    "description": "Compact actions keep an accessible name and a consistent touch target.",
+    "states": "Default \u00b7 pressed \u00b7 disabled"
+  },
+  {
+    "name": "Field",
+    "description": "Labeled inputs and prose fields share validation, help, and error placement.",
+    "states": "Text \u00b7 email \u00b7 textarea \u00b7 required \u00b7 readonly \u00b7 disabled"
+  },
+  {
+    "name": "Checkbox",
+    "description": "A native checkbox combines its label, helper text, and selected value.",
+    "states": "Unchecked \u00b7 checked \u00b7 disabled"
+  },
+  {
+    "name": "Select",
+    "description": "Native selection keeps labels and disabled choices predictable.",
+    "states": "Selected option \u00b7 disabled option \u00b7 disabled field"
+  },
+  {
+    "name": "SegmentedControl",
+    "description": "A small set of mutually exclusive choices, implemented as native radios.",
+    "states": "Selected \u00b7 unselected \u00b7 disabled option"
+  },
+  {
+    "name": "Tabs",
+    "description": "Related panels use arrow-key navigation while editable data stays with the owner.",
+    "states": "Selected panel \u00b7 disabled tab \u00b7 preserved field value"
+  },
+  {
+    "name": "Badge",
+    "description": "Status meaning stays visible in text across every semantic tone.",
+    "states": "Neutral \u00b7 accent \u00b7 success \u00b7 error \u00b7 warning"
+  },
+  {
+    "name": "Progress",
+    "description": "Counts and a labeled progress bar describe the same goal.",
+    "states": "Zero \u00b7 partial \u00b7 completed"
+  },
+  {
+    "name": "EmptyState",
+    "description": "An empty surface explains what is missing and offers a relevant next action.",
+    "states": "Empty \u00b7 populated \u00b7 reset"
+  },
+  {
+    "name": "Notice",
+    "description": "Feedback pairs a clear result with a next step when one is needed.",
+    "states": "Information \u00b7 success \u00b7 warning \u00b7 error with retry"
+  },
+  {
+    "name": "Dialog",
+    "description": "A focused form with a title, validation, footer actions, and a return path.",
+    "states": "Closed \u00b7 open \u00b7 validation \u00b7 saved \u00b7 canceled"
+  },
+  {
+    "name": "Panel",
+    "description": "A reusable surface with an independent heading, content area, and action slot.",
+    "states": "Header \u00b7 subtitle \u00b7 actions \u00b7 changing content"
+  },
+  {
+    "name": "BeatItem",
+    "description": "A numbered beat opens onto a full manuscript page with the existing Tiptap writing behavior.",
+    "states": "Collapsed \u00b7 expanded \u00b7 rich text \u00b7 formatting \u00b7 undo/redo \u00b7 read only"
+  },
+  {
+    "name": "ManuscriptSurface",
+    "description": "A reading surface preserves the paper treatment within either theme.",
+    "states": "Heading \u00b7 subtitle \u00b7 full-flow prose"
+  },
+  {
+    "name": "StatGroup",
+    "description": "Values, captions, and attached units form a responsive summary.",
+    "states": "Numeric value \u00b7 text value \u00b7 unit"
+  },
+  {
+    "name": "NavigationTree",
+    "description": "Expandable groups and active scene selection retain the manuscript hierarchy.",
+    "states": "Expanded group \u00b7 collapsed group \u00b7 selected leaf \u00b7 disabled leaf"
+  },
+  {
+    "name": "TagPicker",
+    "description": "Existing tag IDs can be filtered, selected, and removed without moving persistence into the UI.",
+    "states": "Selected tags \u00b7 filtering \u00b7 removal \u00b7 no matches"
+  },
+  {
+    "name": "Menu",
+    "description": "Secondary commands appear in a keyboard-operable disclosure.",
+    "states": "Open \u00b7 closed \u00b7 selection \u00b7 disabled item"
+  },
+  {
+    "name": "CommandPalette",
+    "description": "Search commands, navigate results with arrow keys, and invoke an explicit callback.",
+    "states": "Open \u00b7 filtered \u00b7 empty \u00b7 selected command"
+  },
+  {
+    "name": "ShortcutRecorder",
+    "description": "Record a local key combination while respecting cancellation and reserved shortcuts.",
+    "states": "Recording \u00b7 assigned \u00b7 reserved \u00b7 cleared"
+  },
+  {
+    "name": "SearchResults",
+    "description": "Query highlighting, full details, pagination, and an empty state share one result list.",
+    "states": "Filtered \u00b7 highlighted \u00b7 paginated \u00b7 empty \u00b7 selected result"
+  }
+]

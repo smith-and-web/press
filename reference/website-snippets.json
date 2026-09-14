@@ -1,0 +1,113 @@
+{
+  "version": "0.2.0",
+  "items": [
+    {
+      "id": "web-navigation",
+      "title": "Navigation",
+      "description": "A quiet signature, useful links, and a single next step. The menu expands in place when space becomes narrow.",
+      "source": "Navbar.astro + redesign masthead",
+      "css": "pw-nav · pw-nav-links",
+      "usage": "Use one brand signature and one primary action. Menu IDs must be unique. Resize the browser or use a narrow container to expose the menu; Escape closes it and restores focus.",
+      "markup": "<div class=\"press-web\">\n  <nav class=\"pw-nav od-row\" data-pw-nav aria-label=\"Website specimen\">\n    <a class=\"pw-brand\" href=\"#website-components\"><img src=\"assets/svg/kindling-wordmark.svg\" width=\"6790\" height=\"1972\" alt=\"Kindling\"></a>\n    <button class=\"pw-menu\" type=\"button\" data-pw-menu aria-expanded=\"false\" aria-controls=\"sample-web-links\">Menu</button>\n    <div class=\"pw-nav-links od-cluster\" id=\"sample-web-links\" data-pw-links>\n      <a href=\"#web-features\" aria-current=\"page\">Features</a>\n      <a href=\"#web-releases\">Updates</a>\n      <a href=\"#web-disclosures\">FAQ</a>\n      <a href=\"docs/WEBSITE_COMPONENTS.md\">Docs</a>\n      <a href=\"#web-signup\">Contact</a>\n      <a class=\"pw-button\" href=\"#web-downloads\">Download <svg class=\"pw-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\"/></svg></a>\n    </div>\n  </nav>\n</div>"
+    },
+    {
+      "id": "web-hero",
+      "title": "Editorial hero",
+      "description": "One decisive heading beside a short introduction. The asymmetric grid gives each a clear role.",
+      "source": "Redesign / hero",
+      "css": "pw-hero · pw-hero-grid",
+      "usage": "Keep the title to a short idea and the introductory copy to a measured column. Use an h1 when this is the page hero; the catalog uses h4. The action leads to the local platform specimen.",
+      "markup": "<div class=\"press-web\">\n  <section class=\"pw-hero\">\n    <p class=\"pw-label\">A writing space for your story</p>\n    <div class=\"pw-hero-grid\">\n      <h4 class=\"pw-hero-title\">Keep your outline close.<br><em>Keep writing.</em></h4>\n      <div class=\"pw-stack od-stack\">\n        <p>Draft one scene at a time, with your beats, characters, and notes close at hand.</p>\n        <a class=\"pw-button\" href=\"#web-downloads\">Download Kindling <svg class=\"pw-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\"/></svg></a>\n        <p class=\"pw-note\">macOS · Windows · Linux</p>\n      </div>\n    </div>\n  </section>\n</div>"
+    },
+    {
+      "id": "web-writing",
+      "title": "Writing demo",
+      "description": "Choose a beat and reveal the words it becomes. Interface copy is Inter; the manuscript is Newsreader.",
+      "source": "Redesign / The Letter scene; WritingDemo.astro",
+      "css": "pw-writing · data-pw-beats",
+      "usage": "Keep the sample visibly separate from the actual application. Radios retain native arrow-key behavior. Use unique radio names for each copy. Without JavaScript the full sample remains readable.",
+      "markup": "<div class=\"press-web\">\n  <div class=\"pw-writing\">\n    <div class=\"pw-scene\">\n      <p class=\"pw-label\">The Letter / Chapter 1</p>\n      <h4 class=\"pw-scene-title\">On the Cliff</h4>\n      <p class=\"pw-note\">Eleanor discovers a letter revealing her father may not be who he claims.</p>\n      <fieldset class=\"pw-beats\" data-pw-beats>\n        <legend class=\"pw-label\">Choose a scene beat</legend>\n        <div class=\"pw-beat\">\n          <label class=\"pw-beat-choice\" for=\"web-beat-1\"><input id=\"web-beat-1\" type=\"radio\" name=\"website-beat\" value=\"1\" data-pw-beat checked><span>Eleanor reads the letter</span></label>\n          <div class=\"pw-draft\" data-pw-draft=\"1\" role=\"region\" aria-label=\"Draft for Eleanor reads the letter\"><p class=\"pw-prose\">Eleanor Blackwood had always known this day would come.</p><p class=\"pw-prose\">The letter in her pocket—crumpled now from being read a dozen times—confirmed what she’d long suspected: her father was not who he claimed to be.</p></div>\n        </div>\n        <div class=\"pw-beat\">\n          <label class=\"pw-beat-choice\" for=\"web-beat-2\"><input id=\"web-beat-2\" type=\"radio\" name=\"website-beat\" value=\"2\" data-pw-beat><span>Thomas arrives at the cliff</span></label>\n          <div class=\"pw-draft\" data-pw-draft=\"2\" role=\"region\" aria-label=\"Draft for Thomas arrives\"><p class=\"pw-prose\">It was only Thomas, the relief keeper, with his coat buttoned wrong and his hair full of weather. He stopped when he saw her face.</p><p class=\"pw-prose\">“You’ve found it, then,” he said.</p></div>\n        </div>\n        <div class=\"pw-beat\">\n          <label class=\"pw-beat-choice\" for=\"web-beat-3\"><input id=\"web-beat-3\" type=\"radio\" name=\"website-beat\" value=\"3\" data-pw-beat><span>One stair is missing</span></label>\n          <div class=\"pw-draft\" data-pw-draft=\"3\" role=\"region\" aria-label=\"Draft for One stair is missing\"><p class=\"pw-prose\">There were eighty-seven steps to the lamp room. Eleanor counted them twice.</p><p class=\"pw-prose\">She had climbed eighty-eight every night since she was old enough to carry the oil.</p></div>\n        </div>\n      </fieldset>\n    </div>\n    <aside class=\"pw-references\" aria-label=\"Sample scene references\">\n      <h4>References</h4><p class=\"pw-note\">Linked to this scene</p>\n      <div class=\"pw-reference\"><p class=\"pw-label\">Character</p><h4>Eleanor Blackwood</h4><p>Raised at Kestrel Point. Reads the sea better than she reads people.</p></div>\n      <div class=\"pw-reference\"><p class=\"pw-label\">Item</p><h4>The Sealed Letter</h4><p>Cream laid paper, elegant hand, no postmark. Signed M.W.</p></div>\n    </aside>\n  </div>\n</div>"
+    },
+    {
+      "id": "web-trust",
+      "title": "Trust strip",
+      "description": "A raised surface creates a calm pause between the hero and the story below.",
+      "source": "Redesign / trust-band",
+      "css": "pw-trust",
+      "usage": "Keep this strip factual and quiet. These are descriptive sample labels, not verified trust metrics. No writer-count claim from the prototype is carried into the package.",
+      "markup": "<div class=\"press-web\">\n  <ul class=\"pw-trust\">\n    <li>Your outline, close at hand</li><li>Your story, in focus</li><li>Your references, alongside</li><li>Your words. Your data.</li>\n  </ul>\n</div>"
+    },
+    {
+      "id": "web-section-heading",
+      "title": "Section heading & quotation",
+      "description": "A consistent left column creates a reading anchor. The heading and supporting copy share a generous second column.",
+      "source": "Redesign / plan-to-page and section alignment",
+      "css": "pw-section-head · pw-quote",
+      "usage": "Repeat the same column alignment through the page. A quotation is a deliberate typographic break, not a testimonial unless its source is established. The line below is editorial sample copy.",
+      "markup": "<div class=\"press-web\">\n  <section class=\"pw-pad\">\n    <header class=\"pw-section-head\">\n      <p class=\"pw-label\">02 / From plan to page</p>\n      <div><h4 class=\"pw-heading pw-section-title\">You planned every beat.<br>Then you opened a blank document.</h4><p>Bring the outline, the manuscript, and the details of your story into one focused space.</p></div>\n    </header>\n    <blockquote class=\"pw-quote\">Your outline stays with the words it becomes.</blockquote>\n  </section>\n</div>"
+    },
+    {
+      "id": "web-features",
+      "title": "Aligned feature columns",
+      "description": "Shared tracks align labels, headings, copy, and consistently sized reference images.",
+      "source": "Redesign / latest feature alignment + four product images",
+      "css": "pw-feature-grid · pw-feature · pw-image-frame",
+      "usage": "Use matched content roles in each feature. Every reference image uses the same responsive 4:3 frame, with the full image contained inside it. Images illustrate the layout only; their intrinsic proportions remain intact. Long copy can increase a shared row’s height.",
+      "markup": "<div class=\"press-web\">\n  <div class=\"pw-pad\"><div class=\"pw-feature-grid\">\n    <article class=\"pw-feature\">\n      <p class=\"pw-label\">Core feature</p><h4 class=\"pw-feature-title\">Outline-aware drafting</h4>\n      <p class=\"pw-problem\">Keep the plan beside the page.</p><p>Scene beats stay inside the writing space, close to the draft they guide.</p>\n      <figure><div class=\"pw-image-frame\"><img class=\"od-media\" src=\"assets/website/beat-with-prose.png\" width=\"1472\" height=\"1178\" alt=\"Kindling scene beat expanded to show the manuscript\"></div></figure>\n    </article>\n    <article class=\"pw-feature\">\n      <p class=\"pw-label\">Stay in flow</p><h4 class=\"pw-feature-title\">References panel</h4>\n      <p class=\"pw-problem\">Keep the details close.</p><p>Characters and locations sit alongside the scene, ready when you need them.</p>\n      <figure><div class=\"pw-image-frame\"><img class=\"od-media\" src=\"assets/website/references-panel.png\" width=\"1280\" height=\"1024\" alt=\"Kindling references panel with Eleanor Blackwood’s character details\"></div></figure>\n    </article>\n    <article class=\"pw-feature\">\n      <p class=\"pw-label\">Your pace</p><h4 class=\"pw-feature-title\">Rolling outline</h4>\n      <p class=\"pw-problem\">Choose how much to plan.</p><p>Fixed, Flexible, and Undefined states give each scene the structure it needs.</p>\n      <figure><div class=\"pw-image-frame\"><img class=\"od-media\" src=\"assets/website/planning-states.png\" width=\"2280\" height=\"1170\" alt=\"Kindling scene using the Flexible planning state\"></div></figure>\n    </article>\n    <article class=\"pw-feature\">\n      <p class=\"pw-label\">Your tools</p><h4 class=\"pw-feature-title\">Import & export</h4>\n      <p class=\"pw-problem\">Bring the work you already have.</p><p>A clear entry point for outlines and manuscripts from other writing tools.</p>\n      <figure><div class=\"pw-image-frame\"><img class=\"od-media\" src=\"assets/website/import-formats.png\" width=\"1060\" height=\"848\" alt=\"Kindling import dialog listing supported outline sources\"></div></figure>\n    </article>\n  </div></div>\n</div>"
+    },
+    {
+      "id": "web-releases",
+      "title": "Release-note rows",
+      "description": "A hairline-led sequence gives announcements shape without turning every idea into a card.",
+      "source": "Redesign / spotlight release rows",
+      "css": "pw-release-grid · pw-release-item",
+      "usage": "Align the action after the supporting text. This specimen uses component-catalog announcements, so it does not imply a current application release. Replace links with your real release destinations.",
+      "markup": "<div class=\"press-web\">\n  <section class=\"pw-pad pw-stack od-stack\">\n    <header class=\"pw-section-head\"><p class=\"pw-label\">Inside the foundation</p><div><h4 class=\"pw-heading pw-section-title\">A shared language.<br>Ready for the website.</h4></div></header>\n    <div class=\"pw-release-grid\">\n      <article class=\"pw-release-item\"><h4>Meet the website layer</h4><p>Reusable patterns, scoped to Press. Bring in what your page needs.</p><a class=\"pw-link\" href=\"docs/WEBSITE_COMPONENTS.md\">Read the component guide <svg class=\"pw-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\"/></svg></a></article>\n      <article class=\"pw-release-item\"><h4>Keep the story in view</h4><p>A beat selector brings the relationship between plan and prose to life.</p><a class=\"pw-link\" href=\"#web-writing\">Try the writing demo <svg class=\"pw-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\"/></svg></a></article>\n    </div>\n  </section>\n</div>"
+    },
+    {
+      "id": "web-downloads",
+      "title": "Platform choices",
+      "description": "Make the platform explicit and keep the next action close. Selection changes the supporting guidance.",
+      "source": "kindling-splash / download/index.astro",
+      "css": "pw-platforms · data-pw-platform",
+      "usage": "Use platform-specific metadata from your actual release system in production. This specimen changes local guidance only and does not download an app binary. Native radio controls remain keyboard accessible.",
+      "markup": "<div class=\"press-web\">\n  <div class=\"pw-pad\" data-pw-platform>\n    <fieldset class=\"pw-platforms\"><legend>Choose your platform</legend>\n      <div class=\"pw-platform-options od-cluster\">\n        <label class=\"pw-platform-option\"><input type=\"radio\" name=\"web-platform\" value=\"macOS\" checked data-pw-platform-choice data-pw-description=\"macOS selected. Check your Mac’s architecture before choosing an installer.\">macOS</label>\n        <label class=\"pw-platform-option\"><input type=\"radio\" name=\"web-platform\" value=\"Windows\" data-pw-platform-choice data-pw-description=\"Windows selected. Choose the supported installer from the application’s release page.\">Windows</label>\n        <label class=\"pw-platform-option\"><input type=\"radio\" name=\"web-platform\" value=\"Linux\" data-pw-platform-choice data-pw-description=\"Linux selected. Choose the package format appropriate to your distribution.\">Linux</label>\n      </div>\n    </fieldset>\n    <div class=\"pw-platform-result od-stack\"><p data-pw-platform-result role=\"status\">macOS selected. Check your Mac’s architecture before choosing an installer.</p><a class=\"pw-button\" href=\"docs/WEBSITE_COMPONENTS.md#behavior-contracts\">Integration guidance <svg class=\"pw-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\"/></svg></a><p class=\"pw-note\">Component example only. No installer is downloaded.</p></div>\n  </div>\n</div>"
+    },
+    {
+      "id": "web-signup",
+      "title": "Signup form",
+      "description": "A persistent label, one action, and useful feedback. Errors explain how to continue.",
+      "source": "kindling-splash / download signup",
+      "css": "pw-signup · data-pw-signup",
+      "usage": "Try an empty or malformed address and leave the field. A valid address produces local feedback only. Replace the demo handler with your own integration before offering real subscriptions.",
+      "markup": "<div class=\"press-web\">\n  <section class=\"pw-pad pw-stack od-stack\">\n    <div class=\"pw-stack od-stack\"><p class=\"pw-label\">Keep in touch</p><h4 class=\"pw-section-title\">A note when there’s news.</h4><p>One considered update at a time.</p></div>\n    <form class=\"pw-signup\" data-pw-signup novalidate>\n      <label for=\"web-signup-email\">Email address (required)</label>\n      <div class=\"pw-form-row\"><input id=\"web-signup-email\" name=\"email\" type=\"email\" required autocomplete=\"email\" placeholder=\"you@example.com\" aria-describedby=\"web-email-error web-email-help\" aria-invalid=\"false\"><button class=\"pw-button\" type=\"submit\" formmethod=\"dialog\">Try signup</button></div>\n      <p class=\"pw-error\" id=\"web-email-error\" data-pw-error hidden></p>\n      <p class=\"pw-note\" id=\"web-email-help\">Local example. Your address is not sent or stored.</p>\n      <p class=\"pw-form-status\" data-pw-status role=\"status\"></p>\n    </form>\n  </section>\n</div>"
+    },
+    {
+      "id": "web-disclosures",
+      "title": "Disclosures",
+      "description": "Hairlines establish the rhythm. Native disclosure behavior keeps answers close without hiding the question.",
+      "source": "kindling-splash / download disclosures + FAQ structure",
+      "css": "pw-disclosure",
+      "usage": "Use for secondary explanations, not the main navigation or primary message. Each summary is a complete question. Multiple answers may remain open; no JavaScript is needed.",
+      "markup": "<div class=\"press-web\">\n  <div class=\"pw-pad\">\n    <details class=\"pw-disclosure\" open><summary>Can I use these components without a framework?</summary><p>Yes. Load the local fonts, tokens, and website stylesheet, then use the HTML markup. Add the optional script for interactive patterns.</p></details>\n    <details class=\"pw-disclosure\"><summary>Does this change the application’s design?</summary><p>No. Website styles are opt-in and scoped. The canonical tokens and existing application examples remain available separately.</p></details>\n    <details class=\"pw-disclosure\"><summary>Where should I change a shared color?</summary><p>Edit the canonical tokens.css file, regenerate the mirrors, and release a new package version. Do not maintain a second palette in a consumer.</p></details>\n  </div>\n</div>"
+    },
+    {
+      "id": "web-closing",
+      "title": "Closing action",
+      "description": "End with a clear next step. One heading, one action, and enough space to make the choice obvious.",
+      "source": "Redesign / closing download section",
+      "css": "pw-closing · pw-closing-actions",
+      "usage": "Keep one primary action in this region. The local specimen points back to platform choices; a consumer page should provide its real next-step destination.",
+      "markup": "<div class=\"press-web\">\n  <section class=\"pw-closing\">\n    <div><p class=\"pw-label\">The next chapter is yours</p><h4 class=\"pw-heading pw-section-title\">Your outline is ready.<br>Start writing.</h4></div>\n    <div class=\"pw-closing-actions od-stack\"><a class=\"pw-button\" href=\"#web-downloads\">Choose your platform <svg class=\"pw-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\"/></svg></a><p class=\"pw-note\">macOS · Windows · Linux</p></div>\n  </section>\n</div>"
+    },
+    {
+      "id": "web-footer",
+      "title": "Footer",
+      "description": "A final signature and a compact set of useful destinations. The rhythm stays light, even at the end of the page.",
+      "source": "Footer.astro + redesign compact footer",
+      "css": "pw-footer · pw-footer-links",
+      "usage": "Group only the destinations this surface needs. The specimen links to local package documentation. Do not copy an app’s license claim into the separate design-system package.",
+      "markup": "<div class=\"press-web\">\n  <footer class=\"pw-footer\">\n    <div class=\"pw-footer-top\"><a class=\"pw-brand\" href=\"#website-components\"><img src=\"assets/svg/kindling-wordmark.svg\" width=\"6790\" height=\"1972\" alt=\"Kindling\"></a><nav class=\"pw-footer-links\" aria-label=\"Website specimen footer\"><a href=\"docs/WEBSITE_COMPONENTS.md\">Components</a><a href=\"docs/INTEGRATION.md\">Integration</a><a href=\"docs/PROVENANCE.md\">Provenance</a><a href=\"LICENSE.md\">Notices</a></nav></div>\n    <div class=\"pw-footer-bottom\"><p>Kindling / Press</p><p>Your words, your data, forever.</p></div>\n  </footer>\n</div>"
+    }
+  ]
+}

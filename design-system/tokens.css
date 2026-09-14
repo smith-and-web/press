@@ -126,6 +126,12 @@
   --page-frame:1120px;     /* outer editorial frame */
   --page-gutter:32px;
 
+  /* Minimum interactive target for a standalone control. Applies to pointer
+     and touch alike — touch-capable laptops and tablets are the common case,
+     not an edge one. Reach it with min-block-size and inline-flex so a label
+     keeps its own type size rather than being padded out of scale. */
+  --control-target:44px;
+
   /* ===== Paper grain =====
      A monochrome fractal-noise tile laid behind content so paper reads as
      stock rather than a flat fill. Tune --grain-strength (0 disables); never

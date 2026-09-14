@@ -287,6 +287,10 @@ bottom of its `.spotlight-item` with `margin-top: auto`, so a row of actions
 aligns across columns whose paragraphs differ in length. Prefer this to a link
 buried in the final sentence when every item ends in the same kind of move.
 
+**Secondary header action.** `.navbar-cta--secondary` — the header's download
+outlined rather than filled, so the page's own invitation is the only primary
+control in view. The header keeps access; it does not compete for the decision.
+
 **Accent rule.** `.accent-rule` — a 48×3px terracotta bar. Often *the* one
 terracotta moment in a section. One per section at most.
 
@@ -343,6 +347,14 @@ Checkable. If you cannot answer these by looking, the page is not finished.
 10. Form controls are at least `--text-base` (16px).
 11. Bands are full-bleed; cards are not.
 12. Icons are 1px line SVGs, monochrome.
+13. A standalone interactive control is at least `--control-target` (44px) in
+    both dimensions. Reach it with `min-block-size` and `inline-flex`, never by
+    inflating the label's type size. This holds for pointer as much as touch —
+    touch-capable laptops and tablets are the common case. An inline link
+    inside a sentence is not a standalone control.
+14. One primary-styled control per viewport. A persistent header action beside
+    an in-content invitation steps down to outlined or text; the invitation
+    keeps the fill.
 
 ---
 

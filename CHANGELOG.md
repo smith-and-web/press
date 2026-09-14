@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.8.0
+
+Two rules the system asserted but never encoded, both raised by a UX review of
+the kindling-splash development build.
+
+- **`--control-target` (44px)** and **hard rule 13**. The 44px contract existed
+  only as `--pw-touch` inside the opt-in website layer, so a consumer using the
+  foundation had no canonical target-size rule to follow — and did not meet it.
+  `.navbar-link` (~40px) and `.navbar-cta` (~38.4px) now reach it via
+  `min-block-size` and `inline-flex`, which keeps label type at its own size
+  instead of padding it out of scale. **This grows the navbar's control heights
+  by a few pixels; check any layout that assumed the old bounds.**
+- **`.navbar-cta--secondary`** and **hard rule 14**. One primary-styled control
+  per viewport. A persistent header download rendered solid terracotta beside
+  an in-content download competes with the decision it should support; the
+  header copy now steps down to outlined while the invitation keeps the fill.
+  Additive — `.navbar-cta` alone is unchanged.
+
+`.navbar-logo img` is matched alongside `.navbar-logo svg` so a consumer can
+use a supplied brand asset at its intrinsic ratio rather than inlining and
+cropping one.
+
+Consumers who accepted the old sub-44px navbar get taller controls on upgrade.
+Nothing is renamed or removed.
+
 ## 0.7.1
 
 Fix a screenshot crop at stacked widths, found in a UX review of the

@@ -160,6 +160,49 @@ body::before {
   line-height: var(--leading-relaxed);
 }
 
+/* Aligned section head — the running label holds its own column beside the
+   heading, so a run of sections shares one vertical reading edge and the page
+   reads as a set article rather than a stack of unrelated blocks. Opt in with
+   the modifier; `.section-lead` alone stays the stacked form. */
+.section-lead--aligned {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: var(--space-2xl);
+  align-items: start;
+  /* The heading column carries its own measure, so the block spans the frame. */
+  max-width: none;
+}
+.section-lead--aligned > .kicker { margin-bottom: 0; }
+.section-lead--aligned h2 { max-width: 24ch; text-wrap: balance; }
+.section-lead--aligned .section-standfirst {
+  margin-top: var(--space-m);
+  max-width: var(--measure);
+}
+
+/* Trust band — a full-bleed statement row on raised surface between hairlines.
+   A band, not a card: it steps the surface without a border-radius or shadow. */
+.trust-band {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.trust-band-items {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-m);
+  padding: var(--space-l) 0;
+  margin: 0;
+  list-style: none;
+}
+.trust-band-items > li {
+  min-width: 0;
+  text-align: center;
+  text-wrap: balance;
+  font-family: var(--font-ui);
+  font-size: var(--text-ui);
+  color: var(--color-text-muted);
+}
+
 /* Feature sequence — figure beside prose, hairline-separated rows.
    Each row carries a print-style folio (01 / 02 …) sitting in the gap under
    its dividing hairline — a quiet typographic ornament that gives the
@@ -272,6 +315,11 @@ body::before {
 .spotlight-item {
   padding: var(--space-m) 0;
   border-top: 1px solid var(--color-border);
+  /* Column so a trailing .spotlight-action can be pushed to a shared bottom
+     edge — otherwise links sit ragged wherever each paragraph happens to end. */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .spotlight-item h3 {
   font-family: var(--font-display);
@@ -285,8 +333,30 @@ body::before {
   color: var(--color-text);
   line-height: var(--leading);
 }
+/* Pushed to the bottom of its item so a row of actions aligns across columns. */
+.spotlight-action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: auto;
+  padding-top: var(--space-s);
+  font-family: var(--font-ui);
+  font-size: var(--text-ui);
+  font-weight: 600;
+  color: var(--color-accent-text);
+  text-decoration: none;
+}
+.spotlight-action:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 @media (max-width: 768px) {
+  .section-lead--aligned {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-s);
+  }
+  .trust-band-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .trust-band-items > li { text-align: left; }
   .feature-row,
   .feature-pair,
   .spotlight-list {

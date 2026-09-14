@@ -265,6 +265,28 @@ print mounted on board rather than an image flush to the page.
 **Print folio.** `counter(folio, decimal-leading-zero)` in the gutter of a
 feature sequence. A quiet typographic ornament that gives a sequence rhythm.
 
+**Running section label.** A numbered kicker — `01 / The writing space`,
+`02 / From plan to page` — on each major section of a long page. The folio's
+device applied at page scale: it turns a stack of sections into one set article
+and gives a reader a sense of place. Set in `.kicker` (Inter, muted, uppercase),
+**not** terracotta — a label on every section would blow the two-per-viewport
+accent budget. Number the sections a reader moves through, not every block.
+
+**Aligned section head.** `.section-lead--aligned` — the running label holds its
+own column (1fr) beside the heading and stand-first (2fr), so a run of sections
+shares one vertical reading edge. Use it when a page has three or more numbered
+sections; the plain stacked `.section-lead` is right for a single section.
+
+**Trust band.** `.trust-band` — a full-bleed row of short statements on raised
+surface between two hairlines. A band, not a card: no radius, no shadow. It is
+the one place a set of claims may sit in equal columns, because each is a
+fragment rather than a paragraph.
+
+**Shared action edge.** `.spotlight-action` — a trailing link pushed to the
+bottom of its `.spotlight-item` with `margin-top: auto`, so a row of actions
+aligns across columns whose paragraphs differ in length. Prefer this to a link
+buried in the final sentence when every item ends in the same kind of move.
+
 **Accent rule.** `.accent-rule` — a 48×3px terracotta bar. Often *the* one
 terracotta moment in a section. One per section at most.
 

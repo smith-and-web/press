@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.6.0
+
+Additive composition layer, promoted from the Open Design homepage prototype
+that the website layer was originally extracted from. The prototype carried
+four compositional ideas the canonical layer never had; they existed only as
+`pw-*` classes, so the site — which consumes `components.css`, not the opt-in
+website layer — could not reach them without a competing cascade.
+
+- `.section-lead--aligned` — the running label holds its own column beside the
+  heading and stand-first, so a run of sections shares one vertical reading
+  edge. Mirrors `pw-section-head` in the canonical vocabulary. `.section-lead`
+  alone is unchanged and remains the stacked form.
+- `.trust-band` / `.trust-band-items` — a full-bleed row of short statements on
+  raised surface between two hairlines. A band, not a card.
+- `.spotlight-action` — a trailing link pushed to its item's bottom edge with
+  `margin-top: auto`, so a row of actions aligns across columns whose
+  paragraphs differ in length. `.spotlight-item` gains `display: flex` to carry
+  it; its padding, hairline and type are unchanged.
+- `DESIGN_GUIDE.md` gains four named devices: **running section label**,
+  **aligned section head**, **trust band**, **shared action edge**.
+
+The prototype set its section labels in terracotta. That is recorded in the
+guide as explicitly *not* adopted: a label on every section would blow the
+two-accents-per-viewport rule, so the running label stays muted Inter.
+
+No existing selector changes behaviour, so this is a minor. Consumers on 0.5.0
+need take no action; the new classes are opt-in.
+
 ## 0.5.0
 
 **Breaking (website layer):** `.pw-feature-grid` no longer lays features out as

@@ -1,6 +1,6 @@
 # Kindling / Press
 
-Portable design-system source · **0.4.0** · `@kindling/design-system`
+Portable design-system source · **0.4.1** · `@kindling/design-system`
 
 Public source repository: [smith-and-web/press](https://github.com/smith-and-web/press).
 
@@ -14,10 +14,10 @@ From this package root, with Node 20 or newer and npm installed:
 npm pack
 ```
 
-This creates `kindling-design-system-0.4.0.tgz`. Put the archive inside your consumer repository, for example `vendor/`, then run from that repository:
+This creates `kindling-design-system-0.4.1.tgz`. Put the archive inside your consumer repository, for example `vendor/`, then run from that repository:
 
 ```sh
-npm install --save-exact ./vendor/kindling-design-system-0.4.0.tgz
+npm install --save-exact ./vendor/kindling-design-system-0.4.1.tgz
 ```
 
 The package keeps `private: true` to prevent npm registry publication. Public GitHub hosting does not imply a published npm package or an open-source license. The prebuilt HTML reference needs no installation. Svelte consumers use the optional Svelte peer; the WYSIWYG editor entry additionally uses optional Tiptap peers. Node is required for rebuilding the reference and package tooling.
@@ -105,8 +105,13 @@ The committed browser bundle is ready to open through `index.html`. Keep generat
 
 ## Open Design package
 
-Import this repository as a design system and select Press. [DESIGN.md](DESIGN.md) is the current design brief, [SKILLS.md](SKILLS.md) indexes four portable skills, and [the setup guide](docs/OPEN_DESIGN.md) explains the native manifest, local import and skill handoff. Skills are provided for you to add through Integration → Skills; they are not installed automatically.
+Use existing-package installation when available; the source-extraction wizard is a different workflow and can substitute generic defaults for a folder-only input. [DESIGN.md](DESIGN.md) is the current design brief, [SKILLS.md](SKILLS.md) indexes four portable skills, and [the setup guide](docs/OPEN_DESIGN.md) explains the native manifest, local import and skill handoff. Skills are provided for you to add through Integration → Skills; they are not installed automatically.
 
 The package includes generated `tokens.css` and `colors_and_type.css`, a compact [component fixture](components.html), seven focused pages in `preview/`, and a working [Svelte application kit](ui_kits/app/index.html). The kit retains page-style WYSIWYG prose and keeps edits in memory. The full catalog, source context, baseline images and licensed local fonts remain in the repository.
 
 Use `npm run open-design:build` after changing its source inputs. See [USAGE.md](USAGE.md) for the reuse workflow and entry selection. Keep all local assets with the package; the source CSS remains authoritative. No Open Design runtime installation or import audit is implied by these files.
+
+
+### Recovering from a generic “Product” extraction
+
+See [the diagnosis](docs/OPEN_DESIGN_DEBUG.md) and [recovery instructions](docs/OPEN_DESIGN.md). For the constrained extraction fallback, paste the complete [OPEN_DESIGN_INPUT.md](OPEN_DESIGN_INPUT.md) into the DESIGN.md input rather than selecting the whole folder without a brief. This is a generated light-theme brand summary, not a transfer of the complete library. Rebuild it and DESIGN.md metadata with `npm run open-design:metadata`. The active Open Design system and saved memory are not changed by this package update.

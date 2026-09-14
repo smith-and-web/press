@@ -1,6 +1,6 @@
 {
   "name": "@kindling/design-system",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "description": "Kindling Press: portable tokens, component CSS, typography and brand assets.",
   "license": "UNLICENSED",
@@ -52,7 +52,8 @@
     "skills/",
     "scripts/",
     "preview/",
-    "ui_kits/"
+    "ui_kits/",
+    "OPEN_DESIGN_INPUT.md"
   ],
   "sideEffects": [
     "**/*.css",
@@ -63,7 +64,8 @@
     "tokens:check": "node design-system/generate-tokens.mjs --check",
     "reference:website": "node reference/generate-website-reference.mjs",
     "reference:application": "node reference/application/build.mjs",
-    "open-design:build": "node scripts/build-open-design.mjs"
+    "open-design:build": "node scripts/build-open-design.mjs",
+    "open-design:metadata": "node scripts/build-open-design.mjs --metadata-only"
   },
   "engines": {
     "node": ">=20"

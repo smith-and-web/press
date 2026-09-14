@@ -4,7 +4,13 @@ import {dirname,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createRequire} from 'node:module';
 import {componentInventory} from './component-inventory.mjs';
+import {buildDesignInput} from './build-design-input.mjs';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+await buildDesignInput();
+if(process.argv.includes('--metadata-only')) {
+  console.log('Generated Press extraction metadata; existing previews and bundles retained.');
+  process.exit(0);
+}
 const argument=process.argv.indexOf('--toolchain');
 const toolchain=argument<0?root:resolve(process.argv[argument+1]);
 const require=createRequire(resolve(toolchain,'package.json'));

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1
+
+- Diagnose Open Design’s synthetic Product seed and 120-file browser upload cap.
+- Add generated Press palette/font metadata and OPEN_DESIGN_INPUT.md for explicit Markdown input. Preserve the authored design guide and canonical token values.
+- Separate existing-package installation from source extraction in setup instructions and document recovery limits.
+- Add a metadata-only generation command; existing component APIs and browser bundles are unchanged.
+
 ## 0.4.0
 
 - Add root DESIGN.md, native Open Design manifest, generated token/font entries, component fixture and inventory, usage guide and seven focused HTML previews.

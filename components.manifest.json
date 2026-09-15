@@ -9,7 +9,7 @@
     "title": "Component source and specimens — Press",
     "description": "Static fixture inventory; working Svelte examples are linked from components.html.",
     "styleBlockCount": 1,
-    "selectorCount": 112,
+    "selectorCount": 119,
     "classCount": 10,
     "elementCount": 30
   },
@@ -214,6 +214,7 @@
       "--font-display",
       "--font-mono",
       "--font-ui",
+      "--ka-gap",
       "--ka-heading",
       "--ka-motion",
       "--ka-pad",
@@ -359,6 +360,7 @@
       "--z-toast"
     ],
     "undeclaredReferenced": [
+      "--ka-gap",
       "--ka-heading",
       "--ka-motion",
       "--ka-pad",
@@ -403,17 +405,21 @@
     ".ka-button:not(:disabled):hover",
     ".ka-check",
     ".ka-check label",
-    ".ka-command-list",
-    ".ka-command-selected",
+    ".ka-code",
+    ".ka-command-list button",
+    ".ka-command-list small",
     ".ka-dialog-body",
     ".ka-dialog-footer",
     ".ka-dialog-header h3",
     ".ka-dialog::backdrop",
     ".ka-dialog:not([open])",
     ".ka-dialog[open]",
-    ".ka-disclosure>div",
-    ".ka-disclosure>summary",
+    ".ka-disclosure",
+    ".ka-disclosure>summary::-webkit-details-marker",
     ".ka-empty h4",
+    ".ka-facts",
+    ".ka-facts dd",
+    ".ka-facts>div",
     ".ka-field [aria-invalid=\"true\"]",
     ".ka-field label",
     ".ka-field textarea",
@@ -423,9 +429,9 @@
     ".ka-manuscript header p",
     ".ka-manuscript-prose p+p",
     ".ka-manuscript>header",
+    ".ka-menu",
     ".ka-menu-list",
-    ".ka-menu-list>button",
-    ".ka-menu>summary",
+    ".ka-menu>summary::-webkit-details-marker",
     ".ka-notice",
     ".ka-notice--error",
     ".ka-notice--warning",
@@ -434,23 +440,25 @@
     ".ka-progress",
     ".ka-progress progress::-moz-progress-bar",
     ".ka-progress progress::-webkit-progress-bar",
-    ".ka-results article",
-    ".ka-results mark",
+    ".ka-results article>p",
     ".ka-segment",
     ".ka-segment-track",
     ".ka-segment:focus-within",
+    ".ka-segment:has(input:checked)",
     ".ka-segment.ka-selected",
     ".ka-segments legend",
-    ".ka-stats dt",
-    ".ka-stats small",
+    ".ka-sr",
+    ".ka-stats",
+    ".ka-stats dd",
     ".ka-tablist>button",
     ".ka-tabpanel",
-    ".ka-tag",
     ".ka-tag:hover",
-    ".ka-tree :where(details,summary)",
-    ".ka-tree button.ka-tree-selected",
-    ".ka-tree summary::-webkit-details-marker",
-    ".ka-tree-list",
+    ".ka-tree",
+    ".ka-tree button",
+    ".ka-tree small",
+    ".ka-tree summary",
+    ".ka-tree-list .ka-tree-list",
+    ".ka-tree-selected small",
     ".od-cell",
     ".od-clamp-2",
     ".od-cluster",
@@ -475,6 +483,7 @@
     ".press-app :where(h3,h4)",
     ".press-app *",
     ".press-app h4",
+    ".press-app kbd",
     ".spacing-bar",
     ".spacing-list",
     ".spacing-row dt",
@@ -539,10 +548,10 @@
         ".ka-button--ghost",
         ".ka-button:disabled",
         ".ka-button:not(:disabled):hover",
+        ".ka-command-list button",
         ".ka-icon-button",
-        ".ka-menu-list>button",
         ".ka-tablist>button",
-        ".ka-tree button.ka-tree-selected"
+        ".ka-tree button"
       ],
       "classes": [
         "ka-button",
@@ -570,12 +579,12 @@
       "present": true,
       "selectors": [
         ".ka-check label",
-        ".ka-command-selected",
         ".ka-field label",
         ".ka-field textarea",
         ".ka-label",
+        ".ka-segment:has(input:checked)",
         ".ka-segment.ka-selected",
-        ".ka-tree button.ka-tree-selected"
+        ".ka-tree-selected small"
       ],
       "classes": [
         "ka-field",
@@ -589,9 +598,7 @@
       "tokenReferences": [
         "--color-accent-text",
         "--color-on-accent",
-        "--color-surface-sunken",
         "--color-text",
-        "--ka-radius-small",
         "--ka-touch"
       ]
     },
@@ -622,7 +629,6 @@
       "selectors": [
         ".ka-badge--accent",
         ".ka-badge--error",
-        ".ka-tag",
         ".ka-tag:hover"
       ],
       "classes": [],
@@ -630,15 +636,8 @@
       "tokenReferences": [
         "--color-accent-text",
         "--color-accent-wash",
-        "--color-border",
         "--color-error",
-        "--color-error-wash",
-        "--color-surface-sunken",
-        "--color-text",
-        "--font-ui",
-        "--ka-radius",
-        "--ka-touch",
-        "--text-small"
+        "--color-error-wash"
       ]
     },
     {
@@ -659,11 +658,17 @@
     {
       "id": "keyboard",
       "label": "Keyboard hints",
-      "present": false,
-      "selectors": [],
+      "present": true,
+      "selectors": [
+        ".press-app kbd"
+      ],
       "classes": [],
       "elements": [],
-      "tokenReferences": []
+      "tokenReferences": [
+        "--color-text-muted",
+        "--font-mono",
+        "--text-small"
+      ]
     },
     {
       "id": "icons",
@@ -747,7 +752,7 @@
   ],
   "literals": {
     "colorExpressions": 0,
-    "pixelValues": 151,
+    "pixelValues": 161,
     "hardcodedFontFamilies": 0
   }
 }

@@ -1,4 +1,4 @@
-# Website components · Press 0.10.0
+# Website components · Press 0.11.0
 
 The website catalog extends the portable package. Open `../index.html#website-components`. Application controls, prose and feedback live separately at `../index.html#application-components`; further application expansion is deferred.
 
@@ -31,7 +31,9 @@ Place `.press-web` outside the layout component, not on that same node. It estab
 | Section heading & quotation | `pw-section-head`, `pw-heading`, `pw-quote` | redesign aligned headings and plan-to-page section |
 | Feature sequence | `pw-feature-grid`, `pw-feature`, `pw-feature--reverse`, `pw-problem`, `pw-image-frame` | redesign aligned feature refinements and four supplied images |
 | Release rows | `pw-release-grid`, `pw-release-item`, `pw-link` | redesign spotlight/release section |
-| Platform choices | `pw-platforms`, `data-pw-platform`, `data-pw-platform-choice`, `data-pw-platform-result` | website `src/pages/download/index.astro` |
+| Platform choices | `pw-platforms`, `data-pw-platform`, `data-pw-platform-choice`, `data-pw-platform-result`; the choice itself is `ka-segment-track` / `ka-segment` | website `src/pages/download/index.astro` |
+| Numbered procedure | `pw-steps`, `pw-step` | website download first-run sequence |
+| Released-artifact identity | `pw-version` | website download hero and release panel |
 | Signup | `pw-signup`, `pw-form-row`, `data-pw-signup`, `data-pw-error`, `data-pw-status` | website download signup pattern, adapted to local-only behavior |
 | Disclosures | `pw-disclosure` with native `details` / `summary` | website download requirements/disclosures and FAQ content structure |
 | Closing action | `pw-closing`, `pw-closing-actions` | redesign final download section |
@@ -126,6 +128,20 @@ tile matrix, build it locally — do not reintroduce one under a `pw-` class.
 ### Platform choices
 
 Wrap radio choices and the result in `data-pw-platform`. Each radio has `data-pw-platform-choice` plus `data-pw-description`; changes update the descendant live result. The sample deliberately does not detect an OS or fetch releases. The button links to local installation guidance, not a binary download. A real site must provide its own reviewed platform URLs and current release metadata.
+
+**The choice itself is `.ka-segment-track` / `.ka-segment` from `application.css`.** This layer styles one control, `.pw-button`, and a pick-one-of-three is not a marketing call to action — it is the same decision a writer makes with the app's view toggle, so it is the same control. `.pw-platform-option` was removed in 0.11.0; the pattern it sat inside — fieldset, legend, live result, explicit choice, no silent detection — is unchanged, as are the data hooks and `website.js`, which queries `input[type="radio"][data-pw-platform-choice]` and never a class.
+
+A consumer may pre-select a radio from platform detection. It must not be what decides which build a visitor receives: the selected segment and the action it drives have to be correct and operable with JavaScript disabled.
+
+### Numbered procedure
+
+`.pw-steps` is an `<ol>`; each `.pw-step` is an `<li>` whose single child element is the row's second grid cell — `<li class="pw-step"><div><h3>…</h3><p>…</p></div></li>`. The folio is a `::before` counter in the first track, numbered `01`, `02`, … from its own counter, so a page may run a feature sequence and a procedure without the two sharing a number. The first step drops its hairline but keeps its folio.
+
+Step prose is full ink at body size held to `--measure`. A step is an instruction the reader acts on; `--color-text-muted` is for `.pw-note`, an aside nobody has to act on. `components.css`'s `.steps-list` is the foundation's version of this role and is **not** the model — it numbers with terracotta-filled circles, which spends a section's whole accent budget on numbering.
+
+### Released-artifact identity
+
+`.pw-version` labels a published thing: `1.3.0`, `v2.0.0-rc1`. It is a label, not a control, so the touch-target contract does not apply to it. Do not reach for `.ka-badge` — a status chip promises something that can change while you are looking at it, and its accent variant would spend a terracotta moment on a number.
 
 ### Signup
 

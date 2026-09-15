@@ -1,5 +1,66 @@
 # Changelog
 
+## 0.11.0
+
+**Four patterns a real download page needed and the system did not have.** All
+four were found by building `/download/` against 0.10.0 and hitting the same
+wall four times: the closest existing component was for a different job, and the
+only way forward was a local class.
+
+**`.pw-steps` / `.pw-step`** (website) is a numbered procedure — the feature
+sequence's device, hairline between rows and print folio in the gutter, without
+the figure track. `.pw-feature` is a prose/figure spread, so a four-step install
+procedure either invents a figure per step or leaves half of every row empty.
+The counter is its own, so a page may run a feature sequence and a procedure
+without the two sharing a number. Step prose is full ink at body size, held to
+`--measure`: a step is an instruction the reader acts on, not an aside.
+
+**`.pw-version`** (website) labels a released artifact. `.ka-badge` reads wrong
+for this — a status chip promises something that can change while you are
+looking at it, and `.ka-badge--accent` would spend a terracotta moment on a
+number. Hairline, raised paper, tabular figures, `--pw-radius` rather than a
+pill silhouette.
+
+**`.ka-facts`** (application) is key/value metadata at label scale. `.ka-stats`
+is the figure display for a word count and `.ka-badge` is a status chip; neither
+renders "Size · ~10 MB". Settings → About, project details and the website
+download page show the same shape, so it belongs to the shared layer.
+
+**`.ka-code`** (application) is a literal string the reader is meant to copy — a
+command, a checksum, a path. Inline `<code>` was already styled; a verification
+line is a block with an action attached. Pair the copy control with
+`.ka-button--secondary`, **not** `--ghost`: ghost's hover background is
+`--color-surface-sunken`, which is this block's own background, so its hover
+state would be exactly invisible.
+
+**`.pw-platform-option` is removed.** The website layer styles one control,
+`.pw-button`, and a pick-one-of-three is not a marketing call to action — it is
+the same decision a writer makes with the app's view toggle. The choice slot in
+`.pw-platforms` now takes `.ka-segment-track` / `.ka-segment`. **This is a
+breaking change for any consumer rendering `.pw-platform-option` markup**; the
+`.pw-platforms` pattern, its `data-pw-platform*` hooks, `.pw-platform-result`
+and `website.js` are all unchanged. The removed rules bordered each of three
+chips with `--pw-control-line`; the segment puts one sunken track behind all
+three, which reads as a single object with a position in it.
+
+**`.ka-segment` now shows its selected state without JavaScript.** The rule was
+`.ka-segment.ka-selected` only, a class the Svelte component toggles, with the
+radio visually hidden at `opacity: 0`. On a plain-HTML surface, clicking a
+segment checked the input and nothing moved — the control reported the wrong
+choice. `.ka-segment:has(input:checked)` is now matched alongside the class.
+Never visible while the component was only used from Svelte; load-bearing the
+moment `.ka-segment` is the answer for a download page.
+
+**`.ka-notice` sets its own `display: grid`.** It declared `gap: 12px` with no
+display, so the gap was inert. Unlike `.ka-field`, which is a layout-agnostic
+wrapper the consumer pairs with `od-field`, a notice already styles its own `p`
+and does not leave its internal arrangement to the consumer. Worth recording
+alongside it: `.od-stack` lives in `@layer od-layout` and the `ka-` rules do
+not, so an unlayered `gap` beats it regardless of specificity — **`--od-gap` has
+never had any effect on a paired `ka-`/`od-` element**, including the documented
+`.ka-field od-field`. That is a reasonable default, but it is invisible from the
+markup and reads as a supported knob.
+
 ## 0.10.0
 
 **One implementation per control role.** `.pw-button` and `.ka-button` were two

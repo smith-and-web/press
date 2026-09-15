@@ -3,7 +3,7 @@
   "id": "press",
   "name": "Press",
   "category": "Editorial",
-  "description": "Kindling’s paper-first design system: editorial websites, Svelte controls and page-style WYSIWYG prose.",
+  "description": "kindling’s paper-first design system: editorial websites, Svelte controls and page-style WYSIWYG prose.",
   "files": {
     "design": "DESIGN.md",
     "tokens": "tokens.css",
@@ -38,6 +38,11 @@
   "preview": {
     "dir": "preview",
     "pages": [
+      {
+        "path": "preview/brand-assets.html",
+        "role": "components",
+        "title": "One identity, every surface"
+      },
       {
         "path": "preview/colors-primary.html",
         "role": "colors",

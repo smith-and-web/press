@@ -38,7 +38,7 @@ const catalog = `${start}
 <div id="components" aria-hidden="true"></div>
 <section class="guide-section" id="website-components" aria-labelledby="website-heading">
   <div class="catalog-lead"><header class="section-heading"><span class="folio">05</span><h2 id="website-heading">Website components.</h2></header><span class="release">v${escape(pkg.version)}</span></div>
-  <p class="section-intro">The pieces that carry Press onto the web. Drawn from Kindling’s website and editorial redesign, ready to compose into your next page.</p>
+  <p class="section-intro">The pieces that carry Press onto the web. Drawn from kindling’s website and editorial redesign, ready to compose into your next page.</p>
   <div class="catalog-meta"><span>${data.items.length} patterns</span><span>Opt-in CSS + JavaScript</span><span>Light Press surfaces</span></div>
   <nav class="catalog-toc" aria-label="Website component index">${toc}</nav>
   <p class="note">Website copy uses Inter; manuscript prose stays Newsreader. These examples keep their light palette when the surrounding reference switches to dark. <a href="docs/WEBSITE_COMPONENTS.md">Read the website component guide</a>.</p>

@@ -9,7 +9,7 @@
     "title": "Component source and specimens — Press",
     "description": "Static fixture inventory; working Svelte examples are linked from components.html.",
     "styleBlockCount": 1,
-    "selectorCount": 107,
+    "selectorCount": 112,
     "classCount": 10,
     "elementCount": 30
   },
@@ -76,6 +76,7 @@
       "--color-text-muted",
       "--color-warning",
       "--color-warning-wash",
+      "--control-target",
       "--ember",
       "--ember-dark",
       "--flame-dark",
@@ -99,6 +100,7 @@
       "--leading-tight",
       "--measure",
       "--page-frame",
+      "--page-frame-editorial",
       "--page-gutter",
       "--paper",
       "--paper-dark",
@@ -207,6 +209,7 @@
       "--color-text-muted",
       "--color-warning",
       "--color-warning-wash",
+      "--control-target",
       "--font-body",
       "--font-display",
       "--font-mono",
@@ -234,6 +237,7 @@
       "--space-l",
       "--space-m",
       "--space-s",
+      "--space-xl",
       "--space-xs",
       "--text-base",
       "--text-body",
@@ -294,6 +298,7 @@
       "--ink-2",
       "--ink-2-dark",
       "--ink-dark",
+      "--page-frame-editorial",
       "--page-gutter",
       "--paper",
       "--paper-dark",
@@ -313,7 +318,6 @@
       "--space-2xl",
       "--space-4xl",
       "--space-5xl",
-      "--space-xl",
       "--sunken",
       "--sunken-dark",
       "--tag-blue",
@@ -382,6 +386,11 @@
     ".fixture td",
     ".fixture th",
     ".fixture-nav",
+    ".identity-pair",
+    ".identity-panel img",
+    ".identity-scale",
+    ".identity-scale .identity-flame",
+    ".identity-scale figcaption",
     ".ka-badge--accent",
     ".ka-badge--error",
     ".ka-beat-body p",
@@ -592,6 +601,7 @@
       "present": true,
       "selectors": [
         ":where(.od-stack,.od-row,.od-row-top,.od-cluster,.od-grid,.od-field,.od-stat,.od-cell,.od-tile) > :where(*)",
+        ".identity-panel img",
         ".ka-panel h4",
         ".ka-panel>header",
         ".ka-tabpanel",
@@ -675,6 +685,7 @@
       "selectors": [
         ".fixture h1",
         ".fixture h3",
+        ".identity-scale figcaption",
         ".ka-dialog-header h3",
         ".ka-empty h4",
         ".ka-panel h4",
@@ -693,6 +704,7 @@
         "--color-text",
         "--font-display",
         "--leading-tight",
+        "--space-3xs",
         "--text-h1",
         "--text-h3",
         "--tracking-tight"
@@ -735,7 +747,7 @@
   ],
   "literals": {
     "colorExpressions": 0,
-    "pixelValues": 148,
+    "pixelValues": 151,
     "hardcodedFontFamilies": 0
   }
 }

@@ -24,7 +24,7 @@ Copy the package into a site-owned `vendor/kindling-design-system` directory. Pr
 <link rel="stylesheet" href="./vendor/kindling-design-system/design-system/tokens.css">
 <link rel="stylesheet" href="./vendor/kindling-design-system/design-system/components.css">
 <img src="./vendor/kindling-design-system/assets/svg/kindling-mark.svg"
-     width="740" height="420" alt="Kindling" style="width:64px;height:auto">
+     width="740" height="420" alt="kindling" style="width:64px;height:auto">
 ```
 
 Load application-specific styles after the foundation. A bundler-free stylesheet can equivalently `@import` the aggregate entry using a relative URL. No CDN, sibling checkout, or absolute workstation path is involved.
@@ -116,4 +116,4 @@ Website samples intentionally stay light even when the reference chrome is dark.
 
 `@kindling/design-system/svelte` exports typed Svelte 5 UI components. `@kindling/design-system/application.css` is an optional scoped component layer; it does not replace canonical tokens or the existing app stylesheet. Import existing fonts and tokens once. Svelte is an optional peer for CSS-only consumers.
 
-[Application components](APPLICATION_COMPONENTS.md) documents exact props and incremental adapters for the current Kindling source. Keep existing stores, APIs, Tiptap, native dialogs, autosave, and file operations in the consuming application. The source package requires a Svelte-aware bundler; the distributed HTML reference uses its already-compiled local bundle.
+[Application components](APPLICATION_COMPONENTS.md) documents exact props and incremental adapters for the current kindling source. Keep existing stores, APIs, Tiptap, native dialogs, autosave, and file operations in the consuming application. The source package requires a Svelte-aware bundler; the distributed HTML reference uses its already-compiled local bundle.

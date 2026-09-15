@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Kindling brand-asset build — regenerates the canonical SVG set.
+kindling brand-asset build — regenerates the canonical SVG set.
 
 Source of truth:
   source/kindling-source.svg   THE final mark: 2-page book + two-tone flame, as flat paths
@@ -29,7 +29,7 @@ INK_D,FLAME_D,EMBER_D= color("ink-dark"),color("flame-dark"),color("ember-dark")
 # stacked-lockup layout (wordmark width + gap beneath the book)
 LOCK_WT, LOCK_GAP = 540.0, 28.0
 WM_AXES = {"opsz":144, "wght":540, "SOFT":16, "WONK":0}
-WM_TEXT = "Kindling"
+WM_TEXT = "kindling"
 
 def load_source():
     s = open(SRC).read()
@@ -83,18 +83,18 @@ def build():
     VARS={"light":(INK,TERRA,EMBER),"reversed":(INK_D,FLAME_D,EMBER_D),"mono":(INK,INK,INK),"mono-reversed":(INK_D,INK_D,INK_D)}
     marks={k:mark(book,flame,*v) for k,v in VARS.items()}
     out={}
-    out["kindling-mark.svg"]              = svgfile(marks["light"],MW,MH,"Kindling emblem (light).")
-    out["kindling-mark-reversed.svg"]     = svgfile(marks["reversed"],MW,MH,"Kindling emblem (reversed/on dark).")
-    out["kindling-mark-mono.svg"]         = svgfile(marks["mono"],MW,MH,"Kindling emblem (mono ink).")
-    out["kindling-mark-mono-reversed.svg"]= svgfile(marks["mono-reversed"],MW,MH,"Kindling emblem (mono reversed).")
+    out["kindling-mark.svg"]              = svgfile(marks["light"],MW,MH,"kindling emblem (light).")
+    out["kindling-mark-reversed.svg"]     = svgfile(marks["reversed"],MW,MH,"kindling emblem (reversed/on dark).")
+    out["kindling-mark-mono.svg"]         = svgfile(marks["mono"],MW,MH,"kindling emblem (mono ink).")
+    out["kindling-mark-mono-reversed.svg"]= svgfile(marks["mono-reversed"],MW,MH,"kindling emblem (mono reversed).")
     wm=lambda fill: f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WW:.0f} {WH:.0f}" width="{WW:.0f}" height="{WH:.0f}"><path d="{WD}" fill="{fill}"/></svg>\n'
     out["kindling-wordmark.svg"]          = wm(INK)
     out["kindling-wordmark-reversed.svg"] = wm(INK_D)
     sc=LOCK_WT/WW; Hs=WH*sc; TH=MH+LOCK_GAP+Hs; cx=(MW-LOCK_WT)/2; ty=MH+LOCK_GAP
     lock=lambda k,fill: marks[k]+f'<g transform="translate({cx:.2f},{ty:.2f}) scale({sc:.5f})"><path d="{WD}" fill="{fill}"/></g>'
-    out["kindling-lockup-stacked.svg"]         = svgfile(lock("light",INK),MW,TH,"Kindling stacked lockup (light).")
-    out["kindling-lockup-stacked-reversed.svg"]= svgfile(lock("reversed",INK_D),MW,TH,"Kindling stacked lockup (reversed).")
-    out["kindling-lockup-stacked-mono.svg"]    = svgfile(lock("mono",INK),MW,TH,"Kindling stacked lockup (mono).")
+    out["kindling-lockup-stacked.svg"]         = svgfile(lock("light",INK),MW,TH,"kindling stacked lockup (light).")
+    out["kindling-lockup-stacked-reversed.svg"]= svgfile(lock("reversed",INK_D),MW,TH,"kindling stacked lockup (reversed).")
+    out["kindling-lockup-stacked-mono.svg"]    = svgfile(lock("mono",INK),MW,TH,"kindling stacked lockup (mono).")
     bx0,by0,bx1,by1=flame_bbox(flame); fw,fh=bx1-bx0,by1-by0
     def fav(t,e,pad=64,S=512):
         s=(S-2*pad)/max(fw,fh); tx=S/2-s*(bx0+fw/2); ty2=S/2-s*(by0+fh/2)

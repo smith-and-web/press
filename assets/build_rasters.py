@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Kindling raster build — rasterises the canonical svg/ set into shippable PNGs, favicons,
+kindling raster build — rasterises the canonical svg/ set into shippable PNGs, favicons,
 app-icon masters, and social/OG cards.
 
 Deterministic and mechanical: every output derives from svg/ (which derives from the source
@@ -57,7 +57,7 @@ def favicons():
     render("kindling-favicon.svg", os.path.join(d, "icon-192.png"), 192, 192, PAPER)
     render("kindling-favicon.svg", os.path.join(d, "icon-512.png"), 512, 512, PAPER)
     manifest = {
-        "name": "Kindling", "short_name": "Kindling",
+        "name": "kindling", "short_name": "kindling",
         "icons": [
             {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
             {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},

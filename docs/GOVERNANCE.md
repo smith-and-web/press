@@ -8,7 +8,7 @@ For this local package, `design-system/tokens.css` is the sole token authority. 
 
 `assets/source/kindling-source.svg` owns the original mark geometry. The Fraunces file and the original wordmark axes own wordmark outlining. Generated `svg/`, `png/`, `favicon/`, `app-icons/`, and `social/` files must not be redrawn by hand. The package's optional build scripts now read raw palette colors from canonical CSS through `assets/token_values.py`. Literal source colors still identify the paths in the original SVG; those are geometry-selection keys, not a second output palette.
 
-The original repository is unchanged and still describes one-way sync. Adoption requires maintainers to choose this package layout as the authoritative maintained location and stop parallel upstream edits. Until that migration is made, this deliverable is a portable versioned snapshot, not a claim that authority moved in GitHub automatically.
+The owner designated this Press repository as the definitive system on 2026-09-14. The sibling `brand-assets` is retired input, not an upstream source. Open Design receives generated copies from Press. Shared changes made there must return to Press before the next synchronization. Consumer repositories still require their own import migration; retiring the source does not change their installed files automatically.
 
 ## Token generation
 
@@ -21,7 +21,7 @@ npm run tokens:check
 
 The existing Node-only generator resolves `var(--token)` aliases, overlays `[data-theme="dark"]` on the root declarations, detects unknown references and cycles, and writes stable JSON. Its paths resolve from the script location, not the invoking working directory. It supports the repository's existing CSS structure, not arbitrary CSS parsing: keep canonical declarations in the root and dark blocks; do not add conditional token definitions, nested rules, or unsupported alias syntax without updating the generator first.
 
-`tokens:check` is a non-writing drift check for maintainers and CI. These commands are documented for future use; no validation or preview result is claimed by this delivery.
+`tokens:check` is a non-writing drift check for maintainers and CI. `system:check` also checks the Open Design token entries, preview versions, manifest targets and original artwork. Completed consolidation checks are recorded in `CONSOLIDATION_VALIDATION.md`.
 
 ## Version policy
 

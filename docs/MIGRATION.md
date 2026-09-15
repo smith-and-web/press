@@ -1,6 +1,12 @@
-# Migrating from one-way sync
+# Migrating to the unified Press system
 
-## Current state
+## Authority resolved in 0.9.0
+
+Press is now the sole editing authority. Do not run a sync from `brand-assets`. Original logos, rasters, fonts and source geometry are already preserved in `press/assets`; shared tokens retain their existing names and values. The approved typography split is Fraunces headings, Newsreader reading/manuscripts and Inter UI plus scoped website product copy. See [CONSOLIDATION.md](CONSOLIDATION.md).
+
+0.9.0 brings the Open Design button wrapping, contrast-preserving hover and full-frame screenshot fixes into the package. Long button labels may now wrap; reversed feature figures return to natural order on narrow screens. Review those states when upgrading. No tokens or selectors are removed.
+
+## Historical starting point (0.1.0)
 
 The source guide says `brand-assets/design-system/` syncs one-way into `kindling-splash/src/styles/` through `npm run sync:design-system`. This task did not inspect or modify that consumer, run its sync, or edit the separate homepage prototype. Consumer-specific file lists and overrides still need inventory in those repositories.
 
@@ -16,7 +22,7 @@ The source guide says `brand-assets/design-system/` syncs one-way into `kindling
 
 There must be one editing authority after adoption: package source. Consumer adaptations stay local only when genuinely surface-specific; shared changes return to the package and ship as a new version.
 
-## Known discrepancies; no silent rule changes
+## Historical discrepancies at 0.1.0 (resolved direction above)
 
 | Context | Canonical baseline | Treatment in 0.1.0 |
 | --- | --- | --- |

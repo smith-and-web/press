@@ -4,7 +4,7 @@
 
 ## Incremental adoption
 
-The existing Kindling application remains the owner of its stores, APIs, command dispatch, editor, persistence, and export implementation. This package supplies UI pieces. It is intentionally neither an application rewrite nor a drop-in replacement for every existing component.
+The existing kindling application remains the owner of its stores, APIs, command dispatch, editor, persistence, and export implementation. This package supplies UI pieces. It is intentionally neither an application rewrite nor a drop-in replacement for every existing component.
 
 1. Keep the application's current Press tokens and fonts. Add the optional application stylesheet after them.
 2. Replace a small repeated element inside an existing app component: a button, field, status label, or panel.
@@ -48,7 +48,7 @@ The wrapper owns asynchronous errors and loading. Keep your existing success/clo
 ```svelte
 <script lang="ts">
   import { Button, Dialog } from '@kindling/design-system/svelte';
-  // New consumers need all three; Kindling already supplies fonts and tokens.
+  // New consumers need all three; kindling already supplies fonts and tokens.
   import '@kindling/design-system/fonts.css';
   import '@kindling/design-system/tokens.css';
   import '@kindling/design-system/application.css';
@@ -178,7 +178,7 @@ Recipe state lives in memory and is preserved while switching recipes. Reloading
 
 ## Page-like WYSIWYG prose
 
-The BeatItem example and Writing surfaces recipe use Tiptap on the same paper treatment as Kindling's `NovelEditor.svelte`. Prose is HTML throughout; it never passes through a textarea or plain-text conversion. `ManuscriptSurface` remains a read-only presentation wrapper for review and export samples. It is not the replacement for the app's editor.
+The BeatItem example and Writing surfaces recipe use Tiptap on the same paper treatment as kindling's `NovelEditor.svelte`. Prose is HTML throughout; it never passes through a textarea or plain-text conversion. `ManuscriptSurface` remains a read-only presentation wrapper for review and export samples. It is not the replacement for the app's editor.
 
 The page continues the existing Newsreader body typography, 36rem text measure, manuscript margins, paragraph indentation, light paper in either surrounding theme, and paper shadow. Desktop sheets retain the app's 40rem minimum height. Narrow layouts reduce the gutters and wrap the toolbar; prose stays at reading size. Toolbar targets are 44px, larger than the original compact controls, to support touch and visible keyboard focus.
 
@@ -188,7 +188,7 @@ The optional entry is `@kindling/design-system/svelte/editor`, exporting `NovelE
 npm install @tiptap/core@3.20.1 @tiptap/starter-kit@3.20.1 @tiptap/extension-underline@3.20.1 @tiptap/extension-text-align@3.20.1 @tiptap/pm@3.20.1
 ```
 
-Kindling already supplies these packages. This project declares the optional peers and development versions without modifying the linked app. Its reference bundle includes the runtime locally, with notices in `licenses/EDITOR_DEPENDENCIES.txt`.
+kindling already supplies these packages. This project declares the optional peers and development versions without modifying the linked app. Its reference bundle includes the runtime locally, with notices in `licenses/EDITOR_DEPENDENCIES.txt`.
 
 ```svelte
 <script lang="ts">
@@ -258,7 +258,7 @@ Inside the existing app, the adapter is small and keeps its current services:
 
 Those relative imports assume the existing `src/lib/components` location. Keep the existing `handleEditorUpdate(beat.id)`, prose save queues, split actions and scene identity at their current boundaries. Consumers can also adopt just `ProseToolbar` by passing their existing editor and a revision updated on transactions, with no editor replacement.
 
-The adaptation references `NovelEditor.svelte`, `ProseToolbar.svelte`, `PageView.svelte`, `BeatView.svelte`, `keyboardFormatting.ts`, `keyboardShortcuts.ts`, and `editorPosition.ts` under the linked Kindling `src/lib` directory. Those inputs were read without modification. The app's existing editor remains the behavior reference; this entry does not implement its backend, review model, or save queues.
+The adaptation references `NovelEditor.svelte`, `ProseToolbar.svelte`, `PageView.svelte`, `BeatView.svelte`, `keyboardFormatting.ts`, `keyboardShortcuts.ts`, and `editorPosition.ts` under the linked kindling `src/lib` directory. Those inputs were read without modification. The app's existing editor remains the behavior reference; this entry does not implement its backend, review model, or save queues.
 
 ## Baseline references
 

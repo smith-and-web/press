@@ -24,3 +24,15 @@ a{color:var(--color-accent-text);text-underline-offset:.2em}button,select,summar
 @media(max-width:768px){.fixture{padding:var(--space-m);gap:var(--space-m)}.swatch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:375px){.fixture{padding:var(--space-s)}.swatch-grid{grid-template-columns:minmax(0,1fr)}.fixture th,.fixture td{padding:var(--space-xs) var(--space-3xs)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* Identity specimens use the original artwork and semantic light/dark surfaces. */
+.identity-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-m)}
+.identity-panel{margin:0;display:grid;justify-items:center;align-content:center;gap:var(--space-l);padding:var(--space-l);background:var(--color-bg);color:var(--color-text);border:var(--border-hair)}
+.identity-panel img{display:block;width:min(100%,240px);height:auto}
+.identity-panel figcaption,.identity-scale figcaption{font:var(--text-small)/var(--leading) var(--font-ui)}
+.identity-scale{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-m)}
+.identity-scale figure{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-m)}
+.identity-scale figcaption{display:grid;gap:var(--space-3xs)}
+.identity-scale img{display:block;height:var(--space-3xl);max-width:100%;object-fit:contain;object-position:left center}
+.identity-scale .identity-flame{width:var(--space-xl)}.identity-scale .identity-wordmark{width:140px}
+@media(max-width:600px){.identity-pair,.identity-scale{grid-template-columns:minmax(0,1fr)}}

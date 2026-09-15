@@ -2,7 +2,7 @@
 
 ## Baseline
 
-Source: the user-supplied Kindling `brand-assets` working tree.
+Source: the user-supplied kindling `brand-assets` working tree.
 Branch: `design-system/audit-followups`.
 HEAD: `6e184f445b98084358774e147843c49d10c07a12`.
 
@@ -43,6 +43,10 @@ The token generator is additionally extended to emit `reference/tokens.js` from 
 
 `WEBSITE_SOURCES.json` records the website's observed HEAD and dirty status, source hashes for consulted website components and the linked redesign HTML, and the four images copied into `assets/website/`. Images were copied without transformation and their PNG intrinsic dimensions were read before source layout was written.
 
-These are existing screenshots of Kindling from the user-linked redesign. No replacement product images were generated. No new artwork or screenshot license was inferred. Existing rights caveats remain in effect. The website footer's MIT label refers to the app and was not treated as a license for the separate brand package.
+These are existing screenshots of kindling from the user-linked redesign. No replacement product images were generated. No new artwork or screenshot license was inferred. Existing rights caveats remain in effect. The website footer's MIT label refers to the app and was not treated as a license for the separate brand package.
 
 The website examples reuse selected prose from the supplied redesign as sample content, not live application data. Versioned product claims, download sizes, and audience counts are omitted. The source diagram and font roles are mapped in WEBSITE_COMPONENTS.md. Both linked projects remain untouched.
+
+## Approved lowercase brand correction
+
+The owner requires the brand spelling `kindling` in every current text and artwork reference. `WM_TEXT` now uses the lowercase name; wordmarks and stacked lockups were recut at the original Fraunces axes. Raster lockups and the social share image were regenerated mechanically with fonttools 4.63.0, CairoSVG 2.9.0 and Pillow 12.3.0. The book/flame source and font binary are unchanged. CONSOLIDATION_ASSETS.json records current digests and the prior digests for changed derivatives. Historical QA screenshots remain evidence of the captured application, including its former spelling, rather than current brand specimens.

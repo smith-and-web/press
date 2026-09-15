@@ -8,7 +8,7 @@ user-invocable: true
 
 ## When to use
 
-Use for Kindling marketing pages, release notes, download sections and sign-up flows. For application UI use press-svelte instead.
+Use for kindling marketing pages, release notes, download sections and sign-up flows. For application UI use press-svelte instead.
 
 ## References
 

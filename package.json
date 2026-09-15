@@ -1,8 +1,8 @@
 {
   "name": "@kindling/design-system",
-  "version": "0.7.0",
+  "version": "0.10.0",
   "private": true,
-  "description": "Kindling Press: portable tokens, component CSS, typography and brand assets.",
+  "description": "kindling Press: portable tokens, component CSS, typography and brand assets.",
   "license": "UNLICENSED",
   "type": "module",
   "style": "./design-system/index.css",
@@ -28,7 +28,8 @@
       "svelte": "./design-system/svelte/editor/index.ts",
       "default": "./design-system/svelte/editor/index.ts"
     },
-    "./colors_and_type.css": "./colors_and_type.css"
+    "./colors_and_type.css": "./colors_and_type.css",
+    "./fonts-web.css": "./design-system/fonts-web.css"
   },
   "files": [
     "design-system/",
@@ -65,7 +66,11 @@
     "reference:website": "node reference/generate-website-reference.mjs",
     "reference:application": "node reference/application/build.mjs",
     "open-design:build": "node scripts/build-open-design.mjs",
-    "open-design:metadata": "node scripts/build-open-design.mjs --metadata-only"
+    "open-design:metadata": "node scripts/build-open-design.mjs --metadata-only",
+    "system:check": "node scripts/check-system.mjs",
+    "open-design:sync": "node scripts/sync-open-design.mjs",
+    "fonts:build": "node scripts/build-web-fonts.mjs",
+    "fonts:check": "node scripts/build-web-fonts.mjs --check"
   },
   "engines": {
     "node": ">=20"
@@ -80,12 +85,12 @@
     "application-components"
   ],
   "peerDependencies": {
-    "svelte": "^5.53.11",
     "@tiptap/core": "^3.20.1",
-    "@tiptap/starter-kit": "^3.20.1",
-    "@tiptap/extension-underline": "^3.20.1",
     "@tiptap/extension-text-align": "^3.20.1",
-    "@tiptap/pm": "^3.20.1"
+    "@tiptap/extension-underline": "^3.20.1",
+    "@tiptap/pm": "^3.20.1",
+    "@tiptap/starter-kit": "^3.20.1",
+    "svelte": "^5.53.11"
   },
   "peerDependenciesMeta": {
     "svelte": {
@@ -108,12 +113,13 @@
     }
   },
   "devDependencies": {
-    "svelte": "5.56.4",
-    "esbuild": "0.27.2",
     "@tiptap/core": "3.20.1",
-    "@tiptap/starter-kit": "3.20.1",
-    "@tiptap/extension-underline": "3.20.1",
     "@tiptap/extension-text-align": "3.20.1",
-    "@tiptap/pm": "3.20.1"
+    "@tiptap/extension-underline": "3.20.1",
+    "@tiptap/pm": "3.20.1",
+    "@tiptap/starter-kit": "3.20.1",
+    "esbuild": "0.27.2",
+    "svelte": "5.56.4",
+    "wawoff2": "2.0.1"
   }
 }

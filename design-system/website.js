@@ -1,4 +1,4 @@
-/* Kindling Press website behaviors, v0.2.0.
+/* kindling Press website behaviors, v0.2.0.
    Classic-script compatible for file:// use; also importable for side effects.
    Public API: window.KindlingWebsite.init(scope), destroy(scope).
    No requests, analytics, clipboard access, downloads or form submissions. */

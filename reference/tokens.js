@@ -1,6 +1,6 @@
 /* Generated from tokens.css; do not edit. */
 window.KindlingTokens = {
-  "$name": "Kindling — Press design tokens",
+  "$name": "kindling — Press design tokens",
   "$source": "tokens.css (generated; do not edit)",
   "light": {
     "--paper": "#F4EFE6",
@@ -135,7 +135,9 @@ window.KindlingTokens = {
     "--space-5xl": "140px",
     "--measure": "36rem",
     "--page-frame": "1120px",
+    "--page-frame-editorial": "960px",
     "--page-gutter": "32px",
+    "--control-target": "44px",
     "--grain-tile": "url(\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='g'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.8'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%23g)'/%3E%3C/svg%3E\")",
     "--grain-strength": "0.14",
     "--radius-xs": "4px",
@@ -299,7 +301,9 @@ window.KindlingTokens = {
     "--space-5xl": "140px",
     "--measure": "36rem",
     "--page-frame": "1120px",
+    "--page-frame-editorial": "960px",
     "--page-gutter": "32px",
+    "--control-target": "44px",
     "--grain-tile": "url(\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='g'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.8'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%23g)'/%3E%3C/svg%3E\")",
     "--grain-strength": "0.14",
     "--radius-xs": "4px",

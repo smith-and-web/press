@@ -1,6 +1,8 @@
-# Kindling / Press
+# kindling / Press
 
-Portable design-system source · **0.4.1** · `@kindling/design-system`
+Portable design-system source · **0.10.0** · `@kindling/design-system`
+
+**Press is the definitive kindling design system.** The legacy `brand-assets` is retired. Read [the consolidation decisions](docs/CONSOLIDATION.md) and [asset usage](assets/README.md). Open Design is a downstream copy; shared changes start here.
 
 Public source repository: [smith-and-web/press](https://github.com/smith-and-web/press).
 
@@ -14,10 +16,10 @@ From this package root, with Node 20 or newer and npm installed:
 npm pack
 ```
 
-This creates `kindling-design-system-0.4.1.tgz`. Put the archive inside your consumer repository, for example `vendor/`, then run from that repository:
+This creates `kindling-design-system-0.10.0.tgz`. Put the archive inside your consumer repository, for example `vendor/`, then run from that repository:
 
 ```sh
-npm install --save-exact ./vendor/kindling-design-system-0.4.1.tgz
+npm install --save-exact ./vendor/kindling-design-system-0.10.0.tgz
 ```
 
 The package keeps `private: true` to prevent npm registry publication. Public GitHub hosting does not imply a published npm package or an open-source license. The prebuilt HTML reference needs no installation. Svelte consumers use the optional Svelte peer; the WYSIWYG editor entry additionally uses optional Tiptap peers. Node is required for rebuilding the reference and package tooling.
@@ -38,7 +40,7 @@ This full entry applies the existing global reset and element styles. Existing a
 
 ## Contents
 
-- `design-system/`: canonical CSS tokens, generated JSON, unchanged reusable component CSS, local font declarations, aggregate CSS entry and generator.
+- `design-system/`: canonical CSS tokens, generated JSON, reusable foundation, website and application CSS, local font declarations, aggregate CSS entry and generator.
 - `assets/`: original source SVG, logo variants, PNGs, favicons, app icons, social art, fonts and optional maintenance scripts.
 - `index.html` and `reference/`: standalone reference and its presentation assets.
 - `docs/`: current Press guide, integration, governance, migration, provenance and baseline records.
@@ -57,7 +59,7 @@ Read [governance and release](docs/GOVERNANCE.md), [migration](docs/MIGRATION.md
 
 ## Rights and scope
 
-Font license texts are bundled. The source repository did not supply a license grant for Kindling artwork or design-system code; `UNLICENSED` does not assign an open-source license. See [LICENSE.md](LICENSE.md). This repository publishes the Press package. The original Kindling application and website repositories are separate and unchanged.
+Font license texts are bundled. The source repository did not supply a license grant for kindling artwork or design-system code; `UNLICENSED` does not assign an open-source license. See [LICENSE.md](LICENSE.md). This repository publishes the Press package. The original kindling application and website repositories are separate and unchanged.
 
 The token generator also refreshes `reference/tokens.js`, the browser-readable mirror used by the offline token explorer. It is generated from the same CSS in the same command; the drift command covers both mirrors. Do not hand-edit it.
 
@@ -107,11 +109,11 @@ The committed browser bundle is ready to open through `index.html`. Keep generat
 
 Use existing-package installation when available; the source-extraction wizard is a different workflow and can substitute generic defaults for a folder-only input. [DESIGN.md](DESIGN.md) is the current design brief, [SKILLS.md](SKILLS.md) indexes four portable skills, and [the setup guide](docs/OPEN_DESIGN.md) explains the native manifest, local import and skill handoff. Skills are provided for you to add through Integration → Skills; they are not installed automatically.
 
-The package includes generated `tokens.css` and `colors_and_type.css`, a compact [component fixture](components.html), seven focused pages in `preview/`, and a working [Svelte application kit](ui_kits/app/index.html). The kit retains page-style WYSIWYG prose and keeps edits in memory. The full catalog, source context, baseline images and licensed local fonts remain in the repository.
+The package includes generated `tokens.css` and `colors_and_type.css`, a compact [component fixture](components.html), eight focused pages in `preview/`, and a working [Svelte application kit](ui_kits/app/index.html). The kit retains page-style WYSIWYG prose and keeps edits in memory. The full catalog, source context, baseline images and licensed local fonts remain in the repository.
 
 Use `npm run open-design:build` after changing its source inputs. See [USAGE.md](USAGE.md) for the reuse workflow and entry selection. Keep all local assets with the package; the source CSS remains authoritative. No Open Design runtime installation or import audit is implied by these files.
 
 
 ### Recovering from a generic “Product” extraction
 
-See [the diagnosis](docs/OPEN_DESIGN_DEBUG.md) and [recovery instructions](docs/OPEN_DESIGN.md). For the constrained extraction fallback, paste the complete [OPEN_DESIGN_INPUT.md](OPEN_DESIGN_INPUT.md) into the DESIGN.md input rather than selecting the whole folder without a brief. This is a generated light-theme brand summary, not a transfer of the complete library. Rebuild it and DESIGN.md metadata with `npm run open-design:metadata`. The active Open Design system and saved memory are not changed by this package update.
+See [the diagnosis](docs/OPEN_DESIGN_DEBUG.md) and [recovery instructions](docs/OPEN_DESIGN.md). For the constrained extraction fallback, paste the complete [OPEN_DESIGN_INPUT.md](OPEN_DESIGN_INPUT.md) into the DESIGN.md input rather than selecting the whole folder without a brief. This is a generated light-theme brand summary, not a transfer of the complete library. Rebuild it and DESIGN.md metadata with `npm run open-design:metadata`. Use the synchronization procedure in `docs/OPEN_DESIGN.md` to refresh the installed system and its guidance after rebuilding.

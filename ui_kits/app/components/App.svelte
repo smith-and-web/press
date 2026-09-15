@@ -12,7 +12,7 @@
 </script>
 <div class="press-app kit" data-theme={theme}>
   <header class="kit-topbar od-row">
-    <a class="kit-brand" href="../../index.html">Kindling <span>/ Press</span></a>
+    <a class="kit-brand" href="../../index.html">kindling <span>/ Press</span></a>
     <p class="od-fill">Writing workspace</p>
     <Button variant="secondary" onclick={()=>theme=theme==='light'?'dark':'light'}>Use {theme==='light'?'dark':'light'} theme</Button>
   </header>

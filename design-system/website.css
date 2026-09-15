@@ -218,10 +218,16 @@
 /* 08. Platform selector: selection is explicit, not inferred from a user agent. */
 .press-web .pw-platforms { margin: 0; padding: 0; border: 0; min-width: 0; }
 .press-web .pw-platforms legend { padding: 0; margin-bottom: var(--space-s); font-weight: 500; }
-.press-web .pw-platform-options { display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
-.press-web .pw-platform-option { display: inline-flex; align-items: center; gap: var(--space-2xs); padding: var(--space-xs) var(--space-s); border: var(--pw-control-line); border-radius: var(--pw-radius); min-height: var(--pw-touch); cursor: pointer; font-size: var(--text-base); }
-.press-web .pw-platform-option input { display: inline-block; width: 16px; min-height: 0; height: 16px; margin: 0; accent-color: var(--color-accent); }
-.press-web .pw-platform-option:has(input:checked) { background: var(--color-surface-sunken); border-color: var(--color-text); }
+/* The choice itself is `.ka-segment-track` / `.ka-segment` from
+   `application.css`. This layer styles one control, `.pw-button`, and a
+   pick-one-of-three is not a marketing call to action — it is the same
+   decision a writer makes with the app's view toggle, so it is the same
+   control. The removed `.pw-platform-option` bordered each of three chips
+   with `--pw-control-line`; the segment puts one sunken track behind all
+   three, which reads as a single object with a position in it. What survives
+   here is the *pattern*: fieldset, legend, live result, explicit choice, no
+   silent detection. `website.js` is unaffected — it queries
+   `input[type="radio"][data-pw-platform-choice]`, never a class. */
 .press-web .pw-platform-result { display: grid; gap: var(--space-s); margin-top: var(--space-m); border-top: var(--pw-line); padding-top: var(--space-m); }
 /* 09. Signup example: strictly local until a consumer supplies submission logic. */
 .press-web .pw-signup { max-width: var(--pw-form-width); }
@@ -236,7 +242,34 @@
 .press-web .pw-error { display: block; color: var(--color-error); margin-top: var(--space-2xs); font-size: var(--pw-small); }
 .press-web .pw-signup [aria-invalid="true"] { border-color: var(--color-error); }
 .press-web .pw-form-status { min-height: 32px; margin-top: var(--space-xs); font-size: var(--pw-small); }
-/* 10–12. Disclosures, final action and footer. */
+/* 10. Numbered procedure: the feature sequence without the figure track.
+   `.pw-feature` is a prose/figure spread, so a four-step install procedure
+   either invents a figure for every step or leaves half of every row empty.
+   This is the same device — sequence not grid, a hairline between rows, a
+   print folio in the gutter — carrying prose alone. Its counter is its own,
+   so a page may run a feature sequence and a procedure without the two
+   sharing a number. */
+.press-web .pw-steps { --pw-folio: var(--space-xl); counter-reset: pw-step; list-style: none; margin: 0; padding: 0; }
+.press-web .pw-step { counter-increment: pw-step; display: grid; grid-template-columns: var(--pw-folio) minmax(0,1fr); gap: var(--space-m); padding-block: var(--space-m); border-top: var(--pw-line); }
+/* Room for the "01" folio, but no dividing hairline above the first step —
+   the same opening as `.pw-feature-grid > :first-child`. */
+.press-web .pw-steps > :first-child { border-top: 0; }
+.press-web .pw-step::before { content: counter(pw-step, decimal-leading-zero); font: 600 var(--pw-small)/var(--leading) var(--pw-body); letter-spacing: var(--tracking-eyebrow); color: var(--color-text-muted); }
+.press-web .pw-step h3 { font-size: var(--text-h3); margin-bottom: var(--space-3xs); }
+/* A step is an instruction the visitor has to follow, so it is reading
+   content: full ink at body size, held to the measure. Muted is for
+   `.pw-note`, which is an aside nobody has to act on. */
+.press-web .pw-step p { max-width: var(--measure); }
+/* 11. Released-artifact identity. "1.3.0" is not application status, so
+   `.ka-badge` reads wrong on paper: a status chip promises something that can
+   change while you are looking at it. This is a label on a published thing —
+   tabular figures, a hairline, raised paper, no fill and no accent, so it can
+   sit beside a heading without spending one of the section's two terracotta
+   moments. It is a label, not a control; the touch target contract does not
+   apply. `--pw-radius` (4px), not `--radius-pill`: a pill is the badge/tag
+   silhouette and would read as status again. */
+.press-web .pw-version { display: inline-flex; align-items: center; gap: var(--space-2xs); padding: var(--space-3xs) var(--space-2xs); border: var(--pw-line); border-radius: var(--pw-radius); font: 500 var(--pw-small)/var(--leading) var(--pw-body); font-variant-numeric: tabular-nums; color: var(--color-text); background: var(--color-surface); white-space: nowrap; }
+/* 12–14. Disclosures, final action and footer. */
 .press-web .pw-disclosure { border-top: var(--pw-line); }
 .press-web .pw-disclosure:last-child { border-bottom: var(--pw-line); }
 .press-web .pw-disclosure summary { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-m); list-style: none; padding: var(--space-s) 0; min-height: var(--pw-touch); font: 500 var(--text-base)/var(--leading) var(--pw-body); }
@@ -279,6 +312,10 @@
   .press-web .pw-feature--reverse > figure { order: 0; }
   .press-web .pw-feature figure { width: 100%; }
   .press-web .pw-form-row { flex-direction: column; align-items: stretch; }
+  /* Reduce the gutter before the type, per DESIGN_GUIDE. A 64px folio indent
+     on a 278px column is a quarter of the reading width. */
+  .press-web .pw-steps { --pw-folio: var(--space-m); }
+  .press-web .pw-step { gap: var(--space-s); }
 }
 @media (max-width: 767px) {
   .press-web .pw-feature--reverse > figure { order: 0; }

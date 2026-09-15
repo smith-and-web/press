@@ -75,7 +75,7 @@
 <header class="masthead">
   <a class="brand-link" href="#overview" aria-label="kindling design system overview"><span class="wordmark"><img class="od-media " src="assets/svg/kindling-wordmark.svg" width="6445" height="1972" alt="kindling" data-theme-image data-light="assets/svg/kindling-wordmark.svg" data-dark="assets/svg/kindling-wordmark-reversed.svg"></span><span class="mast-label">Design system</span></a>
   <div class="header-tools">
-    <span class="release">v0.10.0</span>
+    <span class="release">v0.11.0</span>
     <fieldset class="theme-picker"><legend class="sr-only">Reference theme</legend>
       <button type="button" data-set-theme="light" aria-pressed="true"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1m0 12v1M1 8h1m12 0h1M3 3l1 1m8 8 1 1M3 13l1-1m8-8 1-1"/></svg>Light</button>
       <button type="button" data-set-theme="dark" aria-pressed="false"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2a6 6 0 1 0 7 7.5Z"/></svg>Dark</button>
@@ -144,7 +144,7 @@
 <!-- WEBSITE-CATALOG:START -->
 <div id="components" aria-hidden="true"></div>
 <section class="guide-section" id="website-components" aria-labelledby="website-heading">
-  <div class="catalog-lead"><header class="section-heading"><span class="folio">05</span><h2 id="website-heading">Website components.</h2></header><span class="release">v0.10.0</span></div>
+  <div class="catalog-lead"><header class="section-heading"><span class="folio">05</span><h2 id="website-heading">Website components.</h2></header><span class="release">v0.11.0</span></div>
   <p class="section-intro">The pieces that carry Press onto the web. Drawn from kindling’s website and editorial redesign, ready to compose into your next page.</p>
   <div class="catalog-meta"><span>12 patterns</span><span>Opt-in CSS + JavaScript</span><span>Light Press surfaces</span></div>
   <nav class="catalog-toc" aria-label="Website component index"><a href="#web-navigation"><span class="catalog-num">01</span><span>Navigation</span></a>
@@ -436,25 +436,25 @@
   <div class="specimen-surface"><div class="press-web">
   <div class="pw-pad" data-pw-platform>
     <fieldset class="pw-platforms"><legend>Choose your platform</legend>
-      <div class="pw-platform-options od-cluster">
-        <label class="pw-platform-option"><input type="radio" name="web-platform" value="macOS" checked data-pw-platform-choice data-pw-description="macOS selected. Check your Mac’s architecture before choosing an installer.">macOS</label>
-        <label class="pw-platform-option"><input type="radio" name="web-platform" value="Windows" data-pw-platform-choice data-pw-description="Windows selected. Choose the supported installer from the application’s release page.">Windows</label>
-        <label class="pw-platform-option"><input type="radio" name="web-platform" value="Linux" data-pw-platform-choice data-pw-description="Linux selected. Choose the package format appropriate to your distribution.">Linux</label>
+      <div class="ka-segment-track">
+        <label class="ka-segment"><input type="radio" name="web-platform" value="macOS" checked data-pw-platform-choice data-pw-description="macOS selected. Check your Mac’s architecture before choosing an installer.">macOS</label>
+        <label class="ka-segment"><input type="radio" name="web-platform" value="Windows" data-pw-platform-choice data-pw-description="Windows selected. Choose the supported installer from the application’s release page.">Windows</label>
+        <label class="ka-segment"><input type="radio" name="web-platform" value="Linux" data-pw-platform-choice data-pw-description="Linux selected. Choose the package format appropriate to your distribution.">Linux</label>
       </div>
     </fieldset>
     <div class="pw-platform-result od-stack"><p data-pw-platform-result role="status">macOS selected. Check your Mac’s architecture before choosing an installer.</p><a class="pw-button" href="docs/WEBSITE_COMPONENTS.md#behavior-contracts">Integration guidance <svg class="pw-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a><p class="pw-note">Component example only. No installer is downloaded.</p></div>
   </div>
 </div></div>
-  <p class="specimen-source"><span>Source: kindling-splash / download/index.astro</span><code>pw-platforms · data-pw-platform</code></p>
+  <p class="specimen-source"><span>Source: kindling-splash / download/index.astro</span><code>pw-platforms · ka-segment-track · ka-segment · data-pw-platform</code></p>
   <details class="specimen-code"><summary>Markup &amp; usage</summary>
-    <div class="specimen-usage"><p>Use platform-specific metadata from your actual release system in production. This specimen changes local guidance only and does not download an app binary. Native radio controls remain keyboard accessible.</p><p>Load fonts, tokens and the opt-in website stylesheet. Interactive patterns also use website.js. Update sample destinations and give every copied instance unique IDs and radio-group names.</p></div>
+    <div class="specimen-usage"><p>Use platform-specific metadata from your actual release system in production. This specimen changes local guidance only and does not download an app binary. Native radio controls remain keyboard accessible. The choice itself is `.ka-segment` from application.css: the website layer styles one control, the marketing call to action, and a pick-one-of-three is the same decision a writer makes with the app's view toggle.</p><p>Load fonts, tokens and the opt-in website stylesheet. Interactive patterns also use website.js. Update sample destinations and give every copied instance unique IDs and radio-group names.</p></div>
     <div class="code-block"><pre tabindex="0" aria-label="Platform choices markup"><code id="web-downloads-code">&lt;div class=&quot;press-web&quot;&gt;
   &lt;div class=&quot;pw-pad&quot; data-pw-platform&gt;
     &lt;fieldset class=&quot;pw-platforms&quot;&gt;&lt;legend&gt;Choose your platform&lt;/legend&gt;
-      &lt;div class=&quot;pw-platform-options od-cluster&quot;&gt;
-        &lt;label class=&quot;pw-platform-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;web-platform&quot; value=&quot;macOS&quot; checked data-pw-platform-choice data-pw-description=&quot;macOS selected. Check your Mac’s architecture before choosing an installer.&quot;&gt;macOS&lt;/label&gt;
-        &lt;label class=&quot;pw-platform-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;web-platform&quot; value=&quot;Windows&quot; data-pw-platform-choice data-pw-description=&quot;Windows selected. Choose the supported installer from the application’s release page.&quot;&gt;Windows&lt;/label&gt;
-        &lt;label class=&quot;pw-platform-option&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;web-platform&quot; value=&quot;Linux&quot; data-pw-platform-choice data-pw-description=&quot;Linux selected. Choose the package format appropriate to your distribution.&quot;&gt;Linux&lt;/label&gt;
+      &lt;div class=&quot;ka-segment-track&quot;&gt;
+        &lt;label class=&quot;ka-segment&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;web-platform&quot; value=&quot;macOS&quot; checked data-pw-platform-choice data-pw-description=&quot;macOS selected. Check your Mac’s architecture before choosing an installer.&quot;&gt;macOS&lt;/label&gt;
+        &lt;label class=&quot;ka-segment&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;web-platform&quot; value=&quot;Windows&quot; data-pw-platform-choice data-pw-description=&quot;Windows selected. Choose the supported installer from the application’s release page.&quot;&gt;Windows&lt;/label&gt;
+        &lt;label class=&quot;ka-segment&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;web-platform&quot; value=&quot;Linux&quot; data-pw-platform-choice data-pw-description=&quot;Linux selected. Choose the package format appropriate to your distribution.&quot;&gt;Linux&lt;/label&gt;
       &lt;/div&gt;
     &lt;/fieldset&gt;
     &lt;div class=&quot;pw-platform-result od-stack&quot;&gt;&lt;p data-pw-platform-result role=&quot;status&quot;&gt;macOS selected. Check your Mac’s architecture before choosing an installer.&lt;/p&gt;&lt;a class=&quot;pw-button&quot; href=&quot;docs/WEBSITE_COMPONENTS.md#behavior-contracts&quot;&gt;Integration guidance &lt;svg class=&quot;pw-icon&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M3 8h10M9 4l4 4-4 4&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;p class=&quot;pw-note&quot;&gt;Component example only. No installer is downloaded.&lt;/p&gt;&lt;/div&gt;

@@ -63,6 +63,40 @@ Themes inherit the existing root `data-theme` semantic tokens. Apply the applica
 
 The app's hero type caps at 48px through `--ka-heading`; the canonical foundation `--text-hero` remains unchanged at its 60px maximum. Compact labels retain Press's 12–15px UI roles; narrative catalog text uses 16px or larger. These are continuations of the app and brand, not new universal defaults.
 
+## Read-only metadata and literal values
+
+Two CSS-only patterns, added in 0.11.0 because a real download page needed them and the nearest existing component was for a different job. Both are application-layer because the same shape appears in the app: Settings → About, project details and the reference custom-field list are all key/value metadata, and export paths, error detail and the project path are all literal strings a user copies.
+
+`.ka-facts` is key/value metadata at label scale. Wrap each pair in a `display: contents` div so the two tracks stay in one grid, and drop to one column below 600px:
+
+```html
+<dl class="ka-facts">
+  <div><dt>Size</dt><dd>~10 MB</dd></div>
+  <div><dt>Licence</dt><dd>MIT</dd></div>
+</dl>
+```
+
+It is not `.ka-stats`, which is the figure display — `dd` reordered above `dt` at clamped 24–36px Fraunces, for a word count — and it is not `.ka-badge`, which is a status chip. There are no internal hairlines; row separation is padding, as in `.ka-stats`.
+
+`.ka-code` is a literal string the reader is expected to copy — a command, a checksum, a path. Inline `<code>` is already styled by `website.css` inside `.press-web`; this is a block with an action attached.
+
+```html
+<div class="ka-code">
+  <code>shasum -a 256 Kindling_1.3.0_universal.dmg</code>
+  <button type="button" class="ka-button ka-button--secondary">Copy</button>
+</div>
+```
+
+Pair the copy control with `.ka-button--secondary`, **not** `--ghost`. Ghost's only hover feedback is a `--color-surface-sunken` background, which is this block's own background, so its hover state would be exactly invisible.
+
+## Notes on two existing controls
+
+**`.ka-segment` works without JavaScript as of 0.11.0.** Its selected rule was `.ka-segment.ka-selected` alone — a class the Svelte component toggles — while the radio inside is visually hidden. On a plain-HTML surface, clicking a segment checked the input and nothing moved, so the control reported the wrong choice. `.ka-segment:has(input:checked)` is now matched alongside the class; `.ka-selected` stays for the component. If you use `.ka-segment` outside Svelte, the native markup is a `<fieldset>`, a radio group, and one `<label class="ka-segment">` per choice inside a `.ka-segment-track`.
+
+**`.ka-notice` sets its own `display: grid`.** It previously declared `gap: 12px` with no display, so the gap was inert. Unlike `.ka-field` — a layout-agnostic wrapper the consumer pairs with `od-field` to say "stack" — a notice already styles its own `p` and does not leave its internal arrangement to the consumer.
+
+Worth knowing either way: `.od-stack` and the other `od-*` primitives live in `@layer od-layout` and the `ka-` rules do not. Unlayered rules beat layered ones regardless of specificity, so **`--od-gap` has no effect on a paired `ka-`/`od-` element** — including the documented `.ka-field od-field`, where `.ka-field`'s own `gap: 8px` wins. Setting `--od-gap` there looks like it should work and does nothing.
+
 ## Component API
 
 The 22 controls and presentation components are exported from `design-system/svelte/index.ts`. Rich prose editing uses the separate `design-system/svelte/editor/index.ts` entry described below. Callback props use the app's existing `onChange` / `onSelect` style; native button props use Svelte 5 `onclick`. Bindable props may be used with `bind:`. Callbacks notify the consumer; they do not invoke a desktop service.

@@ -1,5 +1,118 @@
 # Changelog
 
+## 0.10.0
+
+**One implementation per control role.** `.pw-button` and `.ka-button` were two
+button systems wearing the same palette: different fill (`--color-accent` vs
+`--color-accent-text`), different label size, different hover (a colour swap vs
+an inset ring), different disabled colours, different secondary treatment. A
+visitor crossing from the website into the application met both.
+
+The website layer now styles **only** the prominent marketing call to action.
+Operational controls on a website — a feedback dialog's submit, a form field, a
+copy or share action, a toggle — are the same role a writer meets in the
+application, and use `application.css`. The CTA is a documented larger size of
+that same family and nothing else: 16px label and 12/24px padding against the
+operational control's 15px and 8/16px. Fill, 4px radius, Inter label, inset-ring
+hover, `--color-disabled-*` and the 44px target are now shared.
+
+**This changes the website CTA's fill** from `#B5532E` to `#9E3D1B` (4.69:1 to
+6.30:1 against `--color-on-accent`), removes the hover colour swap, and changes
+`.pw-button--secondary` from an outlined control to `.ka-button--secondary`'s
+sunken fill. `.pw-button--ghost` is added for a transparent action. Website
+focus rings move to a 3px offset to match the application. Review any header,
+hero or closing action that assumed the old treatment.
+
+**`.pw-writing--app`** gives a website writing sample the application's
+manuscript: `--color-prose-*` paper and ink, `--text-body` (17px) at
+`--leading-relaxed`, held to `--measure`. The default `.pw-writing` remains an
+editorial specimen at `--text-body-lg`. Use the variant whenever a sample claims
+to show the writing workspace.
+
+**`.ka-manuscript-prose` now matches NovelEditor.** It read at
+`--text-body-lg`/1.75 over 65ch while the editor it depicts used
+`--text-body`/`--leading-relaxed` over `--measure`. The reference was wrong, not
+the product. Application consumers should expect slightly smaller, narrower
+manuscript prose in the read-only surface.
+
+**Web font delivery is now Press's job.** `npm run fonts:build` losslessly
+encodes the canonical variable TTFs to WOFF2 in `assets/fonts/web/`, writes
+`design-system/fonts-web.css` declaring the same five faces, and records source
+and published digests in `assets/fonts/web/MANIFEST.json`. No subsetting: every
+axis, weight, italic and glyph survives. Consumers that were vendoring WOFF2
+from a third-party package were declaring the same family names with narrower
+axes and no Inter italic; they should adopt `fonts-web.css` and retire that
+step. `npm run fonts:check` and `npm run system:check` verify freshness.
+
+**The foundation's buttons join the same family.** `components.css` carried a
+third button system in `.download-btn` and `.navbar-cta` — terracotta fill, 8px
+radius, a hover colour swap, a glow focus ring, a `nowrap` label. Both now use
+the accent-text fill, 4px radius, inset-ring hover, `--color-disabled-*` and
+44px target the other two share; `.download-btn.secondary` and
+`.navbar-cta--secondary` become the shared sunken secondary. **Consumers on the
+foundation get a visibly different download button on upgrade.** Prefer
+`.pw-button` in new work.
+
+`.page-hero` and `.content-section` share one frame, `--page-frame-editorial`
+(960px, new token). They were 960px and 900px, so a page's hero and its sections
+sat 30px apart on every editorial page. `.content-section.alt`'s re-centred content column is derived from that token
+rather than the hard-coded `852px` it carried, which is what kept the sunken
+bands 30px right of the paper sections when the frame moved.
+**`.content-section` is 60px wider on upgrade;** prose inside it is already held to `--measure`, so this affects
+tables, lists and figures rather than reading width.
+
+`.pw-section-head` places its children explicitly: the running label in the
+narrow track, everything else in the wide one. Written without a label it used
+to put the `<h2>` in the 1fr track, where a short title wrapped to three lines
+while the standfirst beside it kept the full 2fr. The label is optional
+furniture; the alignment is the device.
+
+`.ka-segment` resets border, background and font, so the class works on a
+`<button>` as well as the label it was written for. A consumer using two
+`aria-pressed` buttons instead of a radio group got the UA's own button chrome
+showing through the track.
+
+`.pw-button svg` is sized (18px, no flex). An inline glyph with only a viewBox
+has no intrinsic size inside a flex container and collapsed to nothing; the
+foundation's `.download-btn svg` had always sized it and this layer had not.
+
+Button labels wrap with `overflow-wrap: break-word`, not `anywhere`. Both wrap
+a label that cannot fit, but `anywhere` is also a break opportunity when the
+browser computes min-content width, so a button in a content-sized grid track
+collapsed and split its label mid-word. 0.9.0 introduced this; it is fixed for
+`.pw-button`, `.download-btn` and `.ka-button` together.
+
+`.signup-form`'s email field and subscribe button — a fourth copy of the same
+two roles — now read the shared field and action treatment. Prefer `.ka-field`
+and `.download-btn` in the markup for new work.
+
+`.pw-image-frame`'s contained image treatment moves from `.pw-feature
+.pw-image-frame img` to `.pw-image-frame img`, and the class carries its own
+`--pw-reference-ratio` default. Scoped to a feature row it did nothing anywhere
+else, so a full-frame specimen in a hero or a docs figure got the mat and the
+ratio with an unconstrained image inside them.
+
+Two further website-layer gaps found by a consumer building real pages: `.pw-feature`
+prose had no vertical rhythm, so a row's label, heading, problem and answer ran
+together as one block; and `.pw-footer-links` never reset the UA underline it
+adds only on hover. The `web-features` catalog snippet gave each row five direct
+children of a two-column grid; each row now has the two the CSS assumes, a prose
+wrapper and the figure.
+
+`system:check` now asserts the website CTA and application control agree on
+fill, radius and hover, and that both manuscript roles carry the editor's
+reading size.
+
+## 0.9.0
+
+Brand correction: always spell `kindling` in lowercase. Recut the outlined wordmark and stacked lockups, regenerate their raster/social exports, and update copy, metadata, examples and Open Design guidance. The book/flame geometry and font axes stay unchanged.
+
+Press is now the definitive kindling system. Consolidates legacy identity and maintenance guidance, resolves typography and surface rules, adds an identity preview and asset-integrity record, and refreshes generated Open Design entries. All 45 production assets are retained; the lowercase wordmark derivatives are intentionally regenerated. Canonical palette values are preserved.
+
+Website and application target aliases now use `--control-target`. Buttons wrap long labels and retain contrast on hover. Full-frame website images clear the inherited height cap and shadow; reversed feature rows return to natural order at narrow widths. These affect long-label, hover and narrow layouts; review those states when adopting. The narrow-screen stacking and gutter rules now match desktop selector specificity, fixing a writing-demo overflow. No public tokens or selectors are removed.
+
+`npm run system:check` detects stale token copies, broken manifest targets, stale preview versions and unintended changes to the original artwork. See `docs/CONSOLIDATION.md`.
+
 ## 0.8.0
 
 Two rules the system asserted but never encoded, both raised by a UX review of

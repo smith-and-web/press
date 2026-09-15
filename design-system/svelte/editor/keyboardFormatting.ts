@@ -4,7 +4,7 @@ import type { ShortcutAdapter } from "./types";
 import { shortcutFromEvent } from "./keyboardShortcuts";
 
 // Suppress built-in formatting keys after reassignment, including defaults that
-// collide with Kindling's native commands (code/export and align/import/panels).
+// collide with kindling's native commands (code/export and align/import/panels).
 const builtIn = new Set([
   "Mod+B",
   "Mod+I",

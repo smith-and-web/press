@@ -45,7 +45,7 @@ export async function buildDesignInput(){
   await writeFile(designPath,`---\n${authored}\n${metadata}\n---\n${design.slice(match[0].length)}`);
   const compatibility=`---
 name: "Press"
-description: "Kindling’s paper-first design language for editorial websites and writing applications."
+description: "kindling’s paper-first design language for editorial websites and writing applications."
 category: "Editorial"
 surface: "web"
 ${metadata}
@@ -57,7 +57,7 @@ ${metadata}
 
 ## Overview
 
-Press is Kindling’s paper-first, literary design system. Use ${fonts.display} for display, ${fonts.body} for manuscript prose, and ${fonts.ui} for operational controls. Preserve quiet editorial columns, measured reading widths, hairlines and restrained terracotta accents.
+Press is the definitive kindling design system. Always spell kindling in lowercase, even in headings, sentence starts and artwork. The sibling brand-assets is retired input; Open Design is a downstream copy. Preserve the original book-and-flame mark, outlined wordmark and flame icon from assets/. Use ${fonts.display} for display, ${fonts.body} for manuscript prose, and ${fonts.ui} for operational controls. Preserve quiet editorial columns, measured reading widths, hairlines and restrained terracotta accents.
 
 ## Color palette
 

@@ -1,6 +1,6 @@
 ---
 name: press-svelte
-description: Adopt Press Svelte 5 components or its Tiptap page editor while preserving Kindling’s existing stores, APIs and writing workflows
+description: Adopt Press Svelte 5 components or its Tiptap page editor while preserving kindling’s existing stores, APIs and writing workflows
 user-invocable: true
 ---
 

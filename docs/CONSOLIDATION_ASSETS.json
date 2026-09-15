@@ -1,0 +1,259 @@
+{
+  "source": "../brand-assets",
+  "purpose": "Production asset integrity after the approved lowercase brand correction. legacySha256 retains the original digest for intentionally changed files.",
+  "files": [
+    {
+      "path": "assets/source/kindling-source.svg",
+      "legacyPath": "source/kindling-source.svg",
+      "sha256": "e01f82733fbcc21aac597c4ad593f5d5ed547f5d836b44ed24af7508ea01be87"
+    },
+    {
+      "path": "assets/svg/kindling-favicon-reversed.svg",
+      "legacyPath": "svg/kindling-favicon-reversed.svg",
+      "sha256": "5b218696641fa8fc593b717344fd46db0cf7fc270ab352387e87728e1274f642"
+    },
+    {
+      "path": "assets/svg/kindling-favicon.svg",
+      "legacyPath": "svg/kindling-favicon.svg",
+      "sha256": "2dfb1b3269345c89efb8ec72e81f72b3e541a90196be04bd739d3310c2ae19dd"
+    },
+    {
+      "path": "assets/svg/kindling-lockup-stacked-mono.svg",
+      "legacyPath": "svg/kindling-lockup-stacked-mono.svg",
+      "sha256": "36573626ec60afa624caead28ae89b5cdb1e30ebd91b2c24cce04adfa6c9923b",
+      "legacySha256": "35b45bc3d857f613c264ed62094ad862a694e66d6af619b267cd62f95620ed97",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/svg/kindling-lockup-stacked-reversed.svg",
+      "legacyPath": "svg/kindling-lockup-stacked-reversed.svg",
+      "sha256": "acca71b871384a94c38f10309723970d5333efff0c3bff1f8db037b2d40ad9fd",
+      "legacySha256": "b1ee4ca308f40a0b039cf9c31f83a88e7dbf6fd5de1716d3917ddbd275e36377",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/svg/kindling-lockup-stacked.svg",
+      "legacyPath": "svg/kindling-lockup-stacked.svg",
+      "sha256": "bddb1bb472cc7eb345a2bab44b6c92be06abb1918ded3236d493e2ea22e38ce9",
+      "legacySha256": "505d7b0255f70d0e461864673bf0d9e9a336db604fdd6559cbf16101b181ffb0",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/svg/kindling-mark-mono-reversed.svg",
+      "legacyPath": "svg/kindling-mark-mono-reversed.svg",
+      "sha256": "518f0bbfa250e7041828c03db22fa3dbb4a36408a02f2c3b1c506daa929f54d5",
+      "legacySha256": "3da5c313ea99bf7a461f3833fc9ff8ab4673fc6e807df4d8c57d50d25fc78ca1",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/svg/kindling-mark-mono.svg",
+      "legacyPath": "svg/kindling-mark-mono.svg",
+      "sha256": "258e36fa32bef6fd122fe04dd4f8212374ed2d8888addfecf802b32d0af5eb9f",
+      "legacySha256": "ee16aa0596a4bb4ce809bfc4f1270cae5d56a201ea7e2b00b5110d6066c4a749",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/svg/kindling-mark-reversed.svg",
+      "legacyPath": "svg/kindling-mark-reversed.svg",
+      "sha256": "2219b00381be7954ca355449e17549d8d1338112fa7d8289c7f9e1c66280b326",
+      "legacySha256": "53c88c6c58774b6fc878692133754bd42f8cb84ec5792d064f1a340c8bf96a56",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/svg/kindling-mark.svg",
+      "legacyPath": "svg/kindling-mark.svg",
+      "sha256": "cea461e70032e0a405a44f0d150ebb2cb1245abb9f0c2aec59ecea909a538b61",
+      "legacySha256": "d6d9852bab476fcb4664a68fb888cc5d81a1bd5f9982ee27b7e853a2cad03dca",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/svg/kindling-wordmark-reversed.svg",
+      "legacyPath": "svg/kindling-wordmark-reversed.svg",
+      "sha256": "0a08992d0f81468b34b3f3cf2541bbd53711d02e4cdfc1a5ec2ee52c20d333c6",
+      "legacySha256": "9768af388bea4c42f00e2d3f56dfc3662d56464ca1003c88f479412c4fd69c36",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/svg/kindling-wordmark.svg",
+      "legacyPath": "svg/kindling-wordmark.svg",
+      "sha256": "ba24bc5207dfc39381c6b6815171c2c9ebae38b63d73640da5721a4870625ed6",
+      "legacySha256": "567ebdc389aedef5febcbf63f4d8b632e8b7549c08230eed6a1f9b04f6cad6cd",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/png/lockup-240.png",
+      "legacyPath": "png/lockup-240.png",
+      "sha256": "cd6a642e8f20759085c526e4b460e6cfc398c760808a3a6594d82a4c063983f1",
+      "legacySha256": "e4bd3616c8f91427a8e3e1f32050d3733839936556ad489526c6f6c327938b55",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/png/lockup-480.png",
+      "legacyPath": "png/lockup-480.png",
+      "sha256": "5a3b842de2ec55ae89a1ed4554055a531760eaf7bbf20c8555591a1315394884",
+      "legacySha256": "11e24339e32f980e1b303101a9609b8eadad3c0aea7fa217f2b799bd6278b2fd",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/png/lockup-960.png",
+      "legacyPath": "png/lockup-960.png",
+      "sha256": "4881511b5a0c7d677922bb4c8419495ffa43e513d0f6c928b25a38add20447f3",
+      "legacySha256": "af08c3bd570f9a6d41ad247d4a5990778d74d4aed63bb95f813ee91c2c596f0c",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/png/mark-240.png",
+      "legacyPath": "png/mark-240.png",
+      "sha256": "e904e0c4922627a10b50c01d315827487b27c1d525a19fa08c1754edc774e549"
+    },
+    {
+      "path": "assets/png/mark-480.png",
+      "legacyPath": "png/mark-480.png",
+      "sha256": "6a34070f1b444874432d90a12dddcc1f755597873cce2cd8c09d5acaa2ed6d41"
+    },
+    {
+      "path": "assets/png/mark-960.png",
+      "legacyPath": "png/mark-960.png",
+      "sha256": "4f7ab42dc9a73f44cede0082d626ffd6c9d13590a3f7638eb561f7afba4d3d7a"
+    },
+    {
+      "path": "assets/favicon/apple-touch-icon.png",
+      "legacyPath": "favicon/apple-touch-icon.png",
+      "sha256": "a952d2f3e744df4291829f6182e66cf702973d2b8b2851e484fc633e0ab2f800"
+    },
+    {
+      "path": "assets/favicon/favicon-16.png",
+      "legacyPath": "favicon/favicon-16.png",
+      "sha256": "b4c098288722ae1e6c2e0175be0c3edb602619e638bf1cd4580ce03c13ed7ccd"
+    },
+    {
+      "path": "assets/favicon/favicon-32.png",
+      "legacyPath": "favicon/favicon-32.png",
+      "sha256": "afaef181b2b12b88c35e10e7465ff7d7d9026a3673f0215302822bda3e39cd12"
+    },
+    {
+      "path": "assets/favicon/favicon-48.png",
+      "legacyPath": "favicon/favicon-48.png",
+      "sha256": "3a5bd0018917a24502a58ef8976ff81ed3338bc7fd4f6f8b8b9e2517b52a7b7c"
+    },
+    {
+      "path": "assets/favicon/favicon.ico",
+      "legacyPath": "favicon/favicon.ico",
+      "sha256": "8e1c19ceac87de41eb703dbb1db830ee90d8f03d251e510d7b459152f47406a8"
+    },
+    {
+      "path": "assets/favicon/favicon.svg",
+      "legacyPath": "favicon/favicon.svg",
+      "sha256": "2dfb1b3269345c89efb8ec72e81f72b3e541a90196be04bd739d3310c2ae19dd"
+    },
+    {
+      "path": "assets/favicon/icon-192.png",
+      "legacyPath": "favicon/icon-192.png",
+      "sha256": "112ac0781a2eaaa4d49e8cd04bec49a3110e3c59611ecd4c7cd21fb08b5277bd"
+    },
+    {
+      "path": "assets/favicon/icon-512.png",
+      "legacyPath": "favicon/icon-512.png",
+      "sha256": "934fba26b80c853e2b9663de0294d9dc5b7208f4e3fd3df1c495f6ad696803c0"
+    },
+    {
+      "path": "assets/favicon/site.webmanifest",
+      "legacyPath": "favicon/site.webmanifest",
+      "sha256": "ef0cb89683bc4f5f1c3e173b148a16eaf7b68917f751ccfd1d3ff2bd643ab9fa",
+      "legacySha256": "fbd6eb3b111f0448a353da3e29a506756ca1f666d2daf375185d775871b29a1e",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/app-icons/app-icon-1024.png",
+      "legacyPath": "app-icons/app-icon-1024.png",
+      "sha256": "8c14fe7c01e184f1ef2272e7c17a16bbb36edf82e0fe77f122a730235cd3a869"
+    },
+    {
+      "path": "assets/app-icons/kindling.icns",
+      "legacyPath": "app-icons/kindling.icns",
+      "sha256": "c20b452fe6ac5823804f260e967239d2c53dab550b7ec052f0b475cec312009d"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_128x128.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_128x128.png",
+      "sha256": "fabe520cf3fd36cf623340ba202d5fc10e0c0738357b3fb959f9818babb9183e"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_128x128@2x.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_128x128@2x.png",
+      "sha256": "adff370c679261768829dc3ba78b3685f65fcef8a2fbc972ecf96cb71af573b8"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_16x16.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_16x16.png",
+      "sha256": "5c9800d9e7ccee07c78b867da7ec2aefa2b82214aa46d2c84ec9c2e1ddb9612f"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_16x16@2x.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_16x16@2x.png",
+      "sha256": "3589e8a4237ad313fee56b3130db7326bcaf33df85a5decda976f966c23b9951"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_256x256.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_256x256.png",
+      "sha256": "adff370c679261768829dc3ba78b3685f65fcef8a2fbc972ecf96cb71af573b8"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_256x256@2x.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_256x256@2x.png",
+      "sha256": "934fba26b80c853e2b9663de0294d9dc5b7208f4e3fd3df1c495f6ad696803c0"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_32x32.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_32x32.png",
+      "sha256": "3589e8a4237ad313fee56b3130db7326bcaf33df85a5decda976f966c23b9951"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_32x32@2x.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_32x32@2x.png",
+      "sha256": "6afc78754c3d013530876df166d00e127718c5bc3c2c3bbf788d283579fbc7d9"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_512x512.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_512x512.png",
+      "sha256": "934fba26b80c853e2b9663de0294d9dc5b7208f4e3fd3df1c495f6ad696803c0"
+    },
+    {
+      "path": "assets/app-icons/kindling.iconset/icon_512x512@2x.png",
+      "legacyPath": "app-icons/kindling.iconset/icon_512x512@2x.png",
+      "sha256": "8c14fe7c01e184f1ef2272e7c17a16bbb36edf82e0fe77f122a730235cd3a869"
+    },
+    {
+      "path": "assets/social/avatar-dark-800.png",
+      "legacyPath": "social/avatar-dark-800.png",
+      "sha256": "15f8304e78fccf50c1a2cdb1f02da390dfa6fe46ae30d0ca4902170b956e5e08"
+    },
+    {
+      "path": "assets/social/avatar-flame-dark-800.png",
+      "legacyPath": "social/avatar-flame-dark-800.png",
+      "sha256": "a3c5fcfcca93818991a7d726511aafbed3dfd959afe4262c0d95585be222809c"
+    },
+    {
+      "path": "assets/social/avatar-flame-light-800.png",
+      "legacyPath": "social/avatar-flame-light-800.png",
+      "sha256": "092adcb6bd716635487e724175c582425874b945288508b8300b1b004e809a47"
+    },
+    {
+      "path": "assets/social/avatar-light-800.png",
+      "legacyPath": "social/avatar-light-800.png",
+      "sha256": "8f073c8069eddd772b8dc892865da3744f76e8f453ed3a85818424420b3441b6"
+    },
+    {
+      "path": "assets/social/og-image.png",
+      "legacyPath": "social/og-image.png",
+      "sha256": "909800963a3470b514c126a7212276014a15977c242580f085a1be0f634b7bf5",
+      "legacySha256": "d570888ca2f26c5c56d76865b513beb0c5f47ec55304609f320ae10399cb4081",
+      "change": "Approved lowercase brand spelling: outlined wordmark/derived artwork or textual metadata."
+    },
+    {
+      "path": "assets/fonts/Fraunces[SOFT,WONK,opsz,wght].ttf",
+      "legacyPath": "fonts/Fraunces[SOFT,WONK,opsz,wght].ttf",
+      "sha256": "0776a870a0856b296e11639505ac0cf9be5e7800bb1849dfa21a1bd182455fc0"
+    }
+  ]
+}

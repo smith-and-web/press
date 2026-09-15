@@ -1,9 +1,9 @@
 > HISTORICAL INPUT ONLY. This is the original guide at copy time.
 > Its sync and relative-path instructions are superseded by GOVERNANCE.md and DESIGN_GUIDE.md.
 
-# Kindling — the Press Design Guide
+# kindling — the Press Design Guide
 
-The canonical specification for how Kindling looks. Every surface — the marketing
+The canonical specification for how kindling looks. Every surface — the marketing
 site, the desktop app, docs, social — consumes this. Nothing redefines it.
 
 This document is written to be **followed literally**, including by an AI coding

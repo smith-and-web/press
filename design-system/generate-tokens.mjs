@@ -60,7 +60,7 @@ function render(css) {
 
   return `${JSON.stringify(
     {
-      $name: "Kindling — Press design tokens",
+      $name: "kindling — Press design tokens",
       $source: "tokens.css (generated; do not edit)",
       light: resolveAll(light),
       dark: resolveAll(dark),

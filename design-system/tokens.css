@@ -1,4 +1,4 @@
-/* Kindling — Press design tokens */
+/* kindling — Press design tokens */
 :root {
   /* ===== Palette — raw brand colours ===== */
   --paper:#F4EFE6; --raised:#FBF8F1; --sunken:#ECE4D6;
@@ -124,6 +124,7 @@
      --measure is the reading column; headings and figures break out wider. */
   --measure:36rem;         /* 576px ~= 85 characters (68ch) of Newsreader at 17px */
   --page-frame:1120px;     /* outer editorial frame */
+  --page-frame-editorial:960px;  /* reading pages: hero and sections share this */
   --page-gutter:32px;
 
   /* Minimum interactive target for a standalone control. Applies to pointer

@@ -228,3 +228,6 @@ dialog p { font: var(--text-body)/var(--leading-relaxed) var(--font-body); margi
   html { scroll-behavior: auto; }
   *,*::before,*::after { transition: none !important; animation: none !important; }
 }
+
+/* Preserve brand spelling inside uppercase editorial labels. */
+.press-brand-name { text-transform: none; }

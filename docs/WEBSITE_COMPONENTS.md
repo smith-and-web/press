@@ -1,14 +1,15 @@
-# Website components · Press 0.7.0
+# Website components · Press 0.10.0
 
 The website catalog extends the portable package. Open `../index.html#website-components`. Application controls, prose and feedback live separately at `../index.html#application-components`; further application expansion is deferred.
 
 ## Install and scope
 
-Load `fonts.css`, `tokens.css`, then opt-in `website.css`. Include `website.js` only for navigation, beat selection, platform selection or the local signup example. All specimen markup is shown in the reference's **Markup & usage** disclosures. The editable specimen source is `reference/website-snippets.json`.
+Load `fonts-web.css` (WOFF2 for network delivery; `fonts.css` serves the same faces as TTF for a bundling application), `tokens.css`, `application.css` for operational controls, then opt-in `website.css`. Include `website.js` only for navigation, beat selection, platform selection or the local signup example. All specimen markup is shown in the reference's **Markup & usage** disclosures. The editable specimen source is `reference/website-snippets.json`.
 
 ```html
-<link rel="stylesheet" href="./design-system/fonts.css">
+<link rel="stylesheet" href="./design-system/fonts-web.css">
 <link rel="stylesheet" href="./design-system/tokens.css">
+<link rel="stylesheet" href="./design-system/application.css">
 <link rel="stylesheet" href="./design-system/website.css">
 <script src="./design-system/website.js" defer></script>
 <div class="press-web">
@@ -39,6 +40,44 @@ Place `.press-web` outside the layout component, not on that same node. It estab
 Source working-tree hashes and copied-image records are in `WEBSITE_SOURCES.json`. The codebase and redesign are not changed by this package.
 
 ## Behavior contracts
+
+### Controls
+
+**The website layer styles one control: `.pw-button`, the prominent marketing
+call to action.** Everything else a visitor operates — a feedback dialog's
+submit, a form field, a checkbox, a copy or share action, a tab, a notice — is
+the same role a writer meets inside the application and uses `application.css`:
+`.ka-button`, `.ka-field`, `.ka-check`, `.ka-dialog`, `.ka-notice`. Loading both
+sheets is expected; their selectors do not overlap.
+
+The CTA is a documented larger size of the operational control and differs in
+nothing else:
+
+| | `.pw-button` (marketing CTA) | `.ka-button` (operational) |
+| --- | --- | --- |
+| Label | `--text-base` (16px) Inter 500 | `--text-ui` (15px) Inter 500 |
+| Padding | 12px / 24px | 8px / 16px |
+| Fill | `--color-accent-text` | `--color-accent-text` |
+| Radius | 4px | 4px |
+| Hover | inset 1px ring | inset 1px ring |
+| Disabled | `--color-disabled-*` | `--color-disabled-*` |
+| Target | `--control-target` | `--control-target` |
+
+`.pw-button--secondary` matches `.ka-button--secondary` (sunken fill, hairline
+border); `.pw-button--ghost` matches `.ka-button--ghost`. Use the secondary
+treatment for a persistent header download so the in-content action keeps the
+only primary fill in view. Never put both classes on one element and rely on the
+cascade, and never redefine an accent token to correct a single button.
+
+### Writing demo
+
+`.pw-writing` is an editorial specimen: its prose reads at `--text-body-lg` on
+the website's raised surface. Add **`.pw-writing--app`** whenever the sample
+claims to show the writing workspace. The variant gives the scene column the
+manuscript's own treatment — `--color-prose-*` paper and ink, `--text-body`
+(17px) at `--leading-relaxed`, held to `--measure` — which are the values
+NovelEditor uses, not a website approximation of them. Beat labels and metadata
+stay Inter, as they are in the application.
 
 ### Navigation
 
@@ -105,6 +144,7 @@ Use `type="email"`, `required`, an explicit label, and `aria-describedby` linkin
 - **Text color:** ordinary reading content uses ink. Small accent copy uses `--color-accent-text`; the redesign's smaller terracotta text is mapped to this accessible role rather than copied as a failing color pair.
 - **Scale:** existing body, label, small, hero and spacing tokens are reused. Namespaced `--pw-title` (32–48px) and `--pw-feature` (24–32px) allow the redesign hierarchy to respond to specimen/container width without altering canonical sizes.
 - **Alignment:** shared heading columns and release action alignment adopt the redesign's latest refinements. Features are a **sequence**, not a grid, per the guide's hard rule: each `.pw-feature` is a full-width row divided from the next by a hairline and numbered with a print folio, alternating with `.pw-feature--reverse`. Narrow containers stack each row into one column.
+- **Controls:** the layer styles the marketing CTA only. Before 0.10.0 it carried a full button system that disagreed with `application.css` on fill, label size, hover, disabled colours and secondary treatment; those are now shared and asserted by `npm run system:check`.
 - **Images:** product figures use the guide's **mounted print** treatment — a 10px raised-surface mat, a hairline ring and `--shadow-md`, cropped `cover` at `max-height: 440px`. Opt into `.pw-image-frame` for a 4:3 `object-fit: contain` frame (`--pw-reference-ratio`) when a whole image must stay visible, such as a catalog specimen or a diagram; it letterboxes instead of cropping and is not the default. Intrinsic width/height attributes remain. The live catalog embeds the original PNG bytes, while copyable markup keeps portable asset paths.
 - **Navigation:** the source's modal-like fixed mobile menu is adapted to an in-flow disclosure with the same clear open/close affordances. This avoids embedding viewport-fixed chrome in a catalog specimen.
 - **Trust copy:** the redesign's unverified writer-count claim is not promoted to a shared fact. The catalog uses descriptive labels grounded in its writing-space content and identifies them as example copy.

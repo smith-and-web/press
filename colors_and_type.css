@@ -21,7 +21,7 @@
   src: url('assets/fonts/Inter-Italic%5Bopsz%2Cwght%5D.ttf') format('truetype');
 }
 
-/* Kindling — Press design tokens */
+/* kindling — Press design tokens */
 :root {
   /* ===== Palette — raw brand colours ===== */
   --paper:#F4EFE6; --raised:#FBF8F1; --sunken:#ECE4D6;
@@ -147,7 +147,14 @@
      --measure is the reading column; headings and figures break out wider. */
   --measure:36rem;         /* 576px ~= 85 characters (68ch) of Newsreader at 17px */
   --page-frame:1120px;     /* outer editorial frame */
+  --page-frame-editorial:960px;  /* reading pages: hero and sections share this */
   --page-gutter:32px;
+
+  /* Minimum interactive target for a standalone control. Applies to pointer
+     and touch alike — touch-capable laptops and tablets are the common case,
+     not an edge one. Reach it with min-block-size and inline-flex so a label
+     keeps its own type size rather than being padded out of scale. */
+  --control-target:44px;
 
   /* ===== Paper grain =====
      A monochrome fractal-noise tile laid behind content so paper reads as

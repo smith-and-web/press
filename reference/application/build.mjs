@@ -37,7 +37,7 @@ const result = await build({
   bundle: true, write: false, format: 'iife', platform: 'browser', target: ['es2022'],
   conditions: ['svelte', 'browser'], nodePaths: [resolve(toolchain,'node_modules')],
   minify: true, legalComments: 'inline', metafile:true,
-  banner: { js: '/*! Kindling Press Svelte reference. Notices: licenses/SVELTE.txt, licenses/LUCIDE.txt, licenses/EDITOR_DEPENDENCIES.txt. */' },
+  banner: { js: '/*! kindling Press Svelte reference. Notices: licenses/SVELTE.txt, licenses/LUCIDE.txt, licenses/EDITOR_DEPENDENCIES.txt. */' },
   plugins: [{ name: 'svelte-source', setup(build) {
     build.onLoad({ filter: /\.svelte$/ }, async ({ path }) => {
       const compiled = compile(await readFile(path, 'utf8'), { filename:path, generate:'client', css:'injected', dev:false });

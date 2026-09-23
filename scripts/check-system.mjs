@@ -43,4 +43,32 @@ assert.ok(web.includes('--pw-radius: var(--radius-xs)')&&app.includes('--ka-radi
    at --leading-relaxed, held to --measure (src/lib/components/NovelEditor.svelte). */
 for(const [file,source] of [['application.css',app],['website.css',web]])
  assert.ok(/var\(--text-body\)\/?\s*var\(--leading-relaxed\)|font-size: var\(--text-body\); line-height: var\(--leading-relaxed\)/.test(source),`Manuscript prose role missing from ${file}.`);
+/* An application surface nested in a website surface keeps application type
+   (0.13.0). Through 0.12.0 `.press-web h3` tied `.press-app h3` at (0,1,1)
+   and won on load order, halving an embedded manuscript heading. The guard
+   must stay inside `:where()`, or every website default gains specificity
+   and consumer overrides silently stop winning. */
+for(const rule of [':where(h1,h2,h3,h4)',':where(h1,h2)','h3','h4','p'])
+ assert.ok(web.includes(`.press-web ${rule}:where(:not(.press-web .press-app *))`),`.press-web ${rule} must stop at a nested .press-app.`);
+assert.ok(!/\.press-web (?:h[1-4]|p) \{/.test(web),'An unguarded .press-web element default would reach a nested .press-app.');
+/* A manuscript seated in a beat reads at the editor's size, not the beat
+   note's --text-body-lg. */
+assert.ok(app.includes('.ka-beat-body p:where(:not(.ka-manuscript *))'),'.ka-beat-body p must exclude a nested manuscript.');
+/* The workspace grid is a child of the container: a container query cannot
+   restyle its own container, so the narrow layout depends on the split. */
+assert.ok(app.includes('container:ka-workspace/inline-size')&&app.includes('@container ka-workspace'),'The workspace must be its own query container.');
+assert.ok(!/@container ka-workspace[^{]*\{[^@]*\.ka-workspace\{/.test(app),'A ka-workspace container query must not target .ka-workspace itself.');
+/* The read-only manuscript indents paragraphs by the editor's own measure
+   rather than spacing them (0.13.0); through 0.12.0 it spaced them 16px apart
+   while NovelEditor indented, so the reference disagreed with the product. */
+const editor=await read('design-system/svelte/editor/NovelEditor.svelte');
+const editorIndent=editor.match(/--kp-line-indent:([^;]+);/)?.[1];
+assert.ok(editorIndent&&app.includes(`--ka-line-indent:${editorIndent}`),`.ka-manuscript-prose must indent by NovelEditor's --kp-line-indent (${editorIndent}).`);
+assert.ok(app.includes('.ka-manuscript-prose p:not(:first-child){text-indent:var(--ka-line-indent)}'),'Manuscript paragraphs must indent, not space — every one but its container\'s first, as the editor does.');
+assert.ok(app.includes('.ka-manuscript-prose blockquote{')&&app.includes('var(--color-prose-blockquote-border)'),'The manuscript must draw a blockquote as the editor does.');
+/* Only the open beat carries the accent, as in the application. */
+assert.ok(app.includes('.ka-beat:not([open]) .ka-beat-number{background:transparent'),'A closed beat number must not be accent-filled.');
+/* The workspace's knobs must be settable from an ancestor, so none may be
+   declared on .ka-workspace itself (a declaration beats an inherited value). */
+assert.ok(!/\.ka-workspace\{[^}]*--ka-workspace-[a-z-]+:/.test(app),'Declare no --ka-workspace-* default on .ka-workspace; use var() fallbacks.');
 console.log(`Press ${pkg.version}: generated token entries, ${manifest.preview.pages.length} previews and ${originals.files.length} production assets agree.`);

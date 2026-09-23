@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.13.1
+
+**A one-off motion exception: the home-page workspace tour.** kindlingwriter.com's
+home page embeds the interactive `.press-app` workspace (0.13.0), and it now
+tours itself — a looping walk through the scene workspace with transitions of
+up to 560ms. That breaks two rules as written: the 100/200ms and 160ms motion
+values, and `DESIGN_GUIDE.md`'s "avoid looping promotional animation". Rather
+than leave the contract silently contradicted by its own consumer, `DESIGN.md`
+now records the exception under *Interaction, motion and accessibility*, with
+the terms the tour must keep: it starts only on screen, never under reduced
+motion, stops in place at the visitor's first interaction without resetting,
+has a visible Pause/Play control, gives the visitor the same motion, animates
+only opacity, transform, height, scroll and colour fades between existing
+states, never moves focus, records no analytics, and works without JavaScript. It is written as an exception, not a
+pattern: nothing else may autoplay or loop by pointing to it.
+`DESIGN_GUIDE.md` and `WEBSITE_COMPONENTS.md` point to it.
+
+Documentation only; no CSS changed.
+
 ## 0.13.0
 
 **An application surface nested in a website surface now keeps application

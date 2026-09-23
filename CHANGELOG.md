@@ -1,5 +1,97 @@
 # Changelog
 
+## 0.13.0
+
+**An application surface nested in a website surface now keeps application
+type.** Through 0.12.0, `.press-web h3` and `.press-app h3` tied at `(0,1,1)`
+and `website.css` loads after `application.css`, so a `.press-app` inside
+`.press-web` silently took website type. Measured in a browser: an application
+h3 rendered 24px instead of 32px, a `.ka-manuscript` heading 24px instead of
+48px, h3/h4 lost the application's 550 weight and line height, and application
+paragraphs were capped at 65ch. h4 *size* never leaked — both layers specify
+`--text-h3`. A wrapper class could not fix this; the website's heading and
+paragraph defaults now stop at `.press-web .press-app *`, inside `:where()` so
+none of them moves in specificity. A website specimen nested in an application
+— the reverse — keeps website type. `system:check` asserts every guard.
+
+**`.ka-workspace`** (application) is the writing workspace's own layout: a
+project outline, the scene column and a references inspector, with
+`.ka-workspace-grid`, `.ka-workspace-outline` / `-main` / `-inspector`,
+`.ka-workspace-bar` for a region header or a title bar, and
+`.ka-workspace-body`. Press owned every control those regions hold and no
+layout to seat them in, so the shell had been composed locally three times —
+the application kit, the reference catalog and kindling-splash's home-page
+specimen. Region widths default to the application's (304px outline, 288px
+inspector) and clamp against the workspace; tracks are `auto`, so an absent
+region takes no space. Height is the consumer's, through
+`--ka-workspace-block`; inside the workspace a manuscript pads 16px × 24px, as
+the application's beat view does, rather than by the viewport. `.ka-workspace--embedded` bounds a specimen on another
+surface with a hairline and radius, and no shadow.
+
+**`.ka-statusbar`** (application) is the strip of counts at the foot of the
+scene column, as `WritingStatusBar` draws it. `.ka-stats` is the figure display
+for the same numbers and the wrong scale for a strip.
+
+**`.ka-workspace-panes`** (application) switches regions below a 900px
+workspace, where three columns would starve the scene. It holds a `.ka-segments`
+radio group with `value="outline"`, `"main"` or `"inspector"`; with none
+checked, main shows. Native radios and `:has()`, so it works without
+JavaScript.
+
+**`.ka-disclosure-icon`** (application) is the plain-HTML chevron for a
+`details` summary: one right-pointing chevron that turns down when its own
+`details` opens. `BeatItem` and `NavigationTree` swap two icons in script,
+which static markup cannot.
+
+**The beat, scene column and references now match the application.** Only
+the open beat carries the accent — a closed beat's number is an outlined
+circle in muted ink — and an open beat's summary takes a hairline.
+`.ka-beat-title` truncates, `.ka-beat-count` trails it, and
+`.ka-beat-preview` shows a closed beat's draft as three lines of light paper,
+inside the summary so the strip opens the beat. `.ka-scene-column`,
+`.ka-scene-header`, `.ka-scene-section` and `.ka-scene-synopsis` are the scene
+panel's column, title, hairline sections and italic synopsis. `.ka-reference`
+is a story reference in the inspector — avatar, name, one-line description —
+expanding natively to its description and a `.ka-facts`.
+
+**Manuscript paragraphs indent.** `.ka-manuscript-prose` spaced paragraphs 16px
+apart while `NovelEditor` sets them at a 1.5em first-line indent with no space,
+so the read-only manuscript disagreed with the editor it depicts. It now
+indents every paragraph but its container's first through `--ka-line-indent`,
+which `system:check` holds to the editor's `--kp-line-indent`, and draws a
+`blockquote` as the editor's callout — through 0.12.0 a quoted letter read as
+plain prose. `.pw-writing--app` samples indent too.
+
+**A manuscript can sit inside a `.ka-beat-body`.** `.ka-beat-body p` named the
+paragraph directly, which beat the `--text-body` / `--leading-relaxed` that
+`.ka-manuscript-prose` sets on itself, so a draft seated in a beat read at
+18px/1.7 instead of the editor's 17px. It now excludes paragraphs inside a
+`.ka-manuscript`, at unchanged specificity.
+
+**Smaller fixes found on the way.** `.ka-tree-list` sizes its track
+`minmax(0,1fr)`: an implicit track cannot shrink below its content's minimum,
+so a one-line `.ka-tree-label` (new, truncating, as the application's sidebar
+does) pushed a row's count out of view. A disabled tree row is inert — no
+pointer, no hover fill. A tree row may also be a `label` holding a radio, the
+plain-HTML form of `NavigationTree`'s selection, so a static surface can
+switch scenes with `:has()`. `.ka-segment` rings on `:has(:focus-visible)` rather
+than `:focus-within`, so a mouse click no longer leaves a focus ring on the
+chosen segment. The workspace's width knobs are read as `var()` fallbacks
+rather than declared on `.ka-workspace`, so a consumer can set them from an
+ancestor; declared on the element, they beat any inherited value and the
+documented override did nothing.
+
+**Accent in an embedded workspace.** `DESIGN.md` and `DESIGN_GUIDE.md` now say
+what they were silent on: an interactive `.press-app` workspace embedded in an
+editorial page is an application surface, so its real selection, beat numbers,
+focus and status are exempt from the two-per-viewport budget. Decoration and
+calls to action inside it still count, and the editorial chrome around it keeps
+its budget.
+
+All of it was found by building kindling-splash's home-page demo as the
+running application rather than a website picture of it, against a current
+screenshot of the scene workspace.
+
 ## 0.11.0
 
 **Four patterns a real download page needed and the system did not have.** All

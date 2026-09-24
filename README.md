@@ -1,6 +1,6 @@
 # kindling / Press
 
-Portable design-system source · **0.13.1** · `@kindling/design-system`
+Portable design-system source · **0.13.2** · `@kindling/design-system`
 
 **Press is the definitive kindling design system.** The legacy `brand-assets` is retired. Read [the consolidation decisions](docs/CONSOLIDATION.md) and [asset usage](assets/README.md). Open Design is a downstream copy; shared changes start here.
 
@@ -16,10 +16,10 @@ From this package root, with Node 20 or newer and npm installed:
 npm pack
 ```
 
-This creates `kindling-design-system-0.13.1.tgz`. Put the archive inside your consumer repository, for example `vendor/`, then run from that repository:
+This creates `kindling-design-system-0.13.2.tgz`. Put the archive inside your consumer repository, for example `vendor/`, then run from that repository:
 
 ```sh
-npm install --save-exact ./vendor/kindling-design-system-0.13.1.tgz
+npm install --save-exact ./vendor/kindling-design-system-0.13.2.tgz
 ```
 
 The package keeps `private: true` to prevent npm registry publication. Public GitHub hosting does not imply a published npm package or an open-source license. The prebuilt HTML reference needs no installation. Svelte consumers use the optional Svelte peer; the WYSIWYG editor entry additionally uses optional Tiptap peers. Node is required for rebuilding the reference and package tooling.

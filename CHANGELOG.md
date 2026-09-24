@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.13.2
+
+**Two alignment fixes, both found on kindlingwriter.com.**
+
+- **The foundation's `.cta-section` stand-first sat off-centre inside
+  `.press-web`.** The panel centres its text, but the website layer caps every
+  paragraph at 65ch with no margin, so the capped block sat on the panel's left
+  padding while the heading and action centred across the full width. Measured
+  at 1440px: a 617px paragraph box at x=24 under a 1392px centred heading.
+  `.cta-section p` now centres its block (`margin: 0 auto 24px`). Outside
+  `.press-web` nothing changes; the paragraph was uncapped there.
+- **`.pw-footer-bottom` set its notice about 11px above the legal links.** The
+  row aligned to `start`, but the links are 44px targets with centred labels.
+  It now aligns to `baseline`, which also holds when the links wrap.
+  `.pw-footer-top` is unchanged: the brand and primary links are both 44px
+  targets there, so `start` already lines them up.
+
 ## 0.13.1
 
 **A one-off motion exception: the home-page workspace tour.** kindlingwriter.com's

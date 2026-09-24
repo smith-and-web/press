@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.15.0
+
+**The navigation can collapse before first paint.** At container widths at or
+below 820px the nav folds behind its menu button, but only once `website.js`
+had bound the button and set `data-pw-ready`. When that script arrived after
+first paint (a slow phone, or a page whose scripts share one bundle), the page
+painted with every link expanded and then snapped shut, moving everything below
+the header. kindlingwriter.com measured the layout shift at 0.165 on
+`/download/`, and PageSpeed reported 0.11–0.15 there.
+
+- **New `design-system/website-early.js`** (exported as `./website-early.js`),
+  a small classic script to inline in `<head>`. It marks `<html>` with
+  `data-pw-js` before paint and keeps the menu button working with a delegated
+  toggle until `website.js` binds it. The toggle steps aside once
+  `data-pw-ready` is set, and the menu still opens if `website.js` never loads.
+- **`website.css`** collapses the nav on `:root[data-pw-js]` as well as on
+  `data-pw-ready`, in both the container-query rule and its `@supports not`
+  viewport fallback.
+- Without JavaScript neither attribute is set and every link stays visible, as
+  before. A consumer that doesn't inline the snippet behaves exactly as in
+  0.14.0.
+
 ## 0.14.0
 
 **Web fonts are instanced to a website weight contract and split by

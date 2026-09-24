@@ -1,6 +1,6 @@
 {
   "name": "@kindling/design-system",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "private": true,
   "description": "kindling Press: portable tokens, component CSS, typography and brand assets.",
   "license": "UNLICENSED",
@@ -17,6 +17,7 @@
     "./licenses/*": "./licenses/*",
     "./website.css": "./design-system/website.css",
     "./website.js": "./design-system/website.js",
+    "./website-early.js": "./design-system/website-early.js",
     "./svelte": {
       "types": "./design-system/svelte/index.ts",
       "svelte": "./design-system/svelte/index.ts",

@@ -11,8 +11,8 @@ execFileSync(process.execPath,['design-system/generate-tokens.mjs','--check'],{c
 /* Published web fonts must still match the canonical TTFs they were encoded
    from. Skipped when the encoder is absent so a consumer checkout without
    devDependencies can still run the rest. */
-try{await import('wawoff2');execFileSync(process.execPath,['scripts/build-web-fonts.mjs','--check'],{cwd:root,stdio:'inherit'});}
-catch(error){if(error?.code!=='ERR_MODULE_NOT_FOUND')throw error;console.log('wawoff2 absent; skipped web font check.');}
+try{await import('subset-font');execFileSync(process.execPath,['scripts/build-web-fonts.mjs','--check'],{cwd:root,stdio:'inherit'});}
+catch(error){if(error?.code!=='ERR_MODULE_NOT_FOUND')throw error;console.log('subset-font absent; skipped web font check.');}
 const canonical=await read('design-system/tokens.css');
 assert.equal(await read('tokens.css'),'/* Generated from design-system/tokens.css by open-design:build. */\n'+canonical,'Root tokens are stale; run open-design:build.');
 const fonts=(await read('design-system/fonts.css')).replaceAll('../assets/','assets/');

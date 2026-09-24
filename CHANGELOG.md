@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.14.0
+
+**Web fonts are instanced to a website weight contract and split by
+`unicode-range`.** `fonts-web.css` went from five full-coverage variable WOFF2s
+(1,363 KiB) to five Latin files totalling 499 KiB, each with a Rest file for
+every other glyph. A typical kindlingwriter.com page loads four faces, which
+went from 986 KiB to about 407 KiB. That was the site's mobile LCP problem:
+blocking the web fonts took lab LCP from 5–7 s to 1.5 s, and these files take
+2–3 s off it (median of three Lighthouse mobile runs: home 7.88 → 4.88 s, an
+editorial page 7.21 → 4.21 s, docs 6.45 → 4.20 s).
+
+- **The website weight contract.** Fraunces 500–600; Newsreader and Inter
+  400–700, roman and italic. That covers every weight the website and
+  application layers declare (500, 550, 600), browser `normal` (400) and
+  `<strong>` (700), and every weight measured across twelve
+  kindlingwriter.com routes. Fraunces's SOFT and WONK axes are pinned at their
+  defaults, which is how every surface already rendered them; optical size is
+  kept whole. Pixel diffs of five pages before and after differ only in glyph
+  edge antialiasing, with no change to layout. `fonts.css`, which the desktop
+  application bundles, is unchanged.
+- **Latin and Rest files.** Latin covers Latin-1, Latin Extended-A,
+  typographic punctuation, arrows, keyboard keys (⌘ ⌥ ⌃ ⌫ ⏎ …) and check marks:
+  the characters Press surfaces set. Keyboard keys are there because
+  Starlight's search hint sets "⌘", which alone pulled Inter's 212 KiB Rest file. A stock "latin" range omits U+2192, and one "→" would pull the
+  Rest file. Every canonical glyph is in exactly one file.
+- **File names changed:** `<Face>-Latin.woff2` and `<Face>-Rest.woff2`
+  replace `<Face>-Variable.woff2`. Consumers that preload a face by path must
+  update it; the old names no longer exist, so a stale preload fails rather
+  than silently fetching the wrong file.
+- The encoder is now `subset-font` (HarfBuzz); `wawoff2` is no longer a direct
+  dependency. `npm run fonts:check` verifies the files are reproducible.
+
 ## 0.13.2
 
 **Two alignment fixes, both found on kindlingwriter.com.**

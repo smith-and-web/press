@@ -26,6 +26,10 @@ Lighthouse reports as a heading-order failure.
   `.press-app h4` did: Fraunces 550 at `--text-h3`, line-height 1.25, the same
   tracking. The scene header and scene sections already accept a range of
   levels; the bar now matches them.
+- **`application.css`** gives a panel title the same size at `h3` as at `h4`
+  (`.ka-panel>header h3`). The extra type selector outranks `website.css`'s
+  `.press-web h3`, which loads later; a panel sitting under a page `h2` no
+  longer has to skip a level.
 
 ## 0.15.0
 

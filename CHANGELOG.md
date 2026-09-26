@@ -16,6 +16,17 @@ underlines links with a 4px offset.
   decoration and are unaffected where their class wins the cascade. A consumer
   that repairs `.content-section a` on its buttons keeps that repair.
 
+**A workspace-bar heading can take any level from h2 to h4.** Its appearance
+came only from `.press-app h4`, so an embedded specimen had to use `h4` for a
+region title even when the page around it had no `h2` or `h3` yet. The home
+page of kindlingwriter.com skipped from its `h1` to the demo's `h4`, which
+Lighthouse reports as a heading-order failure.
+
+- **`application.css`** styles `.ka-workspace-bar :is(h2,h3,h4)` exactly as
+  `.press-app h4` did: Fraunces 550 at `--text-h3`, line-height 1.25, the same
+  tracking. The scene header and scene sections already accept a range of
+  levels; the bar now matches them.
+
 ## 0.15.0
 
 **The navigation can collapse before first paint.** At container widths at or

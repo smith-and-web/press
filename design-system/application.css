@@ -143,9 +143,12 @@
    the application's scene header (12px 24px). The minimum height is a 44px
    control plus that padding and the hairline, so a text-only bar is exactly
    as tall as one holding an icon button and the three regions' header rules
-   meet in one line rather than stepping. */
+   meet in one line rather than stepping. A heading in the bar keeps one
+   appearance at h2, h3 or h4, so a specimen embedded in a page can take the
+   level its outline needs: the rule reproduces what `.press-app h4` gives. */
 .ka-workspace-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;flex:none;min-height:calc(var(--ka-touch) + 25px);padding:12px 24px;border-bottom:1px solid var(--color-border);background:var(--color-surface);font:var(--text-ui)/1.5 var(--font-ui)}
 .ka-workspace-main>.ka-workspace-bar{background:var(--color-bg)}
+.ka-workspace-bar :is(h2,h3,h4){margin:0;font:550 var(--text-h3)/1.25 var(--font-display);letter-spacing:-.02em}
 .ka-workspace-body{flex:1 1 auto;min-height:0;overflow:auto;padding:16px}
 .ka-workspace-main>.ka-workspace-body{padding:24px}
 /* A bounded body scrolls, so it takes keyboard focus (`tabindex="0"`) and

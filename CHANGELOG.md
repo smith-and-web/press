@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.15.1
+
+**Links in editorial running text are underlined.** `components.css` removed
+the underline from links in `.content-section` and `.feature-solution` and
+showed it only on hover, so terracotta was the only thing marking a link in a
+paragraph. That fails WCAG 1.4.1 (use of colour); Lighthouse flagged it on ten
+kindlingwriter.com pages. The website layer never did this: `website.css`
+underlines links with a 4px offset.
+
+- **`components.css`** underlines `.content-section a` and `.feature-solution a`
+  at the same 4px offset as `website.css`. Hover thickens the line to 2px
+  instead of adding it.
+- Controls built on links (`.pw-button`, `.ka-button`) set their own
+  decoration and are unaffected where their class wins the cascade. A consumer
+  that repairs `.content-section a` on its buttons keeps that repair.
+
+**A workspace-bar heading can take any level from h2 to h4.** Its appearance
+came only from `.press-app h4`, so an embedded specimen had to use `h4` for a
+region title even when the page around it had no `h2` or `h3` yet. The home
+page of kindlingwriter.com skipped from its `h1` to the demo's `h4`, which
+Lighthouse reports as a heading-order failure.
+
+- **`application.css`** styles `.ka-workspace-bar :is(h2,h3,h4)` exactly as
+  `.press-app h4` did: Fraunces 550 at `--text-h3`, line-height 1.25, the same
+  tracking. The scene header and scene sections already accept a range of
+  levels; the bar now matches them.
+- **`application.css`** gives a panel title the same size at `h3` as at `h4`
+  (`.ka-panel>header h3`). The extra type selector outranks `website.css`'s
+  `.press-web h3`, which loads later; a panel sitting under a page `h2` no
+  longer has to skip a level.
+
 ## 0.15.0
 
 **The navigation can collapse before first paint.** At container widths at or

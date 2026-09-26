@@ -1,6 +1,6 @@
 {
   "name": "@kindling/design-system",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "private": true,
   "description": "kindling Press: portable tokens, component CSS, typography and brand assets.",
   "license": "UNLICENSED",

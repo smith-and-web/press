@@ -114,7 +114,7 @@
     }
   },
   "devDependencies": {
-    "@tiptap/core": "3.20.1",
+    "@tiptap/core": "3.31.3",
     "@tiptap/extension-text-align": "3.20.1",
     "@tiptap/extension-underline": "3.20.1",
     "@tiptap/pm": "3.20.1",

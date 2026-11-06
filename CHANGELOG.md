@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.15.2
+
+**Chinese text in headings and prose falls back to a named serif.** Fraunces
+and Newsreader have Latin and Vietnamese glyphs only, and neither stack named a
+font with Chinese glyphs, so Chinese text got whatever the engine's generic
+`serif` resolves to. WebKit on macOS picks Songti SC there. A Chromium engine
+(WebView2 on Windows, or a browser) picks the sans PingFang when the text is not
+tagged as Chinese, and on Linux the result depends on fontconfig. Cyrillic
+already fell to Georgia, a system serif, everywhere.
+
+- **`--font-display` and `--font-body`** add `'Songti SC'` (macOS),
+  `'Noto Serif CJK SC'` and `'Source Han Serif SC'` (Linux), and `SimSun`
+  (Windows) before the generic `serif`. Latin text still resolves to Fraunces
+  or Newsreader, and Cyrillic to Georgia; only glyphs those fonts lack reach
+  the new families.
+- No font files change, and `--font-ui` (Inter) is unchanged.
+- The generated component inventory also catches up with the 0.15.1 selectors.
+
 ## 0.15.1
 
 **Links in editorial running text are underlined.** `components.css` removed
